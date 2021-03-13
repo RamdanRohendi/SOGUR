@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Skip"
+        android:textSize="15dp"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/speak"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="69dp"
+        android:layout_marginTop="30dp"
+        />
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/garis1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="450dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Live Chat"
+        android:textColor="#FFC107"
+        android:layout_marginTop="495dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="183dp"
+        android:layout_marginTop="550dp"
+        android:src="@drawable/bulet1"/>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Mempermudah komunikasi antara pencari kerja dan perusahaan dengan fitur live chat"
+        android:textSize="15dp"
+        android:gravity="center_horizontal"
+        android:textAlignment="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="600dp"
+        />
+</RelativeLayout>
