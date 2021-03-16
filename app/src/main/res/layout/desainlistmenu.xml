@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginHorizontal="10dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imagePt"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/indofood" />
+
+    <TextView
+        android:id="@+id/namaPt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/imagePt"
+        android:text="Lowongan Kerja PT. Indofood Sukses Makmur Tbk."
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/alamatPt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namaPt"
+        android:layout_toRightOf="@id/imagePt"
+        android:text="Bandung, Kota Bandung, Jawa Barat" />
+
+    <TextView
+        android:id="@+id/tglLowongan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/alamatPt"
+        android:layout_toRightOf="@id/imagePt"
+        android:text="31 Agustus 2020 - 10 September 2020" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tglLowongan"
+        android:background="@color/cardview_shadow_start_color" />
+
+</RelativeLayout>

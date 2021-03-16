@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp">
+
+            <ImageView
+                android:id="@+id/imagePt"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/semenbaturaja" />
+
+            <TextView
+                android:id="@+id/namaPt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/imagePt"
+                android:text="PT. Semen Baturaja (Persero) Tbk."
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/alamatPt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namaPt"
+                android:layout_toRightOf="@id/imagePt"
+                android:text="Message in here"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tglLowongan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/namaPt"
+                android:layout_toRightOf="@id/namaPt"
+                android:gravity="right"
+                android:text="19:30"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp">
+
+            <ImageView
+                android:id="@+id/imagePt2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/krakatausteel" />
+
+            <TextView
+                android:id="@+id/namaPt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/imagePt2"
+                android:text="PT. Krakatau Steel (Persero) Tbk." />
+
+            <TextView
+                android:id="@+id/alamatPt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namaPt2"
+                android:layout_toRightOf="@id/imagePt2"
+                android:text="Message in here" />
+
+            <TextView
+                android:id="@+id/tglLowongan2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/namaPt2"
+                android:layout_toRightOf="@id/namaPt2"
+                android:gravity="right"
+                android:text="19:25" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp">
+
+            <ImageView
+                android:id="@+id/imagePt3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/indofood" />
+
+            <TextView
+                android:id="@+id/namaPt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/imagePt3"
+                android:text="PT. Indofood Sukses Makmur Tbk." />
+
+            <TextView
+                android:id="@+id/alamatPt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namaPt3"
+                android:layout_toRightOf="@id/imagePt3"
+                android:text="Message in here" />
+
+            <TextView
+                android:id="@+id/tglLowongan3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/namaPt3"
+                android:layout_toRightOf="@id/namaPt3"
+                android:gravity="right"
+                android:text="19:23" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

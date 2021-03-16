@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/txtsearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bgsearch"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Search..."
+            android:inputType="textShortMessage" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/lup" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/gb1"
+        android:layout_width="220dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/txtsearch"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/skyenergypabrik" />
+
+    <TextView
+        android:id="@+id/txtgb1"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gb1"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="PT. Sky Energi Indonesia Tbk."
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/gb2"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/txtsearch"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/gb1"
+        android:src="@drawable/mayorainbrief1" />
+
+    <TextView
+        android:id="@+id/txtgb2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gb2"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="PT. Mayora Indah Tbk."
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/gb3"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/txtgb2"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/gb1"
+        android:src="@drawable/semenbaturaja" />
+
+    <TextView
+        android:id="@+id/txtgb3"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gb3"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="PT. Semen Baturaja Tbk."
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/gb4"
+        android:layout_width="120dp"
+        android:layout_height="140dp"
+        android:layout_below="@id/txtgb1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rukunraharja" />
+
+    <TextView
+        android:id="@+id/txtgb4"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gb4"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="PT. Rukun Raharja Tbk"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/gb5"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_below="@id/txtgb3"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/gb4"
+        android:src="@drawable/krakatausteel" />
+
+    <TextView
+        android:id="@+id/txtgb5"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gb5"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="PT. Krakatau Steel (Persero) Tbk."
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/gb6"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/txtgb5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/indofood" />
+
+    <TextView
+        android:id="@+id/txtgb6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gb6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="PT Indofood Sukses Makmur Tbk" />
+
+</RelativeLayout>
