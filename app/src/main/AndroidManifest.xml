@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".after_registration">
+        <activity android:name=".after_registration" />
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
