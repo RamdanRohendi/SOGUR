@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
         <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".PilihRoleActivity"></activity>
+        <activity android:name=".DaftarPencariKerjaActivity"
+            android:parentActivityName=".PilihRoleActivity"
+            ></activity>
+        <activity android:name=".DaftarPerusahaanActivity"
+            android:parentActivityName=".PilihRoleActivity"
+            ></activity>
         <activity android:name=".after_registration">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

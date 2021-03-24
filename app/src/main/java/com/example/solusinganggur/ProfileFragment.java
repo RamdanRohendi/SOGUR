@@ -1,6 +1,6 @@
 package com.example.solusinganggur;
 
-import androidx.lifecycle.ViewModelProviders;
+//import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 

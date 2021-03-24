@@ -9,5 +9,7 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_perusahaan);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Daftar Perusahaan");
     }
 }
