@@ -1,148 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white_grey">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/upbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@drawable/tophome"
+        android:padding="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/logo_sogur"
+            android:layout_width="134dp"
+            android:layout_height="53dp"
+            android:src="@drawable/ic_sogur"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ic_notif"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_notifications"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/foto_profile"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_default_picture"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo_sogur" />
+
+        <TextView
+            android:id="@+id/txtWelcome"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="5dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Welcome,"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/foto_profile" />
 
-            <ImageView
-                android:id="@+id/imagePt"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/indofood" />
-
-            <TextView
-                android:id="@+id/namaPt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/imagePt"
-                android:text="Lowongan Kerja PT. Indofood Sukses Makmur Tbk."
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/alamatPt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/namaPt"
-                android:layout_toRightOf="@id/imagePt"
-                android:text="Bandung, Kota Bandung, Jawa Barat" />
-
-            <TextView
-                android:id="@+id/tglLowongan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/alamatPt"
-                android:layout_toRightOf="@id/imagePt"
-                android:text="31 Agustus 2020 - 10 September 2020" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/tglLowongan"
-                android:background="@color/cardview_shadow_start_color" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <TextView
+            android:id="@+id/txtnama_pengguna"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="5dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mulish"
+            android:text="User Name"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtWelcome" />
 
-            <ImageView
-                android:id="@+id/imagePt2"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/skyenergypabrik" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/namaPt2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/imagePt2"
-                android:text="Lowongan Kerja PT. Sky Energi Indonesia Tbk."
-                android:textStyle="bold" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pesan_accept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upbar">
 
-            <TextView
-                android:id="@+id/alamatPt2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/namaPt2"
-                android:layout_toRightOf="@id/imagePt2"
-                android:text="Kota Bogor, Jawa Barat" />
-
-            <TextView
-                android:id="@+id/tglLowongan2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/alamatPt2"
-                android:layout_toRightOf="@id/imagePt2"
-                android:text="20 Agustus 2020 - 6 September 2020" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/tglLowongan2"
-                android:background="@color/cardview_shadow_start_color" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="5dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imagePt3"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/semenbaturaja" />
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="11dp">
 
             <TextView
-                android:id="@+id/namaPt3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/imagePt3"
-                android:text="Lowongan Kerja PT. Semen Baturaja (Persero) Tbk."
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/alamatPt3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/namaPt3"
-                android:layout_toRightOf="@id/imagePt3"
-                android:text="Kota Bandar Lampung, Lampung" />
-
-            <TextView
-                android:id="@+id/tglLowongan3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/alamatPt3"
-                android:layout_toRightOf="@id/imagePt3"
-                android:text="15 Agustus 2020 - 28 September 2020" />
-
-            <View
+                android:id="@+id/headline_accept"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/tglLowongan3"
-                android:background="@color/cardview_shadow_start_color" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Accepted"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/subheadline_accept"
+                android:layout_width="196dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Anda memiliki 4 lamaran kerja yang diterima"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline_accept" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/no_pesan_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textColor="#61B15A"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline_accept" />
 
-</RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pesan_pending"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pesan_accept">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="11dp">
+
+            <TextView
+                android:id="@+id/headline_pending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Pending"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/subheadline_pending"
+                android:layout_width="196dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Anda memiliki 3 lamaran kerja yang dipending"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline_pending" />
+
+            <TextView
+                android:id="@+id/no_pesan_pending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textColor="#FBB500"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline_pending" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pesan_reject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pesan_pending">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="11dp">
+
+            <TextView
+                android:id="@+id/headline_reject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Rejected"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/subheadline_reject"
+                android:layout_width="196dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Anda memiliki 3 lamaran kerja yang ditolak"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline_reject" />
+
+            <TextView
+                android:id="@+id/no_pesan_reject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#E92024"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline_reject" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

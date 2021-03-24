@@ -9,6 +9,6 @@ public class after_registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.after_registration);
+        setContentView(R.layout.activity_after_registration);
     }
 }
