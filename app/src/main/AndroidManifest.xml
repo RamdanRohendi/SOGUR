@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
-
+        <activity android:name=".Message6Activity"></activity>
+        <activity android:name=".EditProfileActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".PilihRoleActivity" />
         <activity
