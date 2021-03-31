@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yello_lighter"
+        android:padding="16dp"
+        android:id="@+id/barInMessage">
+
+    <ImageButton
+        android:id="@+id/arrow_back"
+        android:layout_marginTop="3dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/ic_arrowleft"
+        android:background="@android:color/transparent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        android:layout_toRightOf="@+id/arrow_back"
+        android:text="PT. Semen Baturaja (Persero) Tbk"
+        android:fontFamily="@font/mulish"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+    </RelativeLayout>
+
+    >
+
+    <RelativeLayout
+        android:layout_marginTop="80dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+
+        <com.subinkrishna.widget.CircularImageView
+            android:id="@+id/img_chat"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/img_chat"
+            android:text="   hello!"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/black"
+            android:layout_marginLeft="9dp"
+            android:padding="8dp"
+            android:background="@drawable/ic_bg_chat_left"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
