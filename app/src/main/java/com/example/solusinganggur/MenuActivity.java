@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MenuActivity extends AppCompatActivity {
+public class  MenuActivity extends AppCompatActivity {
     LinearLayout navHome;
     LinearLayout navSearch;
     LinearLayout navMessage;
