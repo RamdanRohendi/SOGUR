@@ -13,7 +13,7 @@ public class NotifPelamarActivity extends AppCompatActivity {
     List<Notifikasi> notifikasiList;
 
     ListView listNotifikasi;
-
+  //note
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

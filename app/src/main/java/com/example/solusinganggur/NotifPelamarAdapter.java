@@ -17,7 +17,7 @@ public class NotifPelamarAdapter extends ArrayAdapter<Notifikasi> {
     List<Notifikasi> notifikasiList;
 
     Context context;
-
+//note
     int resource;
 
     public NotifPelamarAdapter(Context context, int resource, List<Notifikasi> notifikasiList) {

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:orientation="vertical">
-
+    //note
     <TextView
         android:id="@+id/textViewInfo"
         android:layout_width="match_parent"

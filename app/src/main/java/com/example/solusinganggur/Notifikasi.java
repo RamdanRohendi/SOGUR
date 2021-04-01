@@ -3,7 +3,7 @@ package com.example.solusinganggur;
 public class Notifikasi {
     int image;
     String name, categories;
-
+ //note
     public Notifikasi(int image, String name, String categories){
         this.image = image;
         this.name = name;
