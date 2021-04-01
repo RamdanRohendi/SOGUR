@@ -10,6 +10,7 @@
     <color name="yello_lighter">#FFC533</color>
     <color name="white_grey">#F6F6F6</color>
     <color name="yellow_darker">#99761F</color>
+    <color name="grey">#C4C4C4</color>
     <style name="btn_black">
         <item name="colorPrimary">@color/black</item>
     </style>
