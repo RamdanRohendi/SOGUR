@@ -2,39 +2,10 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/yello_lighter"
-        android:padding="16dp"
-        android:id="@+id/barInMessage">
-
-    <ImageButton
-        android:id="@+id/arrow_back"
-        android:layout_marginTop="3dp"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:src="@drawable/ic_arrowleft"
-        android:background="@android:color/transparent"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="9dp"
-        android:layout_toRightOf="@+id/arrow_back"
-        android:text="PT. Semen Baturaja (Persero) Tbk"
-        android:fontFamily="@font/mulish"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        />
-    </RelativeLayout>
-
-    >
+    android:layout_height="wrap_content"
+    android:padding="16dp">
 
     <RelativeLayout
-        android:layout_marginTop="80dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content">
 
