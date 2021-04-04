@@ -15,7 +15,7 @@ public class PilihRoleActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pilih_role);
-        getSupportActionBar().setTitle("Pilih Role");
+
         pncrKerja = (Button)findViewById(R.id.pncrKerja);
         pncrKerja.setOnClickListener(this);
         perusahaan = (Button)findViewById(R.id.perusahaan);
@@ -34,5 +34,9 @@ public class PilihRoleActivity extends AppCompatActivity implements View.OnClick
             startActivity(perusahaan);
             break;
         };
+    }
+
+    public void kembali(View view){
+        finish();
     }
 }

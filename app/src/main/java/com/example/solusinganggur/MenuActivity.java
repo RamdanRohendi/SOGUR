@@ -35,50 +35,43 @@ public class  MenuActivity extends AppCompatActivity {
         txtProfile = findViewById(R.id.txtprofile);
 
         navDefault();
-        txtHome.setText("Home");
+        txtHome.setVisibility(View.VISIBLE);
         loadFragment(new HomeFragment());
-    }
-
-    public void keNotif(View view) {
-        navDefault();
-//        btnNotif.setImageResource(R.drawable.notifhitam);
-        Fragment fragment = new NotificationsFragment();
-        loadFragment(fragment);
     }
 
     public void keHome(View view) {
         navDefault();
-        txtHome.setText("Home");
+        txtHome.setVisibility(View.VISIBLE);
         Fragment fragment = new HomeFragment();
         loadFragment(fragment);
     }
 
     public void keSearch(View view) {
         navDefault();
-        txtSearch.setText("Search");
+        txtSearch.setVisibility(View.VISIBLE);
         Fragment fragment = new SearchFragment();
         loadFragment(fragment);
     }
 
     public void keChat(View view) {
         navDefault();
-        txtMessage.setText("Message");
+        txtMessage.setVisibility(View.VISIBLE);
         Fragment fragment = new ChatFragment();
         loadFragment(fragment);
     }
 
     public void keProfile(View view) {
         navDefault();
-        txtProfile.setText("Profile");
+        txtProfile.setVisibility(View.VISIBLE);
         Fragment fragment = new ProfileFragment();
         loadFragment(fragment);
     }
 
     public void navDefault(){
-        txtHome.setText("");
-        txtSearch.setText("");
-        txtMessage.setText("");
-        txtProfile.setText("");
+        txtHome.setVisibility(View.GONE);
+        txtSearch.setVisibility(View.GONE);
+        txtMessage.setVisibility(View.GONE);
+        txtProfile.setVisibility(View.GONE);
     }
 
     public boolean loadFragment(Fragment fragment) {

@@ -20,6 +20,10 @@
     <style name="btn_grey">
         <item name="colorPrimaryDark">@color/grey</item>
     </style>
+    <style name="btn_rounded_white">
+        <item name="android:background">@drawable/btn_rounded</item>
+        <item name="colorPrimary">@color/white</item>
+    </style>
 </resources>
 
 

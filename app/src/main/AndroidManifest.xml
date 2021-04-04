@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
-        <activity android:name=".AddLowonganActivity"></activity>
+        <activity android:name=".AddLowonganActivity" />
         <activity android:name=".MessageActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -33,8 +33,22 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name=".Login" />
         <activity android:name=".Message6Activity" />
+        <activity android:name=".UbahPasswordActivity" />
+        <activity android:name=".NotifPelamarActivity" />
+        <activity android:name=".BantuanActivity" />
+        <activity android:name=".InfoAplikasiActivity" />
+        <activity android:name=".KontakKamiActivity" />
+        <activity android:name=".DashboardAccActivity" />
+        <activity android:name=".DashboardPendingActivity" />
+        <activity android:name=".DashboardRejectedActivity" />
+        <activity android:name=".IntroSatuActivity" />
+        <activity android:name=".NotifPasswordDiubahActivity" />
+        <activity android:name=".IntroDuaActivity" />
         <activity android:name=".EditProfileActivity" />
+        <activity android:name=".LupaPasswordActivity" />
+        <activity android:name=".KonfirmasiUbahPasswordActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".after_registration" />
         <activity android:name=".PilihRoleActivity" />
@@ -44,7 +58,7 @@
         <activity
             android:name=".DaftarPerusahaanActivity"
             android:parentActivityName=".PilihRoleActivity" />
-        <activity android:name=".DashboardDetailActivity">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -8,6 +8,7 @@
     <ListView
         android:id="@+id/listNotifikasi"
         android:layout_width="match_parent"
+        tools:listitem="@layout/notifikasi_pelamar_list"
         android:layout_height="match_parent"/>
 
 </RelativeLayout>

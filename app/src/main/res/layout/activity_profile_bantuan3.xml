@@ -6,12 +6,13 @@
         android:id="@+id/navbar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/yello_lighter">
+        android:background="@color/yellow_lighter">
         <ImageButton
             android:id="@+id/arrow_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrowleft"
+            android:onClick="kembali"
             android:background="@android:color/transparent"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"/>

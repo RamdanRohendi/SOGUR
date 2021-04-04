@@ -4,85 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
     tools:context=".Login">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_background"/>
 
     <ImageView
         android:id="@+id/sogur"
         android:layout_width="200dp"
         android:layout_height="125dp"
-        android:src="@drawable/ic_sogur"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_sogur" />
 
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selamat Datang"
+        android:layout_below="@id/sogur"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/mulish"
-        android:layout_below="@id/sogur"
+        android:text="Selamat Datang"
+        android:textColor="@color/black"
         android:textSize="25dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lengkapi informasi dibawah ini untuk"
+        android:layout_below="@id/welcome"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto"
-        android:layout_below="@id/welcome"
-        android:layout_centerHorizontal="true"/>
+        android:text="Lengkapi informasi dibawah ini untuk" />
 
     <TextView
         android:id="@+id/info2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="memulai bekerja bersama Sogur."
         android:layout_below="@id/info"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:layout_centerHorizontal="true"/>
-    
+        android:text="memulai bekerja bersama Sogur." />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="   Username"
-        android:fontFamily="@font/roboto"
-        android:background="@drawable/round"
+        android:layout_below="@id/info2"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@id/info2"/>
+        android:background="@drawable/round"
+        android:fontFamily="@font/roboto"
+        android:hint="   Username" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="   Password"
-        android:fontFamily="@font/roboto"
-        android:background="@drawable/round"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/username"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@id/username"/>
+        android:background="@drawable/round"
+        android:fontFamily="@font/roboto"
+        android:hint="   Password" />
 
     <TextView
         android:id="@+id/fpassword"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:text="Lupa Password?"
-        android:textSize="15dp"
-        android:fontFamily="@font/mulish"
-        android:textColor="#FBB500"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/password"
-        android:layout_marginTop="20dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/mulish"
+        android:text="Lupa Password?"
+        android:textColor="#FBB500"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/signin"
@@ -91,66 +88,70 @@
         android:layout_below="@+id/fpassword"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:fontFamily="@font/roboto"
-        android:textAllCaps="false"
         android:background="@drawable/buttonround"
+        android:fontFamily="@font/roboto"
         android:text="Masuk"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
         android:textSize="17dp"
-        android:textColor="#ffffff"/>
+        android:theme="@style/btn_black" />
 
     <Button
         android:id="@+id/signingoogle"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="310dp"
         android:layout_height="65dp"
         android:layout_below="@+id/signin"
         android:layout_marginLeft="65dp"
-        style="?android:attr/borderlessButtonStyle"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto"
-        android:text="Masuk Dengan Google"/>
+        android:text="Masuk Dengan Google"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/signingoogle"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/beforeregist"
             android:layout_width="150dp"
             android:layout_height="25dp"
-            android:layout_marginTop="45dp"
-            android:layout_below="@id/signingoogle"
-            android:layout_marginLeft="70dp"
             android:fontFamily="@font/mulish"
             android:text="Belum memiliki Akun?"
-            android:textSize="15dp"/>
+            android:textColor="@color/black"
+            android:textSize="15dp" />
 
         <TextView
+            android:id="@+id/daftarsekarang"
             android:layout_width="130dp"
             android:layout_height="30dp"
-            android:text="  Daftar Sekarang"
-            android:layout_below="@id/signingoogle"
             android:layout_toRightOf="@id/beforeregist"
-            android:textColor="#FBB500"
             android:fontFamily="@font/mulish"
-            android:textSize="15dp"
-            android:layout_marginTop="44dp"/>
+            android:text="  Daftar Sekarang"
+            android:textColor="#FBB500"
+            android:textSize="15dp" />
 
+    </LinearLayout>
 
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/ic_vector"
         android:layout_below="@+id/username"
         android:layout_marginLeft="350dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_vector" />
 
     <ImageView
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_below="@id/signin"
-        android:layout_marginTop="40dp"
         android:layout_marginLeft="100dp"
-        android:src="@drawable/ic_google"/>
-
-
-
-
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_google" />
 
 
 </RelativeLayout>

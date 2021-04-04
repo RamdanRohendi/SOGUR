@@ -5,52 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/frame"
-    tools:context=".PilihRoleActivity"
-    >
+    tools:context=".PilihRoleActivity">
+
+    <RelativeLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <ImageButton
+            android:id="@+id/arrow_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:onClick="kembali"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrowleft" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/arrow_left"
+            android:text="Data Lamaran Kerja"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+    </RelativeLayout>
 
     <TextView
+        android:id="@+id/subheadline"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:text="PIlih salah satu peran dibawah ini yang sesuai dengan peran yang Anda miliki"
-        android:textSize="15dp"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@id/navbar"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="85dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
-        />
+        android:text="PIlih salah satu peran dibawah ini yang sesuai dengan peran yang Anda miliki"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/pncrKerja"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:text="Pencari Kerja"
-        android:textAllCaps="false"
+        android:layout_below="@id/subheadline"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_custom"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|bottom"
-        android:textStyle="normal"
+        android:text="Pencari Kerja"
+        android:textAllCaps="false"
         android:textColor="#000"
-        android:layout_marginTop="200dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/button_custom"
-        />
+        android:textStyle="normal" />
 
     <Button
         android:id="@+id/perusahaan"
-        android:layout_alignTop="@+id/pncrKerja"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:text="Perusahaan"
-        android:textAllCaps="false"
+        android:layout_below="@+id/pncrKerja"
+        android:layout_alignTop="@+id/pncrKerja"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/button_custom"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|bottom"
-        android:layout_centerHorizontal="true"
-        android:textStyle="normal"
+        android:text="Perusahaan"
+        android:textAllCaps="false"
         android:textColor="#000"
-
-        android:layout_below="@+id/pncrKerja"
-        android:layout_marginTop="250dp"
-        android:background="@drawable/button_custom" />
-
+        android:textStyle="normal" />
 
 
 </RelativeLayout>

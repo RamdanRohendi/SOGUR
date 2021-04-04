@@ -1,164 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/frame">
+
+    <RelativeLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <ImageButton
+            android:id="@+id/arrow_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="kembali"
+            android:src="@drawable/ic_arrowleft" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/arrow_left"
+            android:text="Data Lamaran Kerja"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/text_penjelasan"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="20dp"
+        android:layout_below="@id/navbar"
         android:layout_alignParentLeft="true"
-        android:textSize="14dp"
-        android:text="Pilih salah satu peran di bawah ini yang sesuai dengan peran yang anda miliki" />
+        android:layout_marginLeft="20dp"
+        android:text="Pilih salah satu peran di bawah ini yang sesuai dengan peran yang anda miliki"
+        android:textSize="14dp" />
+
     <TextView
         android:id="@+id/text_nama_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama Perusahaan"
+        android:layout_below="@id/text_penjelasan"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textSize="14dp"
+        android:text="Nama Perusahaan"
         android:textColor="@color/black"
-        android:layout_below="@id/text_penjelasan"/>
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/input_nama_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Nama Perusahaan"
+        android:layout_below="@id/text_nama_perusahaan"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/text_nama_perusahaan" />
+        android:background="@drawable/edit_custom"
+        android:hint="   Nama Perusahaan"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
+
     <TextView
         android:id="@+id/text_email_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email Perusahaan"
+        android:layout_below="@id/input_nama_perusahaan"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
-        android:textStyle="bold"
-        android:textSize="14dp"
+        android:text="Email Perusahaan"
         android:textColor="@color/black"
-        android:layout_below="@id/input_nama_perusahaan"/>
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/input_email_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Email Perusahaan"
+        android:layout_below="@id/text_email_perusahaan"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/text_email_perusahaan" />
+        android:background="@drawable/edit_custom"
+        android:hint="   Email Perusahaan"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
+
     <TextView
         android:id="@+id/text_alamat_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alamat Perusahaan"
+        android:layout_below="@id/input_email_perusahaan"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
-        android:textStyle="bold"
-        android:textSize="14dp"
+        android:text="Alamat Perusahaan"
         android:textColor="@color/black"
-        android:layout_below="@id/input_email_perusahaan"/>
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/input_alamat_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Alamat Perusahaan"
+        android:layout_below="@id/text_alamat_perusahaan"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/text_alamat_perusahaan" />
+        android:background="@drawable/edit_custom"
+        android:hint="   Alamat Perusahaan"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
+
     <TextView
         android:id="@+id/text_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:layout_below="@id/input_alamat_perusahaan"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
-        android:textStyle="bold"
-        android:textSize="14dp"
+        android:text="Password"
         android:textColor="@color/black"
-        android:layout_below="@id/input_alamat_perusahaan"/>
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/input_password"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Password"
+        android:layout_below="@id/text_password"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/text_password" />
+        android:background="@drawable/edit_custom"
+        android:hint="   Password"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
+
     <TextView
         android:id="@+id/text_confirm_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Confirm Password"
+        android:layout_below="@id/input_password"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
-        android:textStyle="bold"
-        android:textSize="14dp"
+        android:text="Confirm Password"
         android:textColor="@color/black"
-        android:layout_below="@id/input_password"/>
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/input_confirm_password"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Password"
+        android:layout_below="@id/text_confirm_password"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/text_confirm_password" />
+        android:background="@drawable/edit_custom"
+        android:hint="   Password"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
+
     <TextView
         android:id="@+id/text_tentang_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tentang Perusahaan"
+        android:layout_below="@id/input_confirm_password"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
-        android:textStyle="bold"
-        android:textSize="14dp"
+        android:text="Tentang Perusahaan"
         android:textColor="@color/black"
-        android:layout_below="@id/input_confirm_password"/>
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/input_tentang_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:layout_marginLeft="35dp"
+        android:layout_below="@id/text_tentang_perusahaan"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/text_tentang_perusahaan" />
+        android:background="@drawable/edit_custom"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
 
     <Button
+        android:id="@+id/daftar_perusahaan"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:text="Daftar"
-        android:textAllCaps="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/daftar" />
+        android:background="@drawable/daftar"
+        android:text="Daftar"
+        android:textAllCaps="false"
+        android:theme="@style/btn_black" />
 </RelativeLayout>

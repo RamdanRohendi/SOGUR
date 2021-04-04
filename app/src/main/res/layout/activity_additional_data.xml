@@ -8,7 +8,7 @@
         android:id="@+id/navbar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/yello_lighter">
+        android:background="@color/yellow_lighter">
         <ImageButton
             android:id="@+id/arrow_left"
             android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/navbar"
-        android:background="@color/yello_lighter">
+        android:background="@color/yellow_lighter">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

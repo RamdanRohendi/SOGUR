@@ -35,7 +35,7 @@
     <FrameLayout
         android:id="@+id/frameContent"
         android:layout_width="385dp"
-        android:layout_height="200dp"
+        android:layout_height="140dp"
         android:layout_below="@+id/mapPending"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"

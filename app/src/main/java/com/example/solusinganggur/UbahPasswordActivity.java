@@ -1,5 +1,6 @@
 package com.example.solusinganggur;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,9 +12,9 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class UbahPasswordActivity extends AppCompatActivity {
-    private EditText newPass;
-    private EditText newPassConf;
-    private Button btnConfirm;
+    EditText newPass;
+    EditText newPassConf;
+    Button btnConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -23,10 +24,17 @@ public class UbahPasswordActivity extends AppCompatActivity {
         newPass = findViewById(R.id.passwordBaru);
         newPassConf = findViewById(R.id.konfirmasiPassBaru);
         btnConfirm = findViewById(R.id.btnKonfirmasi);
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), NotifPasswordDiubahActivity.class));
+            }
+        });
 
         newPass.addTextChangedListener(newPassword);
         newPassConf.addTextChangedListener(newPassword);
     }
+
     private TextWatcher newPassword = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

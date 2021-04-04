@@ -9,7 +9,7 @@
         android:id="@+id/upbarMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/yello_lighter"
+        android:background="@color/yellow_lighter"
         android:gravity="center_vertical"
         android:padding="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
