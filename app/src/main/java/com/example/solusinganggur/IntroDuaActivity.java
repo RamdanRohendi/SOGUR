@@ -14,7 +14,7 @@ public class IntroDuaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intro2);
+        setContentView(R.layout.activity_auth_intro2);
 
         signIn = findViewById(R.id.signIn);
         signIn.setOnClickListener(new View.OnClickListener() {

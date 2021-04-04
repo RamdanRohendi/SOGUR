@@ -15,7 +15,7 @@ public class IntroSatuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intro1);
+        setContentView(R.layout.activity_auth_intro1);
 
         skip = findViewById(R.id.skip);
         skip.setOnClickListener(new View.OnClickListener() {

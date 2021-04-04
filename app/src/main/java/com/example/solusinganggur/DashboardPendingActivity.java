@@ -15,7 +15,7 @@ public class DashboardPendingActivity extends FragmentActivity implements OnMapR
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard_pending);
+        setContentView(R.layout.activity_pencarikerja_detail_pending);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapPending);
         mapFragment.getMapAsync(this);
     }

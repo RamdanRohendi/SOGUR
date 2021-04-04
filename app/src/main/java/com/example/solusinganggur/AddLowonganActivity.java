@@ -9,6 +9,6 @@ public class AddLowonganActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_lowongan);
+        setContentView(R.layout.activity_perusahaan_add_lowongan);
     }
 }

@@ -13,7 +13,7 @@ public class KonfirmasiUbahPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_konfirmasi_ubah_password);
+        setContentView(R.layout.activity_auth_konfirmasi_ubah_password);
 
         mail = findViewById(R.id.open_mail);
         mail.setOnClickListener(new View.OnClickListener() {

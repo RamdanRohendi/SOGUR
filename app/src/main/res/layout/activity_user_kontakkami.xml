@@ -1,99 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:id="@+id/navbar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/yellow_lighter">
+
         <ImageButton
             android:id="@+id/arrow_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrowleft"
-            android:onClick="kembali"
-            android:background="@android:color/transparent"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="kembali"
+            android:src="@drawable/ic_arrowleft" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kontak Kami"
-            android:layout_toRightOf="@id/arrow_left"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:layout_toRightOf="@id/arrow_left"
+            android:text="Kontak Kami"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="300dp"
         android:layout_height="570dp"
         android:layout_below="@id/navbar"
-        android:background="@drawable/background_rounded"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="40dp"
+        android:background="@drawable/background_rounded">
+
         <TextView
             android:id="@+id/text_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
-            android:layout_marginTop="35dp"
             android:layout_marginLeft="30dp"
-            android:textSize="15dp"
-            android:textColor="@color/black"/>
+            android:layout_marginTop="35dp"
+            android:text="Email"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
         <EditText
             android:id="@+id/input_email"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_email"
             android:layout_centerHorizontal="true" />
+
         <TextView
             android:id="@+id/text_nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/input_email"
             android:layout_marginLeft="30dp"
-            android:textSize="15dp"
+            android:layout_marginTop="20dp"
+            android:text="Nama"
             android:textColor="@color/black"
-            android:layout_below="@id/input_email"/>
+            android:textSize="15dp" />
+
         <EditText
             android:id="@+id/input_nama"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_nama"
             android:layout_centerHorizontal="true" />
+
         <EditText
             android:id="@+id/input_masukan"
             android:layout_width="260dp"
             android:layout_height="200dp"
+            android:layout_below="@id/input_nama"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:background="@drawable/edit_costum2"
             android:text="Ajukan pertanyaan mengenai SOGUR"
-            android:layout_below="@id/input_nama"
-            android:textSize="15dp"
             android:textAlignment="center"
-            android:layout_centerHorizontal="true"/>
+            android:textSize="15dp" />
+
         <LinearLayout
-            android:layout_marginTop="40dp"
-            android:layout_below="@id/input_masukan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true">
+            android:layout_below="@id/input_masukan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Batal"
-                android:background="@drawable/buttonround"/>
+                android:background="@drawable/buttonround"
+                android:text="Batal" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kirim"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/buttonround"/>
+                android:background="@drawable/buttonround"
+                android:text="Kirim" />
         </LinearLayout>
     </RelativeLayout>
 

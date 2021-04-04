@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +18,7 @@ public class UbahPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ubah_password);
+        setContentView(R.layout.activity_auth_ubah_password);
 
         newPass = findViewById(R.id.passwordBaru);
         newPassConf = findViewById(R.id.konfirmasiPassBaru);

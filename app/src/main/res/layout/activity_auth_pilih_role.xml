@@ -17,9 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:onClick="kembali"
             android:layout_marginLeft="20dp"
             android:background="@android:color/transparent"
+            android:onClick="kembali"
             android:src="@drawable/ic_arrowleft" />
 
         <TextView
@@ -27,11 +27,11 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:textStyle="bold"
             android:layout_toRightOf="@id/arrow_left"
             android:text="Data Lamaran Kerja"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <TextView

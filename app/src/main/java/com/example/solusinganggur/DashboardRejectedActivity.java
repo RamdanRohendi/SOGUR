@@ -15,7 +15,7 @@ public class DashboardRejectedActivity extends FragmentActivity implements OnMap
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard_rejected);
+        setContentView(R.layout.activity_pencarikerja_detail_rejected);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapRejected);
         mapFragment.getMapAsync(this);
     }

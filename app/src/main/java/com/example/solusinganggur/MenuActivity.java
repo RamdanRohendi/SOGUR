@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,7 +21,7 @@ public class  MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_pencarikerja_menu);
 
         navHome = findViewById(R.id.nav_home);
         navSearch = findViewById(R.id.nav_search);

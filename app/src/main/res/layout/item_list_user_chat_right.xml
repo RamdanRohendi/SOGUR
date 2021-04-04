@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="16dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
     <RelativeLayout
         android:layout_width="300dp"
@@ -13,18 +12,17 @@
         <com.subinkrishna.widget.CircularImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_bg_chat_right"
-            android:text="hello"
             android:layout_alignParentEnd="true"
-            android:textSize="18sp"
-            android:textColor="@color/black"
+            android:background="@drawable/ic_bg_chat_right"
             android:fontFamily="@font/roboto"
             android:padding="8dp"
-            />
+            android:text="hello"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
     </RelativeLayout>
 </RelativeLayout>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".DashboardPendingActivity">
 
     <FrameLayout
@@ -12,25 +12,25 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_custom">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/mulish"
             android:text="PT. Indofood"
             android:textSize="16dp"
-            android:fontFamily="@font/mulish"
-            android:textStyle="bold"
-            android:layout_gravity="center"/>
+            android:textStyle="bold" />
     </FrameLayout>
 
     <fragment
         android:id="@+id/mapPending"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="380dp"
         android:layout_height="300dp"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/PtInfo"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
     <FrameLayout
         android:id="@+id/frameContent"
@@ -45,77 +45,79 @@
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/location"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="15dp"
-            />
+            android:layout_marginTop="10dp"
+            android:src="@drawable/location" />
+
         <TextView
             android:id="@+id/loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jl. Android No. 123"
             android:layout_gravity="center_horizontal"
-            android:layout_marginRight="70dp"
             android:layout_marginTop="10dp"
-            android:textSize="13dp"
+            android:layout_marginRight="70dp"
             android:fontFamily="@font/mulish"
-            android:textStyle="bold"
-            />
+            android:text="Jl. Android No. 123"
+            android:textSize="13dp"
+            android:textStyle="bold" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/uservector"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="40dp"
-            />
+            android:src="@drawable/uservector" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edmund Maxwell"
             android:layout_gravity="center_horizontal"
-            android:layout_marginRight="77dp"
             android:layout_marginTop="42dp"
+            android:layout_marginRight="77dp"
             android:fontFamily="@font/mulish"
-            android:textStyle="bold"
+            android:text="Edmund Maxwell"
             android:textSize="13dp"
-            />
+            android:textStyle="bold" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/datevector"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="14dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/datevector" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wednesday, 31 January 2021"
             android:layout_gravity="center_horizontal"
-            android:layout_marginRight="38dp"
             android:layout_marginTop="72dp"
-            android:textSize="13dp"
+            android:layout_marginRight="38dp"
             android:fontFamily="@font/mulish"
-            android:textStyle="bold"/>
+            android:text="Wednesday, 31 January 2021"
+            android:textSize="13dp"
+            android:textStyle="bold" />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="5dp"
         android:layout_below="@id/frameContent"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_custom2">
+
         <Button
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_rounded"
-            android:theme="@style/btn_grey"
-            android:text="Menunggu Konfirmasi"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:textAllCaps="false"
+            android:background="@drawable/btn_rounded"
             android:fontFamily="sans-serif"
+            android:text="Menunggu Konfirmasi"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:theme="@style/btn_grey" />
     </FrameLayout>
 </RelativeLayout>

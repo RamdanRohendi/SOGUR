@@ -13,7 +13,7 @@ public class NotifPasswordDiubahActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_password_berubah);
+        setContentView(R.layout.activity_auth_notif_password_diubah);
 
         backLogin = findViewById(R.id.backlogin);
         backLogin.setOnClickListener(new View.OnClickListener() {

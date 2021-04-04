@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,35 +8,39 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/yellow_lighter">
+
         <ImageButton
             android:id="@+id/arrow_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrowleft"
-            android:background="@android:color/transparent"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrowleft" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Data Lamaran Kerja"
-            android:layout_toRightOf="@id/arrow_left"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:layout_toRightOf="@id/arrow_left"
+            android:text="Data Lamaran Kerja"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/perintah"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/navbar"
         android:background="@color/yellow_lighter">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Isilah data berikut dengan benar"
             android:layout_marginLeft="20dp"
+            android:text="Isilah data berikut dengan benar"
             android:textSize="15dp" />
     </RelativeLayout>
 
@@ -45,51 +48,53 @@
         android:id="@+id/input_nama"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Nama"
+        android:layout_below="@id/perintah"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom3"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="40dp"
-        android:layout_below="@id/perintah" />
+        android:background="@drawable/edit_custom3"
+        android:hint="   Nama"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
+
     <EditText
         android:id="@+id/input_alamat"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Alamat"
+        android:layout_below="@id/input_nama"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom3"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/input_nama" />
+        android:background="@drawable/edit_custom3"
+        android:hint="   Alamat"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
+
     <EditText
         android:id="@+id/input_nomor_telepon"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Nomor Telepon"
+        android:layout_below="@id/input_alamat"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom3"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/input_alamat" />
+        android:background="@drawable/edit_custom3"
+        android:hint="   Nomor Telepon"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
+
     <EditText
         android:id="@+id/input_email"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="35dp"
-        android:hint="   Email"
+        android:layout_below="@id/input_nomor_telepon"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/edit_custom3"
-        android:textSize="15dp"
-        android:textColor="#B5B5B5"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/input_nomor_telepon" />
-
+        android:background="@drawable/edit_custom3"
+        android:hint="   Email"
+        android:textColor="#B5B5B5"
+        android:textSize="15dp" />
 
 
 </RelativeLayout>

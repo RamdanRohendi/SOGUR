@@ -13,7 +13,7 @@ public class after_registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_after_registration);
+        setContentView(R.layout.activity_auth_after_login);
 
         mulai = findViewById(R.id.btnstartjob);
         mulai.setOnClickListener(new View.OnClickListener() {

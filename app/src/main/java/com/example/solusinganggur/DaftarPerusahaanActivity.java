@@ -13,7 +13,7 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar_perusahaan);
+        setContentView(R.layout.activity_perusahaan_daftar);
 
         btnDaftar = findViewById(R.id.daftar_perusahaan);
         btnDaftar.setOnClickListener(new View.OnClickListener() {

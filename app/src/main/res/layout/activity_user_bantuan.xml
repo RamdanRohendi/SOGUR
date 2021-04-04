@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E5E5E5">
 
@@ -9,81 +9,88 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/yellow_lighter">
+
         <ImageButton
             android:id="@+id/arrow_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrowleft"
-            android:onClick="kembali"
-            android:background="@android:color/transparent"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="kembali"
+            android:src="@drawable/ic_arrowleft" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bantuan"
-            android:layout_toRightOf="@id/arrow_left"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:layout_toRightOf="@id/arrow_left"
+            android:text="Bantuan"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/navbar">
+        android:layout_below="@id/navbar"
+        android:orientation="vertical">
+
         <RelativeLayout
             android:id="@+id/info_aplikasi"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/white"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:background="@color/white">
+
             <ImageView
                 android:id="@+id/img_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/information_2"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true"/>
+                android:src="@drawable/information_2" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Info Aplikasi"
-                android:layout_toRightOf="@id/img_information"
-                android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/img_information"
+                android:text="Info Aplikasi"
                 android:textColor="@color/black"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/kontak_kami"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/white"
-            android:layout_marginTop="2dp">
+            android:layout_marginTop="2dp"
+            android:background="@color/white">
+
             <ImageView
                 android:id="@+id/img_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/group1_2"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true"/>
+                android:src="@drawable/group1_2" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kontak Kami"
-                android:layout_toRightOf="@id/img_group"
-                android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/img_group"
+                android:text="Kontak Kami"
                 android:textColor="@color/black"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
         </RelativeLayout>
 
 
     </LinearLayout>
-
 
 
 </RelativeLayout>

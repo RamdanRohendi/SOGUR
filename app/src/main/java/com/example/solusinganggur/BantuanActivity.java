@@ -14,7 +14,7 @@ public class BantuanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_bantuan1);
+        setContentView(R.layout.activity_user_bantuan);
 
         btnInfoApk = findViewById(R.id.info_aplikasi);
         btnInfoApk.setOnClickListener(new View.OnClickListener() {

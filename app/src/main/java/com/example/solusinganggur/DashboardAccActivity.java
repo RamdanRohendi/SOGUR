@@ -19,7 +19,7 @@ public class DashboardAccActivity extends FragmentActivity implements OnMapReady
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard_accepted);
+        setContentView(R.layout.activity_pencarikerja_detail_accepted);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAcc);
         mapFragment.getMapAsync(this);
 

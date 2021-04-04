@@ -10,7 +10,7 @@ public class KontakKamiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_bantuan3);
+        setContentView(R.layout.activity_user_kontakkami);
     }
 
     public void kembali(View view){

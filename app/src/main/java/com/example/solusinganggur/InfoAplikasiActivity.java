@@ -10,7 +10,7 @@ public class InfoAplikasiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_bantuan2);
+        setContentView(R.layout.activity_user_infoapk);
     }
 
     public void kembali(View view){

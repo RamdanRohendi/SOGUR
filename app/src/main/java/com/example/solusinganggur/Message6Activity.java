@@ -9,6 +9,6 @@ public class Message6Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message6);
+        setContentView(R.layout.activity_user_message6);
     }
 }

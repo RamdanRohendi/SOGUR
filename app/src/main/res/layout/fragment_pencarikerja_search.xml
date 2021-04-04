@@ -27,6 +27,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_search"
-        tools:listitem="@layout/desaingrid_search" />
+        tools:listitem="@layout/item_list_pencarikerja_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

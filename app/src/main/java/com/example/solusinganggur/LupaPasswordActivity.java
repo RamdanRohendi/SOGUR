@@ -13,7 +13,7 @@ public class LupaPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgotpassword);
+        setContentView(R.layout.activity_auth_lupapassword);
 
         btnConfirm = findViewById(R.id.btnconfirm);
         btnConfirm.setOnClickListener(new View.OnClickListener() {

@@ -14,7 +14,7 @@ public class PilihRoleActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pilih_role);
+        setContentView(R.layout.activity_auth_pilih_role);
 
         pncrKerja = (Button)findViewById(R.id.pncrKerja);
         pncrKerja.setOnClickListener(this);

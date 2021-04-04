@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DaftarPencariKerjaActivity extends AppCompatActivity {
@@ -14,7 +13,7 @@ public class DaftarPencariKerjaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar_pencarikerja);
+        setContentView(R.layout.activity_pencarikerja_daftar);
 
         btnDaftar = findViewById(R.id.daftar_pcrkerja);
         btnDaftar.setOnClickListener(new View.OnClickListener() {
