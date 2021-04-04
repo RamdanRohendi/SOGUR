@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class after_registration extends AppCompatActivity {
+public class AuthAfterLoginActivity extends AppCompatActivity {
     Button mulai;
 
     @Override
@@ -19,7 +19,7 @@ public class after_registration extends AppCompatActivity {
         mulai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+                startActivity(new Intent(getApplicationContext(), PencariKerjaMenuActivity.class));
                 finish();
             }
         });

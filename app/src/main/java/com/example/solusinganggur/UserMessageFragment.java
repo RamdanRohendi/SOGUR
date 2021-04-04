@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-public class SearchFragment extends Fragment {
+public class UserMessageFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_pencarikerja_search, null);
+        return inflater.inflate(R.layout.fragment_user_message, null);
     }
 }

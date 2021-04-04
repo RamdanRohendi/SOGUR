@@ -7,24 +7,24 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DaftarPerusahaanActivity extends AppCompatActivity {
+public class PencariKerjaDaftarActivity extends AppCompatActivity {
     Button btnDaftar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perusahaan_daftar);
+        setContentView(R.layout.activity_pencarikerja_daftar);
 
-        btnDaftar = findViewById(R.id.daftar_perusahaan);
+        btnDaftar = findViewById(R.id.daftar_pcrkerja);
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
+                startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
             }
         });
     }
 
-    public void kembali(View view){
+    public void kembali(View view) {
         finish();
     }
 }

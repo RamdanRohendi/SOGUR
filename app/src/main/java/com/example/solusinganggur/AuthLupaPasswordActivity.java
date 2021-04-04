@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class LupaPasswordActivity extends AppCompatActivity {
+public class AuthLupaPasswordActivity extends AppCompatActivity {
     Button btnConfirm;
 
     @Override
@@ -19,12 +19,12 @@ public class LupaPasswordActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), KonfirmasiUbahPasswordActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthKonfirmasiUbahPasswordActivity.class));
             }
         });
     }
 
-    public void kembali(View view){
+    public void kembali(View view) {
         finish();
     }
 }

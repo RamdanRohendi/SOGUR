@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class  MenuActivity extends AppCompatActivity {
+public class PencariKerjaMenuActivity extends AppCompatActivity {
     LinearLayout navHome;
     LinearLayout navSearch;
     LinearLayout navMessage;
@@ -35,38 +35,38 @@ public class  MenuActivity extends AppCompatActivity {
 
         navDefault();
         txtHome.setVisibility(View.VISIBLE);
-        loadFragment(new HomeFragment());
+        loadFragment(new PencariKerjaHomeFragment());
     }
 
     public void keHome(View view) {
         navDefault();
         txtHome.setVisibility(View.VISIBLE);
-        Fragment fragment = new HomeFragment();
+        Fragment fragment = new PencariKerjaHomeFragment();
         loadFragment(fragment);
     }
 
     public void keSearch(View view) {
         navDefault();
         txtSearch.setVisibility(View.VISIBLE);
-        Fragment fragment = new SearchFragment();
+        Fragment fragment = new PencariKerjaSearchFragment();
         loadFragment(fragment);
     }
 
     public void keChat(View view) {
         navDefault();
         txtMessage.setVisibility(View.VISIBLE);
-        Fragment fragment = new ChatFragment();
+        Fragment fragment = new UserMessageFragment();
         loadFragment(fragment);
     }
 
     public void keProfile(View view) {
         navDefault();
         txtProfile.setVisibility(View.VISIBLE);
-        Fragment fragment = new ProfileFragment();
+        Fragment fragment = new PencariKerjaProfileFragment();
         loadFragment(fragment);
     }
 
-    public void navDefault(){
+    public void navDefault() {
         txtHome.setVisibility(View.GONE);
         txtSearch.setVisibility(View.GONE);
         txtMessage.setVisibility(View.GONE);

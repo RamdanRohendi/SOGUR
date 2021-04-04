@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class IntroDuaActivity extends AppCompatActivity {
+public class AuthIntroDuaActivity extends AppCompatActivity {
     Button signIn;
     Button signUp;
 
@@ -20,7 +20,7 @@ public class IntroDuaActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
+                startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
             }
         });
 
@@ -28,7 +28,7 @@ public class IntroDuaActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PilihRoleActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
             }
         });
     }

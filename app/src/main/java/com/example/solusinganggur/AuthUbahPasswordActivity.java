@@ -10,13 +10,13 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UbahPasswordActivity extends AppCompatActivity {
+public class AuthUbahPasswordActivity extends AppCompatActivity {
     EditText newPass;
     EditText newPassConf;
     Button btnConfirm;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth_ubah_password);
 
@@ -26,7 +26,7 @@ public class UbahPasswordActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), NotifPasswordDiubahActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthNotifPasswordDiubahActivity.class));
             }
         });
 

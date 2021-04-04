@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AddLowonganActivity extends AppCompatActivity {
+public class UserMessage6Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perusahaan_add_lowongan);
+        setContentView(R.layout.activity_user_message6);
     }
 }

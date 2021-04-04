@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class ProfileFragment extends Fragment {
+public class PencariKerjaProfileFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -26,7 +26,7 @@ public class ProfileFragment extends Fragment {
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), EditProfileActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaEditProfileActivity.class));
             }
         });
 
@@ -34,7 +34,7 @@ public class ProfileFragment extends Fragment {
         btnNotifikasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), NotifPelamarActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaNotifikasiActivity.class));
             }
         });
 
@@ -42,7 +42,7 @@ public class ProfileFragment extends Fragment {
         btnBantuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), BantuanActivity.class));
+                startActivity(new Intent(getActivity(), UserBantuanActivity.class));
             }
         });
 
@@ -57,7 +57,7 @@ public class ProfileFragment extends Fragment {
                 builder.setPositiveButton("LOGOUT", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(getActivity(), Login.class));
+                        startActivity(new Intent(getActivity(), AuthLoginActivity.class));
                     }
                 });
 

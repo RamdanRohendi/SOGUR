@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class IntroSatuActivity extends AppCompatActivity {
+public class AuthIntroSatuActivity extends AppCompatActivity {
     TextView skip;
     ImageView gbr;
 
@@ -21,7 +21,7 @@ public class IntroSatuActivity extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), IntroDuaActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthIntroDuaActivity.class));
             }
         });
 
@@ -29,7 +29,7 @@ public class IntroSatuActivity extends AppCompatActivity {
         gbr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), IntroDuaActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthIntroDuaActivity.class));
             }
         });
     }

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class AuthSplashScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), IntroSatuActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthIntroSatuActivity.class));
                 finish();
             }
         }, 3000L);

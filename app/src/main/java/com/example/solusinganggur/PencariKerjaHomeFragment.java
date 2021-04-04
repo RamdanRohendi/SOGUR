@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-public class HomeFragment extends Fragment {
+public class PencariKerjaHomeFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -23,7 +23,7 @@ public class HomeFragment extends Fragment {
         dashAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), DashboardAccActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaDetailAcceptedActivity.class));
             }
         });
 
@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment {
         dashPending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), DashboardPendingActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaDetailPendingActivity.class));
             }
         });
 
@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         dashReject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), DashboardRejectedActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaDetailRejectedActivity.class));
             }
         });
 
@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), NotifPelamarActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaNotifikasiActivity.class));
             }
         });
 

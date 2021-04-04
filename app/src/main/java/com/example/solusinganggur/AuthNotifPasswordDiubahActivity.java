@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class NotifPasswordDiubahActivity extends AppCompatActivity {
+public class AuthNotifPasswordDiubahActivity extends AppCompatActivity {
     TextView backLogin;
 
     @Override
@@ -19,7 +19,7 @@ public class NotifPasswordDiubahActivity extends AppCompatActivity {
         backLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
+                startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
             }
         });
     }

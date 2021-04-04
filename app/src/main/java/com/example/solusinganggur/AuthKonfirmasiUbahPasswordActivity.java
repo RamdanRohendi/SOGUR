@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class KonfirmasiUbahPasswordActivity extends AppCompatActivity {
+public class AuthKonfirmasiUbahPasswordActivity extends AppCompatActivity {
     ImageView mail;
 
     @Override
@@ -19,7 +19,7 @@ public class KonfirmasiUbahPasswordActivity extends AppCompatActivity {
         mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), UbahPasswordActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthUbahPasswordActivity.class));
             }
         });
     }

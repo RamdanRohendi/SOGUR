@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Login extends AppCompatActivity {
+public class AuthLoginActivity extends AppCompatActivity {
     TextView btndaftar;
     TextView btnforgotpass;
     Button btnlogin;
@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
         btndaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PilihRoleActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
             }
         });
 
@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), after_registration.class));
+                startActivity(new Intent(getApplicationContext(), AuthAfterLoginActivity.class));
             }
         });
 
@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         btnforgotpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), LupaPasswordActivity.class));
+                startActivity(new Intent(getApplicationContext(), AuthLupaPasswordActivity.class));
             }
         });
     }

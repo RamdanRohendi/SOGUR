@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-public class BantuanActivity extends AppCompatActivity {
+public class UserBantuanActivity extends AppCompatActivity {
     RelativeLayout btnInfoApk;
     RelativeLayout btnKontakKami;
 
@@ -20,7 +20,7 @@ public class BantuanActivity extends AppCompatActivity {
         btnInfoApk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), InfoAplikasiActivity.class));
+                startActivity(new Intent(getApplicationContext(), UserInfoApkActivity.class));
             }
         });
 
@@ -28,12 +28,12 @@ public class BantuanActivity extends AppCompatActivity {
         btnKontakKami.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), KontakKamiActivity.class));
+                startActivity(new Intent(getApplicationContext(), UserKontakKamiActivity.class));
             }
         });
     }
 
-    public void kembali(View view){
+    public void kembali(View view) {
         finish();
     }
 }
