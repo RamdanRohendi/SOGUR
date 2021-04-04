@@ -58,6 +58,9 @@
         -->
         <activity android:name=".PencariKerjaMenuActivity" />
         <activity android:name=".PencariKerjaNotifikasiActivity" />
+        <activity android:name=".PencariKerjaAcceptedActivity" />
+        <activity android:name=".PencariKerjaPendingActivity" />
+        <activity android:name=".PencariKerjaRejectedActivity" />
         <activity android:name=".PencariKerjaDetailAcceptedActivity" />
         <activity android:name=".PencariKerjaDetailPendingActivity" />
         <activity android:name=".PencariKerjaDetailRejectedActivity" />

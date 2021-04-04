@@ -31,7 +31,7 @@ public class PencariKerjaHomeFragment extends Fragment {
         dashPending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PencariKerjaDetailPendingActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaPendingActivity.class));
             }
         });
 
@@ -39,7 +39,7 @@ public class PencariKerjaHomeFragment extends Fragment {
         dashReject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PencariKerjaDetailRejectedActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaRejectedActivity.class));
             }
         });
 
