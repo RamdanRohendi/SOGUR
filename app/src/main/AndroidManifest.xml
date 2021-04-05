@@ -19,6 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
+        <activity android:name=".PerusahaanMenuActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -30,10 +31,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-        <!--
-            Auth Layout
-        -->
+        <!--             Auth Layout -->
         <activity android:name=".AuthSplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,10 +50,7 @@
         <activity android:name=".AuthUbahPasswordActivity" />
         <activity android:name=".AuthNotifPasswordDiubahActivity" />
         <activity android:name=".AuthAfterLoginActivity" />
-
-        <!--
-            Layout Role Pelamar
-        -->
+        <!--             Layout Role Pelamar -->
         <activity android:name=".PencariKerjaMenuActivity" />
         <activity android:name=".PencariKerjaNotifikasiActivity" />
         <activity android:name=".PencariKerjaAcceptedActivity" />
@@ -65,21 +60,14 @@
         <activity android:name=".PencariKerjaDetailPendingActivity" />
         <activity android:name=".PencariKerjaDetailRejectedActivity" />
         <activity android:name=".PencariKerjaEditProfileActivity" />
-
-        <!--
-            Layout Role Perusahaan
-        -->
+        <!--             Layout Role Perusahaan -->
         <activity android:name=".PerusahaanAddLowonganActivity" />
-
-        <!--
-            Layout All User
-        -->
+        <!--             Layout All User -->
         <activity android:name=".UserMessageActivity" />
         <activity android:name=".UserMessage6Activity" />
         <activity android:name=".UserBantuanActivity" />
         <activity android:name=".UserInfoApkActivity" />
         <activity android:name=".UserKontakKamiActivity" />
-
     </application>
 
 </manifest>
