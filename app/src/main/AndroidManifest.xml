@@ -19,7 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
-        <activity android:name=".PerusahaanMenuActivity"></activity>
+        <activity
+            android:name=".PerusahaanDaftarPelamarActivity"
+            android:label="@string/title_activity_perusahaan_daftar_pelamar"
+            android:theme="@style/Theme.SolusiNganggur.NoActionBar"></activity>
+        <activity android:name=".PerusahaanMenuActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -30,8 +34,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-        <!--             Auth Layout -->
+            android:value="@string/google_maps_key" /> <!-- Auth Layout -->
         <activity android:name=".AuthSplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,8 +52,7 @@
         <activity android:name=".AuthKonfirmasiUbahPasswordActivity" />
         <activity android:name=".AuthUbahPasswordActivity" />
         <activity android:name=".AuthNotifPasswordDiubahActivity" />
-        <activity android:name=".AuthAfterLoginActivity" />
-        <!--             Layout Role Pelamar -->
+        <activity android:name=".AuthAfterLoginActivity" /> <!-- Layout Role Pelamar -->
         <activity android:name=".PencariKerjaMenuActivity" />
         <activity android:name=".PencariKerjaNotifikasiActivity" />
         <activity android:name=".PencariKerjaAcceptedActivity" />
@@ -59,10 +61,8 @@
         <activity android:name=".PencariKerjaDetailAcceptedActivity" />
         <activity android:name=".PencariKerjaDetailPendingActivity" />
         <activity android:name=".PencariKerjaDetailRejectedActivity" />
-        <activity android:name=".PencariKerjaEditProfileActivity" />
-        <!--             Layout Role Perusahaan -->
-        <activity android:name=".PerusahaanAddLowonganActivity" />
-        <!--             Layout All User -->
+        <activity android:name=".PencariKerjaEditProfileActivity" /> <!-- Layout Role Perusahaan -->
+        <activity android:name=".PerusahaanAddLowonganActivity" /> <!-- Layout All User -->
         <activity android:name=".UserMessageActivity" />
         <activity android:name=".UserMessage6Activity" />
         <activity android:name=".UserBantuanActivity" />
