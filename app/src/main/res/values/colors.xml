@@ -7,11 +7,22 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="yello_lighter">#FFC533</color>
+    <color name="yellow_lighter">#FFC533</color>
     <color name="white_grey">#F6F6F6</color>
     <color name="yellow_darker">#99761F</color>
+    <color name="grey">#C4C4C4</color>
     <style name="btn_black">
         <item name="colorPrimary">@color/black</item>
+    </style>
+    <style name="btn_yellow">
+        <item name="colorPrimaryVariant">@color/yellow_lighter</item>
+    </style>
+    <style name="btn_grey">
+        <item name="colorPrimaryDark">@color/grey</item>
+    </style>
+    <style name="btn_rounded_white">
+        <item name="android:background">@drawable/btn_rounded</item>
+        <item name="colorPrimary">@color/white</item>
     </style>
 </resources>
 

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerusahaanAddLowonganActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/barup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow_lighter">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrowleft" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/back_button"
+                android:fontFamily="@font/mulish"
+                android:text="Add Lowongan Kerja"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/barup_layout"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/nm_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mulish"
+            android:text="Nama Perusahaan"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_nm_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_below="@id/nm_perusahaan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/edit_custom"
+            android:hint="   Nama Perusahaan"
+            android:textColor="#B5B5B5"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/nm_hrd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_nm_perusahaan"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mulish"
+            android:text="Nama HRD"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_nm_hrd"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_below="@id/nm_hrd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/edit_custom"
+            android:hint="   Nama HRD"
+            android:textColor="#B5B5B5"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/alm_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_nm_hrd"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mulish"
+            android:text="Alamat Perusahaan"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_alm_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_below="@id/alm_perusahaan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/edit_custom"
+            android:hint="   Alamat Perusahaan"
+            android:textColor="#B5B5B5"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/eml_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_alm_perusahaan"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mulish"
+            android:text="Email Perusahaan"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_eml_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_below="@id/eml_perusahaan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/edit_custom"
+            android:hint="   Email Perusahaan"
+            android:textColor="#B5B5B5"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/wkt_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_eml_perusahaan"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mulish"
+            android:text="Waktu Lowongan"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_wkt_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_below="@id/wkt_perusahaan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/edit_custom"
+            android:hint="   Waktu Lowongan"
+            android:textColor="#B5B5B5"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/desk_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_wkt_perusahaan"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mulish"
+            android:text="Deskripsi Perusahaan"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_desk_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="124dp"
+            android:layout_below="@id/desk_perusahaan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/edit_custom"
+            android:textColor="#B5B5B5"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="Buka Lowongan"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        android:theme="@style/btn_black" />
+</RelativeLayout>

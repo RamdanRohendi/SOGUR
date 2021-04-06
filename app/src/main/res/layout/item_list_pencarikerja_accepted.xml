@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+    <RelativeLayout
+        android:id="@+id/list_accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/mulish"
+            android:text="PT. Indofood"
+            android:textColor="#000000"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/dotgreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/company"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/ic_dotgreen" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="21dp"
+            android:layout_toRightOf="@id/dotgreen"
+            android:fontFamily="@font/inter"
+            android:text="Diterima"
+            android:textColor="#000000"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/ic_calendar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="49dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/calendar"
+            android:text="Wednesday, 31 January 2021"
+            android:textColor="#858585"
+            android:textSize="10dp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

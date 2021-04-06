@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PencariKerjaDetailAcceptedActivity">
+
+    <FrameLayout
+        android:id="@+id/PtInfo"
+        android:layout_width="385dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_custom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/mulish"
+            android:text="PT. Indofood"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <fragment
+        android:id="@+id/mapAcc"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="380dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/PtInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <FrameLayout
+        android:id="@+id/frameContent"
+        android:layout_width="385dp"
+        android:layout_height="130dp"
+        android:layout_below="@+id/mapAcc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_custom">
+
+        <ImageView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/location" />
+
+        <TextView
+            android:id="@+id/loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp"
+            android:fontFamily="@font/mulish"
+            android:text="Jl. Android No. 123"
+            android:textSize="13dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/uservector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="42dp"
+            android:layout_marginRight="77dp"
+            android:fontFamily="@font/mulish"
+            android:text="Edmund Maxwell"
+            android:textSize="13dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="14dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/datevector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="72dp"
+            android:layout_marginRight="38dp"
+            android:fontFamily="@font/mulish"
+            android:text="Wednesday, 31 January 2021"
+            android:textSize="13dp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/frameContent"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_custom2">
+
+        <Button
+            android:id="@+id/btn_chat"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_rounded"
+            android:fontFamily="sans-serif"
+            android:text="Chat"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:theme="@style/btn_yellow" />
+    </FrameLayout>
+</RelativeLayout>
