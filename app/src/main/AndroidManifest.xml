@@ -19,6 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
+        <activity android:name=".PerusahaanDetailDaftarPelamarActivity"></activity>
+        <activity
+            android:name=".PerusahaanDaftarPelamarActivity"
+            android:label="@string/title_activity_perusahaan_daftar_pelamar"
+            android:theme="@style/Theme.SolusiNganggur.NoActionBar" />
+        <activity android:name=".PerusahaanMenuActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
