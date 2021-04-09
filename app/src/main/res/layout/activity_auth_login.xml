@@ -55,7 +55,8 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/round"
         android:fontFamily="@font/roboto"
-        android:hint="   Username" />
+        android:hint="Username"
+        android:paddingLeft="15dp" />
 
     <EditText
         android:id="@+id/password"
@@ -67,7 +68,8 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/round"
         android:fontFamily="@font/roboto"
-        android:hint="   Password" />
+        android:hint="Password"
+        android:paddingLeft="15dp" />
 
     <TextView
         android:id="@+id/fpassword"

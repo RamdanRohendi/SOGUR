@@ -9,6 +9,6 @@ public class PencariKerjaNotifikasiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pencarikerja_notifikasi);
+        setContentView(R.layout.activity_user_notifikasi);
     }
 }
