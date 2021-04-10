@@ -55,7 +55,8 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/round"
         android:fontFamily="@font/roboto"
-        android:hint="Username"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:paddingLeft="15dp" />
 
     <EditText
@@ -69,6 +70,7 @@
         android:background="@drawable/round"
         android:fontFamily="@font/roboto"
         android:hint="Password"
+        android:inputType="textPassword"
         android:paddingLeft="15dp" />
 
     <TextView
