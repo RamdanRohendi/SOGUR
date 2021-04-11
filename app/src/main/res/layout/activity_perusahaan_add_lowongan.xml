@@ -19,6 +19,7 @@
             <ImageButton
                 android:id="@+id/back_button"
                 android:layout_width="24dp"
+                android:onClick="kembali"
                 android:layout_height="24dp"
                 android:layout_margin="16dp"
                 android:background="@android:color/transparent"

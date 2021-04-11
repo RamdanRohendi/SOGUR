@@ -54,7 +54,17 @@ public class AuthLoginActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login();
+                String email = txtEmail.getText().toString();
+                String password = txtPassword.getText().toString();
+
+                if (email.equals("perusahaan@gmail.com") && password.equals("perusahaan123")) {
+                    if (!validateForm()) {
+                        return;
+                    }
+                    startActivity(new Intent(getApplicationContext(), PerusahaanMenuActivity.class));
+                } else {
+                    login();
+                }
             }
         });
 

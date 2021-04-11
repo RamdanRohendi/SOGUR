@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
-        <activity android:name=".PerusahaanDetailDaftarPelamarActivity"></activity>
+        <activity android:name=".PerusahaanDetailDaftarPelamarActivity" />
         <activity
             android:name=".PerusahaanDaftarPelamarActivity"
             android:label="@string/title_activity_perusahaan_daftar_pelamar"
