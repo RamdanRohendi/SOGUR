@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerusahaanDetailDaftarPelamarActivity">
+
+    <RelativeLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/yellow_lighter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/arrow_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="kembali"
+            android:src="@drawable/ic_arrowleft" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/arrow_left"
+            android:fontFamily="@font/mulish"
+            android:text="Daftar Pelamar"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardpelamar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailpelamar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/yellow_lighter"
+            android:padding="18dp">
+
+            <ImageView
+                android:id="@+id/foto_profile"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:src="@drawable/ic_default_picture"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/foto_profile"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/mulish"
+                android:text="Ujang Hernandez"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                tools:ignore="MissingConstraints"/>
+
+            <TextView
+                android:id="@+id/alamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/mulish"
+                android:text="Jalan Babakan Bambu No. 100"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                tools:ignore="MissingConstraints"/>
+
+            <TextView
+                android:id="@+id/nohp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/alamat"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/mulish"
+                android:text="085352217658"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                tools:ignore="MissingConstraints"/>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/nohp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/mulish"
+                android:text="ujang.herna@gmail.com"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                tools:ignore="MissingConstraints"/>
+
+            <TextView
+                android:id="@+id/cv"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/email"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="80dp"
+                android:fontFamily="@font/mulish"
+                android:text="UjangHernandez.CV"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                tools:ignore="MissingConstraints"/>
+
+            <TextView
+                android:id="@+id/lamaran"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cv"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/mulish"
+                android:text="UjangHernandez.Lamaran"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

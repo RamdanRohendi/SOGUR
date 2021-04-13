@@ -19,8 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
-        <activity android:name=".AddLowonganActivity"></activity>
-        <activity android:name=".MessageActivity" />
+        <activity android:name=".PerusahaanDetailDaftarPelamarActivity" />
+        <activity
+            android:name=".PerusahaanDaftarPelamarActivity"
+            android:label="@string/title_activity_perusahaan_daftar_pelamar"
+            android:theme="@style/Theme.SolusiNganggur.NoActionBar" />
+        <activity android:name=".PerusahaanMenuActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -33,24 +37,55 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Message6Activity" />
-        <activity android:name=".EditProfileActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".after_registration" />
-        <activity android:name=".PilihRoleActivity" />
-        <activity
-            android:name=".DaftarPencariKerjaActivity"
-            android:parentActivityName=".PilihRoleActivity" />
-        <activity
-            android:name=".DaftarPerusahaanActivity"
-            android:parentActivityName=".PilihRoleActivity" />
-        <activity android:name=".DashboardDetailActivity">
+        <!--
+            Auth Layout
+        -->
+        <activity android:name=".AuthSplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AuthIntroSatuActivity" />
+        <activity android:name=".AuthIntroDuaActivity" />
+        <activity android:name=".AuthPilihRoleActivity" />
+        <activity android:name=".PencariKerjaDaftarActivity" />
+        <activity android:name=".PerusahaanDaftarActivity" />
+        <activity android:name=".AuthLoginActivity" />
+        <activity android:name=".AuthLupaPasswordActivity" />
+        <activity android:name=".AuthKonfirmasiUbahPasswordActivity" />
+        <activity android:name=".AuthUbahPasswordActivity" />
+        <activity android:name=".AuthNotifPasswordDiubahActivity" />
+        <activity android:name=".AuthAfterLoginActivity" />
+
+        <!--
+            Layout Role Pelamar
+        -->
+        <activity android:name=".PencariKerjaMenuActivity" />
+        <activity android:name=".PencariKerjaNotifikasiActivity" />
+        <activity android:name=".PencariKerjaAcceptedActivity" />
+        <activity android:name=".PencariKerjaPendingActivity" />
+        <activity android:name=".PencariKerjaRejectedActivity" />
+        <activity android:name=".PencariKerjaDetailAcceptedActivity" />
+        <activity android:name=".PencariKerjaDetailPendingActivity" />
+        <activity android:name=".PencariKerjaDetailRejectedActivity" />
+        <activity android:name=".PencariKerjaEditProfileActivity" />
+
+        <!--
+            Layout Role Perusahaan
+        -->
+        <activity android:name=".PerusahaanAddLowonganActivity" />
+
+        <!--
+            Layout All User
+        -->
+        <activity android:name=".UserMessageActivity" />
+        <activity android:name=".UserMessage6Activity" />
+        <activity android:name=".UserBantuanActivity" />
+        <activity android:name=".UserInfoApkActivity" />
+        <activity android:name=".UserKontakKamiActivity" />
+
     </application>
 
 </manifest>
