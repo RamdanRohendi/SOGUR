@@ -38,6 +38,11 @@
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,8 +67,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:background="@drawable/edit_custom"
-            android:hint="   Nama Perusahaan"
-            android:textColor="#B5B5B5"
+            android:hint="Nama Perusahaan"
+            android:paddingHorizontal="14dp"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -86,8 +92,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:background="@drawable/edit_custom"
-            android:hint="   Nama HRD"
-            android:textColor="#B5B5B5"
+            android:hint="Nama HRD"
+            android:paddingHorizontal="14dp"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -110,8 +117,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:background="@drawable/edit_custom"
-            android:hint="   Alamat Perusahaan"
-            android:textColor="#B5B5B5"
+            android:hint="Alamat Perusahaan"
+            android:paddingHorizontal="14dp"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -134,8 +142,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:background="@drawable/edit_custom"
-            android:hint="   Email Perusahaan"
-            android:textColor="#B5B5B5"
+            android:hint="Email Perusahaan"
+            android:paddingHorizontal="14dp"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -158,8 +167,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:background="@drawable/edit_custom"
-            android:hint="   Waktu Lowongan"
-            android:textColor="#B5B5B5"
+            android:hint="Waktu Lowongan"
+            android:paddingHorizontal="14dp"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -182,11 +192,12 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:background="@drawable/edit_custom"
-            android:textColor="#B5B5B5"
+            android:paddingHorizontal="14dp"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
     </RelativeLayout>
-
+    </ScrollView>
     <Button
         android:id="@+id/btn_add"
         android:layout_width="match_parent"
