@@ -157,5 +157,12 @@
         android:layout_marginTop="40dp"
         android:src="@drawable/ic_google" />
 
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        android:background="@color/black_trans"
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>
