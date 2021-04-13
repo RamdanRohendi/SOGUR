@@ -55,12 +55,13 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/round"
         android:fontFamily="@font/roboto"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:paddingLeft="15dp" />
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password"
+        app:passwordToggleEnabled="true"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@id/username"
@@ -72,6 +73,7 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="15dp" />
+
 
     <TextView
         android:id="@+id/fpassword"
@@ -142,12 +144,14 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/showhide"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_below="@+id/username"
+        android:onClick="ShowHidePass"
         android:layout_marginLeft="350dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/ic_vector" />
+        android:src="@drawable/ic_show" />
 
     <ImageView
         android:layout_width="25dp"
@@ -156,6 +160,5 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="40dp"
         android:src="@drawable/ic_google" />
-
 
 </RelativeLayout>

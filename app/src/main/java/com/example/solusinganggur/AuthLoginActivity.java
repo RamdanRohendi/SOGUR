@@ -6,12 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +36,7 @@ public class AuthLoginActivity extends AppCompatActivity {
     private Button btnlogin;
     private EditText txtEmail;
     private EditText txtPassword;
+    private ImageView ShowHideBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,7 @@ public class AuthLoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         txtEmail = findViewById(R.id.username);
         txtPassword = findViewById(R.id.password);
+        ShowHideBtn = findViewById(R.id.showhide);
 
         btndaftar = findViewById(R.id.daftarsekarang);
         btndaftar.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +109,7 @@ public class AuthLoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             onAuthSuccess();
                         } else {
-                            Toast.makeText(AuthLoginActivity.this, "Login Gagal :( \nPastikan alamat email dan Passwordnya benar", Toast.LENGTH_LONG).show();
+                            Toast.makeText(AuthLoginActivity.this, "Username atau Password salah", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -114,22 +121,44 @@ public class AuthLoginActivity extends AppCompatActivity {
         finish();
     }
 
+
+
+    public void ShowHidePass(View view){
+
+        if(view.getId()==R.id.showhide){
+
+            if(txtPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+                ((ImageView)(view)).setImageResource(R.drawable.ic_hide);
+
+                //Show Password
+                txtPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                ((ImageView)(view)).setImageResource(R.drawable.ic_show);
+
+                //Hide Password
+                txtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+        }
+    }
+
     private boolean validateForm() {
         boolean result = true;
 
         if (TextUtils.isEmpty(txtEmail.getText().toString())) {
-            txtEmail.setError("Mohon Isi Emailnya !");
+            txtEmail.setError("Email harus diisi");
             result = false;
         } else {
             txtEmail.setError(null);
         }
 
         if (TextUtils.isEmpty(txtPassword.getText().toString())) {
-            txtPassword.setError("Mohon Masukan Password !");
+            txtPassword.setError("Password harus diisi");
             result = false;
         } else {
             txtPassword.setError(null);
         }
+
 
         return result;
     }
