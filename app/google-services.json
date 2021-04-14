@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "267239792019",
+    "firebase_url": "https://sogur-f03c8-default-rtdb.firebaseio.com",
     "project_id": "sogur-f03c8",
     "storage_bucket": "sogur-f03c8.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "267239792019-oe7tqg9fagdecpcamlbquo50on8bmu5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.solusinganggur",
+            "certificate_hash": "0110483f7a58e5befd487869c29e7388e9d8dd0d"
+          }
+        },
         {
           "client_id": "267239792019-ss58a0umo5ti68crp740je41qqbv6pe1.apps.googleusercontent.com",
           "client_type": 3

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SolusiNganggur</string>
+    <string name="app_name">SOGUR</string>
     <string name="title_activity_dashboard_detail">Map</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_perusahaan_daftar_pelamar">PerusahaanDaftarPelamarActivity</string>
