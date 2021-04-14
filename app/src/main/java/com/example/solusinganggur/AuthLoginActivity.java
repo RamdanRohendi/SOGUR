@@ -7,12 +7,16 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
 
+import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +27,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,7 +44,8 @@ public class AuthLoginActivity extends AppCompatActivity {
     private Button btnlogin;
     private EditText txtEmail;
     private EditText txtPassword;
-    private ImageView ShowHideBtn;
+    private TextInputLayout inputLayoutEmail;
+    private TextInputLayout inputLayoutPassword;
     private ProgressBar progressBar;
 
     @Override
@@ -49,9 +55,11 @@ public class AuthLoginActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-        txtEmail = findViewById(R.id.username);
-        txtPassword = findViewById(R.id.password);
-        ShowHideBtn = findViewById(R.id.showhide);
+        txtEmail = findViewById(R.id.edt_email);
+        inputLayoutEmail = findViewById(R.id.inputemail);
+        txtEmail.addTextChangedListener(new ValidasiTextWatcher(txtEmail));
+        txtPassword = findViewById(R.id.edt_password);
+        inputLayoutPassword = findViewById(R.id.inputpassword);
         progressBar = findViewById(R.id.progressbar);
 
         btndaftar = findViewById(R.id.daftarsekarang);
@@ -69,6 +77,16 @@ public class AuthLoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = txtEmail.getText().toString();
                 String password = txtPassword.getText().toString();
+
+                if (txtEmail.getText().toString().trim().isEmpty()) {
+                    inputLayoutEmail.setError("Mohon isi Email anda !");
+                    return;
+                }
+
+                if (txtPassword.getText().toString().trim().isEmpty()) {
+                    inputLayoutPassword.setError("Mohon isi Password anda !");
+                    return;
+                }
 
                 if (email.equals("perusahaan@gmail.com") && password.equals("perusahaan123")) {
                     if (!validateForm()) {
@@ -113,7 +131,7 @@ public class AuthLoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             onAuthSuccess();
                         } else {
-                            Toast.makeText(AuthLoginActivity.this, "Username atau Password salah", Toast.LENGTH_LONG).show();
+                            inputLayoutPassword.setError("Password yang anda masukkan salah");
                         }
                     }
                 });
@@ -123,27 +141,6 @@ public class AuthLoginActivity extends AppCompatActivity {
         Toast.makeText(AuthLoginActivity.this, "Berhasil Login", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplicationContext(), AuthAfterLoginActivity.class));
         finish();
-    }
-
-
-
-    public void ShowHidePass(View view){
-
-        if(view.getId()==R.id.showhide){
-
-            if(txtPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
-                ((ImageView)(view)).setImageResource(R.drawable.ic_hide);
-
-                //Show Password
-                txtPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            } else {
-                ((ImageView)(view)).setImageResource(R.drawable.ic_show);
-
-                //Hide Password
-                txtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
-            }
-        }
     }
 
     private boolean validateForm() {
@@ -193,4 +190,57 @@ public class AuthLoginActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    private class ValidasiTextWatcher implements TextWatcher {
+        private View view;
+
+        private ValidasiTextWatcher(View view) {
+            this.view = view;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            switch (view.getId()) {
+                case R.id.edt_email:
+                    validasiEmail();
+                    break;
+            }
+        }
+
+    }
+
+    private boolean validasiEmail() {
+        if (txtEmail.getText().toString().trim().isEmpty()) {
+            inputLayoutEmail.setErrorEnabled(false);
+        } else {
+            String emailId = txtEmail.getText().toString();
+            Boolean isValid = Patterns.EMAIL_ADDRESS.matcher(emailId).matches();
+            if (!isValid) {
+                inputLayoutEmail.setError("Email tidak valid");
+                requestFocus(txtEmail);
+                return false;
+            } else {
+                inputLayoutEmail.setErrorEnabled(false);
+            }
+        }
+
+        return true;
+    }
+
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+
 }
