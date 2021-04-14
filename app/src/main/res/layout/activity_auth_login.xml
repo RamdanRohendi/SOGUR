@@ -46,39 +46,56 @@
         android:layout_marginBottom="30dp"
         android:text="memulai bekerja bersama Sogur." />
 
-    <EditText
-        android:id="@+id/username"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputemail"
+        style="@style/BorderedTextInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/info2"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/round"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="15dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Email"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat">
 
         <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/password"
-        app:passwordToggleEnabled="true"
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:background="@drawable/border"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputpassword"
+        style="@style/BorderedTextInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/username"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/round"
-        android:fontFamily="@font/roboto"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputemail"
+
+        app:passwordToggleEnabled="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
         android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingLeft="15dp" />
+        app:errorEnabled="true"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:background="@drawable/border"
+            android:layout_height="50dp"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/fpassword"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@id/password"
+        android:layout_below="@id/inputpassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/mulish"
@@ -141,16 +158,6 @@
             android:textSize="15dp" />
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/showhide"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/username"
-        android:onClick="ShowHidePass"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/ic_show" />
 
     <ImageView
         android:layout_width="25dp"

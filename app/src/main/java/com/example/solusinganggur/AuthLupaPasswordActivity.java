@@ -26,7 +26,6 @@ public class AuthLupaPasswordActivity extends AppCompatActivity {
     private Button btnConfirm;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
-
     private TextInputLayout inputLayoutEmail;
     private TextInputEditText edtEmail;
 
