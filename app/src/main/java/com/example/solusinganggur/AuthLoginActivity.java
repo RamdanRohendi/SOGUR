@@ -32,7 +32,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AuthLoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
-    private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private TextView btndaftar;
     private TextView btnforgotpass;
@@ -47,7 +46,6 @@ public class AuthLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth_login);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         txtEmail = findViewById(R.id.username);
         txtPassword = findViewById(R.id.password);

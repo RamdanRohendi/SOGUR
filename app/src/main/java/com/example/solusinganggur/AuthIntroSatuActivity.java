@@ -1,5 +1,6 @@
 package com.example.solusinganggur;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -10,14 +11,32 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class AuthIntroSatuActivity extends AppCompatActivity {
-    TextView skip;
-    ImageView gbr;
+    private TextView skip;
+    private ImageView gbr;
+
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth_intro1);
+
+        auth = FirebaseAuth.getInstance();
+        listener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    startActivity(new Intent(getApplicationContext(), PencariKerjaMenuActivity.class));
+                    finish();
+                }
+            }
+        };
 
         skip = findViewById(R.id.skip);
         skip.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +55,20 @@ public class AuthIntroSatuActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(listener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (listener != null) {
+            auth.removeAuthStateListener(listener);
+        }
     }
 
     @Override
