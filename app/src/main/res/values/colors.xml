@@ -25,6 +25,11 @@
         <item name="android:background">@drawable/btn_rounded</item>
         <item name="colorPrimary">@color/white</item>
     </style>
+    <style name="BorderedTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/black</item>
+        <item name="hintTextColor">@color/black</item>
+        <item name="android:textColorHint">@color/grey</item>
+    </style>
 </resources>
 
 

@@ -21,6 +21,7 @@ public class AuthKonfirmasiUbahPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), AuthLupaPasswordActivity.class));
+                finish();
             }
         });
 
@@ -28,7 +29,7 @@ public class AuthKonfirmasiUbahPasswordActivity extends AppCompatActivity {
         kembaliLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
+                finish();
             }
         });
     }
