@@ -3,6 +3,8 @@ package com.example.solusinganggur;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +40,7 @@ public class AuthLoginActivity extends AppCompatActivity {
     private EditText txtEmail;
     private EditText txtPassword;
     private ImageView ShowHideBtn;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +52,14 @@ public class AuthLoginActivity extends AppCompatActivity {
         txtEmail = findViewById(R.id.username);
         txtPassword = findViewById(R.id.password);
         ShowHideBtn = findViewById(R.id.showhide);
+        progressBar = findViewById(R.id.progressbar);
 
         btndaftar = findViewById(R.id.daftarsekarang);
         btndaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
+                kosongkanEdt();
             }
         });
 
@@ -69,6 +75,7 @@ public class AuthLoginActivity extends AppCompatActivity {
                         return;
                     }
                     startActivity(new Intent(getApplicationContext(), PerusahaanMenuActivity.class));
+                    finish();
                 } else {
                     login();
                 }
@@ -80,15 +87,9 @@ public class AuthLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), AuthLupaPasswordActivity.class));
+                kosongkanEdt();
             }
         });
-    }
-
-    private void sendData(String pesan) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("user");
-
-        myRef.setValue(pesan);
     }
 
     private void login() {
@@ -100,11 +101,14 @@ public class AuthLoginActivity extends AppCompatActivity {
         String email = txtEmail.getText().toString();
         String password = txtPassword.getText().toString();
 
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "login:onComplete:" + task.isSuccessful());
+
+                        progressBar.setVisibility(View.GONE);
 
                         if (task.isSuccessful()) {
                             onAuthSuccess();
@@ -163,4 +167,36 @@ public class AuthLoginActivity extends AppCompatActivity {
         return result;
     }
 
+    private void kosongkanEdt() {
+        txtEmail.setText("");
+        txtPassword.setText("");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Apakah anda yakin ingin keluar Aplikasi ?");
+
+        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 }
