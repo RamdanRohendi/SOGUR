@@ -26,12 +26,17 @@ public class AuthPilihRoleActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.pncrKerja:
-                Intent pncrKerja = new Intent(AuthPilihRoleActivity.this, PencariKerjaDaftarActivity.class);
-                startActivity(pncrKerja);
+                Intent daftarPencarikerja = new Intent(getApplicationContext(), PencariKerjaDaftarActivity.class);
+                daftarPencarikerja.putExtra("role", "pencarikerja");
+                startActivity(daftarPencarikerja);
+                finish();
+
                 break;
             case R.id.perusahaan:
-                Intent perusahaan = new Intent(AuthPilihRoleActivity.this, PerusahaanDaftarActivity.class);
-                startActivity(perusahaan);
+                Intent daftarPerusahaan = new Intent(getApplicationContext(), PerusahaanDaftarActivity.class);
+                daftarPerusahaan.putExtra("role", "perusahaan");
+                startActivity(daftarPerusahaan);
+                finish();
                 break;
         }
     }

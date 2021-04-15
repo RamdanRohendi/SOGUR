@@ -7,12 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.solusinganggur.entity.PencariKerja;
+import com.example.solusinganggur.entity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -27,15 +29,17 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-    private EditText txtNamaLengkap;
+    private EditText edtNamaLengkap;
     private TextInputLayout inputLayoutNama;
-    private EditText txtEmail;
+    private EditText edtEmail;
     private TextInputLayout inputLayoutEmail;
-    private EditText txtPassword;
+    private EditText edtPassword;
     private TextInputLayout inputLayoutPassword;
-    private EditText txtConfirmPassword;
+    private EditText edtConfirmPassword;
     private TextInputLayout inputLayoutConfirmPassword;
     private Button btnDaftar;
+    private ProgressBar progressBar;
+    private String role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +49,18 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        txtNamaLengkap = findViewById(R.id.isiNama);
+        edtNamaLengkap = findViewById(R.id.isiNama);
+        edtEmail = findViewById(R.id.isiEmail);
+        edtPassword = findViewById(R.id.isiPassword);
+        edtConfirmPassword = findViewById(R.id.isiConfirmPassword);
+
+        role = getIntent().getExtras().getString("role");
+
+        progressBar = findViewById(R.id.progressbar);
+
         inputLayoutNama = findViewById(R.id.inputnama);
-        txtEmail = findViewById(R.id.isiEmail);
         inputLayoutEmail = findViewById(R.id.inputemail);
-        txtPassword = findViewById(R.id.isiPassword);
         inputLayoutPassword = findViewById(R.id.inputpassword);
-        txtConfirmPassword = findViewById(R.id.isiConfirmPassword);
         inputLayoutConfirmPassword = findViewById(R.id.inputconfirmpassword);
 
         btnDaftar = findViewById(R.id.daftar_pcrkerja);
@@ -60,26 +69,26 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
             public void onClick(View view) {
                 daftar();
 
-                if (txtNamaLengkap.getText().toString().trim().isEmpty()) {
+                if (edtNamaLengkap.getText().toString().trim().isEmpty()) {
                     inputLayoutNama.setError("Nama tidak boleh kosong");
                     return;
                 }
 
-                if (txtEmail.getText().toString().trim().isEmpty()) {
+                if (edtEmail.getText().toString().trim().isEmpty()) {
                     inputLayoutEmail.setError("Email tidak boleh kosong");
                     return;
                 }
 
-                if (txtPassword.getText().toString().trim().isEmpty()) {
+                if (edtPassword.getText().toString().trim().isEmpty()) {
                     inputLayoutPassword.setError("Password tidak boleh kosong");
                     return;
                 }
 
-                if(TextUtils.isEmpty(txtConfirmPassword.getText().toString()))
+                if(TextUtils.isEmpty(edtConfirmPassword.getText().toString()))
                 {
                     inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
 
-                    if (!txtConfirmPassword.equals(txtPassword))
+                    if (!edtConfirmPassword.equals(edtPassword))
                     {
                         Toast.makeText(PencariKerjaDaftarActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
                     }
@@ -93,15 +102,18 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         if (!validateForm()) {
             return;
         }
-        String nama = txtNamaLengkap.getText().toString();
-        String email = txtEmail.getText().toString();
-        String password = txtPassword.getText().toString();
+        String nama = edtNamaLengkap.getText().toString();
+        String email = edtEmail.getText().toString();
+        String password = edtPassword.getText().toString();
 
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "daftar:onComplete:" + task.isSuccessful());
+
+                        progressBar.setVisibility(View.GONE);
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
@@ -113,9 +125,9 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     }
 
     private void onAuthSuccess(FirebaseUser user) {
-        String username = txtNamaLengkap.getText().toString();
+        String username = edtNamaLengkap.getText().toString();
 
-        writeNewPencariKerja(user.getUid(), username, user.getEmail());
+        writeNewPencariKerja(user.getUid(), role, username, user.getEmail());
 
         Toast.makeText(PencariKerjaDaftarActivity.this, "Daftar Berhasil !", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
@@ -125,28 +137,35 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     private boolean validateForm() {
         boolean result = true;
 
-        if (TextUtils.isEmpty(txtNamaLengkap.getText().toString())) {
+        if (TextUtils.isEmpty(edtNamaLengkap.getText().toString())) {
             result = false;
         } else {
-            txtNamaLengkap.setError(null);
+            edtNamaLengkap.setError(null);
         }
 
-        if (TextUtils.isEmpty(txtEmail.getText().toString())) {
+        if (TextUtils.isEmpty(edtEmail.getText().toString())) {
             result = false;
         } else {
-            txtEmail.setError(null);
+            edtEmail.setError(null);
         }
 
-        if (TextUtils.isEmpty(txtPassword.getText().toString())) {
+        if (TextUtils.isEmpty(edtPassword.getText().toString())) {
             result = false;
         } else {
-            txtPassword.setError(null);
+            edtPassword.setError(null);
         }
 
-        if (TextUtils.isEmpty(txtConfirmPassword.getText().toString())) {
+        if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
             result = false;
         } else {
-            txtConfirmPassword.setError(null);
+            edtConfirmPassword.setError(null);
+        }
+
+        if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
+            edtConfirmPassword.setError("Mohon Masukan Password Anda !");
+            result = false;
+        } else {
+            edtConfirmPassword.setError(null);
         }
 
         return result;
@@ -154,13 +173,20 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
 
     }
 
-    private void writeNewPencariKerja(String perjaId, String nama, String email) {
-        PencariKerja pencariKerja = new PencariKerja(nama, email);
+    private void writeNewPencariKerja(String perjaId, String role, String nama, String email) {
+        PencariKerja pencariKerja = new PencariKerja(role, nama, email);
 
-        mDatabase.child("pencariKerja").child(perjaId).setValue(pencariKerja);
+        mDatabase.child("user").child(perjaId).setValue(pencariKerja);
     }
 
     public void kembali(View view) {
+        startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
         finish();
     }
 }
