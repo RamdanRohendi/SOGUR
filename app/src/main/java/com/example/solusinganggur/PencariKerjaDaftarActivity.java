@@ -17,6 +17,7 @@ import com.example.solusinganggur.entity.PencariKerja;
 import com.example.solusinganggur.entity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,9 +30,13 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private EditText edtNamaLengkap;
+    private TextInputLayout inputLayoutNama;
     private EditText edtEmail;
+    private TextInputLayout inputLayoutEmail;
     private EditText edtPassword;
+    private TextInputLayout inputLayoutPassword;
     private EditText edtConfirmPassword;
+    private TextInputLayout inputLayoutConfirmPassword;
     private Button btnDaftar;
     private ProgressBar progressBar;
     private String role;
@@ -53,11 +58,41 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressbar);
 
+        inputLayoutNama = findViewById(R.id.inputnama);
+        inputLayoutEmail = findViewById(R.id.inputemail);
+        inputLayoutPassword = findViewById(R.id.inputpassword);
+        inputLayoutConfirmPassword = findViewById(R.id.inputconfirmpassword);
+
         btnDaftar = findViewById(R.id.daftar_pcrkerja);
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 daftar();
+
+                if (edtNamaLengkap.getText().toString().trim().isEmpty()) {
+                    inputLayoutNama.setError("Nama tidak boleh kosong");
+                    return;
+                }
+
+                if (edtEmail.getText().toString().trim().isEmpty()) {
+                    inputLayoutEmail.setError("Email tidak boleh kosong");
+                    return;
+                }
+
+                if (edtPassword.getText().toString().trim().isEmpty()) {
+                    inputLayoutPassword.setError("Password tidak boleh kosong");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(edtConfirmPassword.getText().toString()))
+                {
+                    inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
+
+                    if (!edtConfirmPassword.equals(edtPassword))
+                    {
+                        Toast.makeText(PencariKerjaDaftarActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }
@@ -67,7 +102,7 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         if (!validateForm()) {
             return;
         }
-
+        String nama = edtNamaLengkap.getText().toString();
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();
 
@@ -103,24 +138,27 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         boolean result = true;
 
         if (TextUtils.isEmpty(edtNamaLengkap.getText().toString())) {
-            edtNamaLengkap.setError("Mohon Isi Nama Lengkapnya !");
             result = false;
         } else {
             edtNamaLengkap.setError(null);
         }
 
         if (TextUtils.isEmpty(edtEmail.getText().toString())) {
-            edtEmail.setError("Mohon Masukan Alamat Email Anda !");
             result = false;
         } else {
             edtEmail.setError(null);
         }
 
         if (TextUtils.isEmpty(edtPassword.getText().toString())) {
-            edtPassword.setError("Mohon Masukan Password Anda !");
             result = false;
         } else {
-            edtEmail.setError(null);
+            edtPassword.setError(null);
+        }
+
+        if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
+            result = false;
+        } else {
+            edtConfirmPassword.setError(null);
         }
 
         if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
@@ -131,6 +169,8 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         }
 
         return result;
+
+
     }
 
     private void writeNewPencariKerja(String perjaId, String role, String nama, String email) {

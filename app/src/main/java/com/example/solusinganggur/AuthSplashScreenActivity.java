@@ -45,9 +45,9 @@ public class AuthSplashScreenActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                getUserID = user.getUid();
 
                 if (user != null) {
+                    getUserID = user.getUid();
                     reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
