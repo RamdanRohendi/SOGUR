@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +16,58 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.solusinganggur.entity.PencariKerja;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class PencariKerjaProfileFragment extends Fragment {
-    FirebaseAuth auth;
-    FirebaseAuth.AuthStateListener authListener;
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener authListener;
+    private FirebaseDatabase database;
+    private DatabaseReference reference;
+    private String getUserID;
+    private TextView txtUsername;
+    private TextView txtEmail;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_pencarikerja_profile, container, false);
+
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+        getUserID = user.getUid();
+
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference();
+
+        txtUsername = root.findViewById(R.id.txtusername);
+        txtEmail = root.findViewById(R.id.txtuser);
+
+        reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                PencariKerja pencariKerja = snapshot.getValue(PencariKerja.class);
+                pencariKerja.setKey(snapshot.getKey());
+
+                txtUsername.setText(pencariKerja.getNamaLengkap());
+                txtEmail.setText(pencariKerja.getEmail());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(getActivity(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            }
+        });
 
         RelativeLayout btnEditProfile = root.findViewById(R.id.btn_editprofile);
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +93,6 @@ public class PencariKerjaProfileFragment extends Fragment {
             }
         });
 
-        auth = FirebaseAuth.getInstance();
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
