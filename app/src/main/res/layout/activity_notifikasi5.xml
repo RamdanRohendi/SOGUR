@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UserMessage6Activity">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/navbar"
@@ -15,14 +14,25 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text"
+    <ImageButton
+        android:id="@+id/arrow_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:onClick="kembali"
+        android:src="@drawable/ic_arrowleft" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/arrow_left"
         android:fontFamily="@font/mulish"
-        android:text="Message"
-        android:textColor="@color/black"
+        android:text="Notification"
+        android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -31,7 +41,7 @@
         android:layout_height="132dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
-        android:src="@drawable/chatbox" />
+        android:src="@drawable/ic_notification05" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,7 +49,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:fontFamily="@font/mulish"
-        android:text="Tidak Ada Pesan"
+        android:text="Berkas Kosong!"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -48,13 +58,11 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="350dp"
         android:fontFamily="@font/mulish"
-        android:text="Tidak terdapat pesan yang tersedia."
+        android:text="Tidak terdapat file yang tersedia."
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="12dp" />
 
 </RelativeLayout>
-
-
