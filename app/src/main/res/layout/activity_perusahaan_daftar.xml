@@ -41,192 +41,223 @@
         android:text="Pilih salah satu peran di bawah ini yang sesuai dengan peran yang anda miliki"
         android:textSize="14dp" />
 
-    <ScrollView
+    <TextView
+        android:id="@+id/text_nama_perusahaan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_penjelasan"
-        android:layout_marginTop="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Nama Perusahaan"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/text_nama_perusahaan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Nama Perusahaan"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/input_nama_perusahaan"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_below="@id/text_nama_perusahaan"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_custom"
-                android:hint="Nama Perusahaan"
-                android:inputType="textShortMessage"
-                android:paddingHorizontal="10dp"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/text_email_perusahaan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/input_nama_perusahaan"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:text="Email Perusahaan"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/input_email_perusahaan"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_below="@id/text_email_perusahaan"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_custom"
-                android:hint="Email Perusahaan"
-                android:inputType="textEmailAddress"
-                android:paddingHorizontal="10dp"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/text_alamat_perusahaan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/input_email_perusahaan"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:text="Alamat Perusahaan"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/input_alamat_perusahaan"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_below="@id/text_alamat_perusahaan"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_custom"
-                android:hint="Alamat Perusahaan"
-                android:paddingHorizontal="10dp"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/text_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/input_alamat_perusahaan"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:text="Password"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/input_password"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_below="@id/text_password"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_custom"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="10dp"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/text_confirm_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/input_password"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:text="Confirm Password"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/input_confirm_password"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_below="@id/text_confirm_password"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_custom"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="10dp"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/text_tentang_perusahaan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/input_confirm_password"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:text="Tentang Perusahaan"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/input_tentang_perusahaan"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:layout_below="@id/text_tentang_perusahaan"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_custom"
-                android:hint="Tuliskan deskripsi perusahaan..."
-                android:inputType="textMultiLine"
-                android:paddingHorizontal="10dp"
-                android:textSize="15dp" />
-
-            <Button
-                android:id="@+id/daftar_perusahaan"
-                android:layout_width="380dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/input_tentang_perusahaan"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/daftar"
-                android:text="Daftar"
-                android:textAllCaps="false"
-                android:theme="@style/btn_black" />
-
-        </RelativeLayout>
-
-    </ScrollView>
-
-    <ProgressBar
-        android:id="@+id/progressbar"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputnamaperusahaan"
         android:layout_width="match_parent"
-        android:visibility="gone"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true" />
+        android:layout_below="@id/text_nama_perusahaan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiNamaPerusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_custom"
+            android:hint="Nama Perusahaan"
+            android:textColor="#B5B5B5"
+            android:textSize="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/text_email_perusahaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputnamaperusahaan"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Email Perusahaan"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputemailperusahaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_email_perusahaan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiEmailPerusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/text_email_perusahaan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_custom"
+            android:hint="Email Perusahaan"
+            android:textColor="#B5B5B5"
+            android:textSize="15dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/text_alamat_perusahaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputemailperusahaan"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Alamat Perusahaan"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputalamatperusahaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_alamat_perusahaan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiAlamatPerusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/text_alamat_perusahaan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_custom"
+            android:hint="Alamat Perusahaan"
+            android:textColor="#B5B5B5"
+            android:textSize="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputalamatperusahaan"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Password"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiPassword"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/text_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_custom"
+            android:hint="Password"
+            android:textColor="#B5B5B5"
+            android:textSize="15dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/text_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputpassword"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Confirm Password"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputconfirmpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_confirm_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/text_confirm_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_custom"
+            android:hint="Password"
+            android:textColor="#B5B5B5"
+            android:textSize="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/text_tentang_perusahaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputconfirmpassword"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Tentang Perusahaan"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputtentangperusahaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_tentang_perusahaan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiTentangPerusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_below="@id/text_tentang_perusahaan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_custom"
+            android:textColor="#B5B5B5"
+            android:textSize="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Button
+        android:id="@+id/daftar_perusahaan"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/daftar"
+        android:text="Daftar"
+        android:textAllCaps="false"
+        android:theme="@style/btn_black" />
 
 </RelativeLayout>
