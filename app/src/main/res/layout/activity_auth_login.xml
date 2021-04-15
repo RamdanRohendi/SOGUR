@@ -55,14 +55,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
         android:hint="Email"
-        app:endIconMode="clear_text"
-        app:errorEnabled="true"
         app:hintTextAppearance="@style/TextAppearance.AppCompat">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_email"
             android:layout_width="match_parent"
-            android:background="@drawable/border"
             android:layout_height="50dp"
             android:inputType="textEmailAddress" />
 
@@ -74,7 +71,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/inputemail"
-
         app:passwordToggleEnabled="true"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
@@ -85,7 +81,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_password"
             android:layout_width="match_parent"
-            android:background="@drawable/border"
             android:layout_height="50dp"
             android:inputType="textPassword" />
 

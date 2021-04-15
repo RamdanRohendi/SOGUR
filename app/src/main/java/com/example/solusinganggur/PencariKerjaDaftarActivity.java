@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.solusinganggur.entity.PencariKerja;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,9 +27,14 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-    private EditText edtNamaLengkap;
-    private EditText edtEmail;
-    private EditText edtPassword;
+    private EditText txtNamaLengkap;
+    private TextInputLayout inputLayoutNama;
+    private EditText txtEmail;
+    private TextInputLayout inputLayoutEmail;
+    private EditText txtPassword;
+    private TextInputLayout inputLayoutPassword;
+    private EditText txtConfirmPassword;
+    private TextInputLayout inputLayoutConfirmPassword;
     private Button btnDaftar;
 
     @Override
@@ -39,15 +45,45 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        edtNamaLengkap = findViewById(R.id.isiNama);
-        edtEmail = findViewById(R.id.isiEmail);
-        edtPassword = findViewById(R.id.isiPassword);
+        txtNamaLengkap = findViewById(R.id.isiNama);
+        inputLayoutNama = findViewById(R.id.inputnama);
+        txtEmail = findViewById(R.id.isiEmail);
+        inputLayoutEmail = findViewById(R.id.inputemail);
+        txtPassword = findViewById(R.id.isiPassword);
+        inputLayoutPassword = findViewById(R.id.inputpassword);
+        txtConfirmPassword = findViewById(R.id.isiConfirmPassword);
+        inputLayoutConfirmPassword = findViewById(R.id.inputconfirmpassword);
 
         btnDaftar = findViewById(R.id.daftar_pcrkerja);
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 daftar();
+
+                if (txtNamaLengkap.getText().toString().trim().isEmpty()) {
+                    inputLayoutNama.setError("Nama tidak boleh kosong");
+                    return;
+                }
+
+                if (txtEmail.getText().toString().trim().isEmpty()) {
+                    inputLayoutEmail.setError("Email tidak boleh kosong");
+                    return;
+                }
+
+                if (txtPassword.getText().toString().trim().isEmpty()) {
+                    inputLayoutPassword.setError("Password tidak boleh kosong");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(txtConfirmPassword.getText().toString()))
+                {
+                    inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
+
+                    if (!txtConfirmPassword.equals(txtPassword))
+                    {
+                        Toast.makeText(PencariKerjaDaftarActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }
@@ -57,9 +93,9 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         if (!validateForm()) {
             return;
         }
-
-        String email = edtEmail.getText().toString();
-        String password = edtPassword.getText().toString();
+        String nama = txtNamaLengkap.getText().toString();
+        String email = txtEmail.getText().toString();
+        String password = txtPassword.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -77,7 +113,7 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     }
 
     private void onAuthSuccess(FirebaseUser user) {
-        String username = edtNamaLengkap.getText().toString();
+        String username = txtNamaLengkap.getText().toString();
 
         writeNewPencariKerja(user.getUid(), username, user.getEmail());
 
@@ -89,28 +125,33 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     private boolean validateForm() {
         boolean result = true;
 
-        if (TextUtils.isEmpty(edtNamaLengkap.getText().toString())) {
-            edtNamaLengkap.setError("Mohon Isi Nama Lengkapnya !");
+        if (TextUtils.isEmpty(txtNamaLengkap.getText().toString())) {
             result = false;
         } else {
-            edtNamaLengkap.setError(null);
+            txtNamaLengkap.setError(null);
         }
 
-        if (TextUtils.isEmpty(edtEmail.getText().toString())) {
-            edtEmail.setError("Mohon Masukan Alamat Email Anda !");
+        if (TextUtils.isEmpty(txtEmail.getText().toString())) {
             result = false;
         } else {
-            edtEmail.setError(null);
+            txtEmail.setError(null);
         }
 
-        if (TextUtils.isEmpty(edtPassword.getText().toString())) {
-            edtPassword.setError("Mohon Masukan Password Anda !");
+        if (TextUtils.isEmpty(txtPassword.getText().toString())) {
             result = false;
         } else {
-            edtEmail.setError(null);
+            txtPassword.setError(null);
+        }
+
+        if (TextUtils.isEmpty(txtConfirmPassword.getText().toString())) {
+            result = false;
+        } else {
+            txtConfirmPassword.setError(null);
         }
 
         return result;
+
+
     }
 
     private void writeNewPencariKerja(String perjaId, String nama, String email) {
