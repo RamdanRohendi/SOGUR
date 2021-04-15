@@ -1,23 +1,23 @@
 package com.example.solusinganggur.entity;
 
-public class PencariKerja {
-    private String key;
+public class User {
     private String role;
-    private String namaLengkap;
+    private String key;
+    private String namaPerusahaan;
     private String email;
+    private String alamat;
+    private String tentangPerusahaan;
+    private String namaLengkap;
     private String jenisKelamin;
     private String ttl;
-    private String alamat;
     private String agama;
     private String nomorTelepon;
 
-    public PencariKerja() {
+    public User() {
     }
 
-    public PencariKerja(String role, String namaLengkap, String email) {
+    public User(String role) {
         this.role = role;
-        this.namaLengkap = namaLengkap;
-        this.email = email;
     }
 
     public String getRole() {
@@ -36,12 +36,12 @@ public class PencariKerja {
         this.key = key;
     }
 
-    public String getNamaLengkap() {
-        return namaLengkap;
+    public String getNamaPerusahaan() {
+        return namaPerusahaan;
     }
 
-    public void setNamaLengkap(String namaLengkap) {
-        this.namaLengkap = namaLengkap;
+    public void setNamaPerusahaan(String namaPerusahaan) {
+        this.namaPerusahaan = namaPerusahaan;
     }
 
     public String getEmail() {
@@ -50,6 +50,30 @@ public class PencariKerja {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getTentangPerusahaan() {
+        return tentangPerusahaan;
+    }
+
+    public void setTentangPerusahaan(String tentangPerusahaan) {
+        this.tentangPerusahaan = tentangPerusahaan;
+    }
+
+    public String getNamaLengkap() {
+        return namaLengkap;
+    }
+
+    public void setNamaLengkap(String namaLengkap) {
+        this.namaLengkap = namaLengkap;
     }
 
     public String getJenisKelamin() {
@@ -66,14 +90,6 @@ public class PencariKerja {
 
     public void setTtl(String ttl) {
         this.ttl = ttl;
-    }
-
-    public String getAlamat() {
-        return alamat;
-    }
-
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
     }
 
     public String getAgama() {
