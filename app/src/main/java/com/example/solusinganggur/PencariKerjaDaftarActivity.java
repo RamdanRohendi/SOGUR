@@ -7,12 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.solusinganggur.entity.PencariKerja;
+import com.example.solusinganggur.entity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,7 +31,10 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     private EditText edtNamaLengkap;
     private EditText edtEmail;
     private EditText edtPassword;
+    private EditText edtConfirmPassword;
     private Button btnDaftar;
+    private ProgressBar progressBar;
+    private String role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,11 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         edtNamaLengkap = findViewById(R.id.isiNama);
         edtEmail = findViewById(R.id.isiEmail);
         edtPassword = findViewById(R.id.isiPassword);
+        edtConfirmPassword = findViewById(R.id.isiConfirmPassword);
+
+        role = getIntent().getExtras().getString("role");
+
+        progressBar = findViewById(R.id.progressbar);
 
         btnDaftar = findViewById(R.id.daftar_pcrkerja);
         btnDaftar.setOnClickListener(new View.OnClickListener() {
@@ -61,11 +71,14 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();
 
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "daftar:onComplete:" + task.isSuccessful());
+
+                        progressBar.setVisibility(View.GONE);
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
@@ -79,7 +92,7 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     private void onAuthSuccess(FirebaseUser user) {
         String username = edtNamaLengkap.getText().toString();
 
-        writeNewPencariKerja(user.getUid(), username, user.getEmail());
+        writeNewPencariKerja(user.getUid(), role, username, user.getEmail());
 
         Toast.makeText(PencariKerjaDaftarActivity.this, "Daftar Berhasil !", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
@@ -110,16 +123,30 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
             edtEmail.setError(null);
         }
 
+        if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
+            edtConfirmPassword.setError("Mohon Masukan Password Anda !");
+            result = false;
+        } else {
+            edtConfirmPassword.setError(null);
+        }
+
         return result;
     }
 
-    private void writeNewPencariKerja(String perjaId, String nama, String email) {
-        PencariKerja pencariKerja = new PencariKerja(nama, email);
+    private void writeNewPencariKerja(String perjaId, String role, String nama, String email) {
+        PencariKerja pencariKerja = new PencariKerja(role, nama, email);
 
-        mDatabase.child("pencariKerja").child(perjaId).setValue(pencariKerja);
+        mDatabase.child("user").child(perjaId).setValue(pencariKerja);
     }
 
     public void kembali(View view) {
+        startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
         finish();
     }
 }

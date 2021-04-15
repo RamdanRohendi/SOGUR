@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.solusinganggur.entity.PencariKerja;
+import com.example.solusinganggur.entity.Perusahaan;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -31,6 +32,7 @@ public class AuthAfterLoginActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference reference;
     private String getUserID;
+    private String role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,30 +47,58 @@ public class AuthAfterLoginActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
 
+        role = getIntent().getExtras().getString("role");
+
         txtWelcome = findViewById(R.id.welcome);
 
-        reference.child("pencariKerja").child(getUserID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                PencariKerja pencariKerja = snapshot.getValue(PencariKerja.class);
-                pencariKerja.setKey(snapshot.getKey());
+        if (role.equals("pencarikerja")) {
+            reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    PencariKerja pencariKerja = snapshot.getValue(PencariKerja.class);
+                    pencariKerja.setKey(snapshot.getKey());
 
-                txtWelcome.setText("Selamat Datang " + pencariKerja.getNamaLengkap());
-            }
+                    txtWelcome.setText("Selamat Datang " + pencariKerja.getNamaLengkap());
+                }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
-                Log.e("MyData", error.getDetails() + " " + error.getMessage());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+                    Log.e("MyData", error.getDetails() + " " + error.getMessage());
+                }
+            });
+        }
+
+        if (role.equals("perusahaan")) {
+            reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Perusahaan perusahaan = snapshot.getValue(Perusahaan.class);
+                    perusahaan.setKey(snapshot.getKey());
+
+                    txtWelcome.setText("Selamat Datang " + perusahaan.getNamaPerusahaan());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+                    Log.e("MyData", error.getDetails() + " " + error.getMessage());
+                }
+            });
+        }
 
         mulai = findViewById(R.id.btnstartjob);
         mulai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PencariKerjaMenuActivity.class));
-                finish();
+                if (role.equals("pencarikerja")) {
+                    startActivity(new Intent(getApplicationContext(), PencariKerjaMenuActivity.class));
+                    finish();
+                }
+                if (role.equals("perusahaan")) {
+                    startActivity(new Intent(getApplicationContext(), PerusahaanMenuActivity.class));
+                    finish();
+                }
             }
         });
     }
