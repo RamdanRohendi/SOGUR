@@ -58,6 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_nama_perusahaan"
+        style="@style/BorderedTextInputLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp">
 
@@ -68,7 +69,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_custom"
-            android:hint="Nama Perusahaan"
             android:textColor="#B5B5B5"
             android:textSize="15dp" />
 
@@ -91,6 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_email_perusahaan"
+        style="@style/BorderedTextInputLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp">
 
@@ -102,7 +103,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_custom"
-            android:hint="Email Perusahaan"
             android:textColor="#B5B5B5"
             android:textSize="15dp" />
 
@@ -126,6 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_alamat_perusahaan"
+        style="@style/BorderedTextInputLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp">
 
@@ -137,7 +138,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_custom"
-            android:hint="Alamat Perusahaan"
             android:textColor="#B5B5B5"
             android:textSize="15dp" />
 
@@ -161,6 +161,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_password"
+        style="@style/BorderedTextInputLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp">
 
@@ -172,7 +173,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_custom"
-            android:hint="Password"
             android:textColor="#B5B5B5"
             android:textSize="15dp" />
 
@@ -196,6 +196,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_confirm_password"
+        style="@style/BorderedTextInputLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp">
 
@@ -207,7 +208,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_custom"
-            android:hint="Password"
             android:textColor="#B5B5B5"
             android:textSize="15dp" />
 
@@ -230,6 +230,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_tentang_perusahaan"
+        style="@style/BorderedTextInputLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp">
 
@@ -240,13 +241,10 @@
             android:layout_below="@id/text_tentang_perusahaan"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:background="@drawable/edit_custom"
             android:textColor="#B5B5B5"
             android:textSize="15dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
 
     <Button
         android:id="@+id/daftar_perusahaan"
