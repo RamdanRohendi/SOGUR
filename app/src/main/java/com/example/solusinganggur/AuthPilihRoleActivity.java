@@ -34,10 +34,16 @@ public class AuthPilihRoleActivity extends AppCompatActivity implements View.OnC
                 startActivity(perusahaan);
                 break;
         }
-        ;
     }
 
     public void kembali(View view) {
+        startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
         finish();
     }
 }

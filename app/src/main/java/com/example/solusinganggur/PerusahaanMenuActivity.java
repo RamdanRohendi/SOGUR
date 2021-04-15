@@ -3,6 +3,7 @@ package com.example.solusinganggur;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -48,8 +49,7 @@ public class PerusahaanMenuActivity extends AppCompatActivity {
     public void keAdd(View view) {
         navDefault();
         txtAdd.setVisibility(View.VISIBLE);
-//        Fragment fragment = new PerusahaanAddFragment();
-//        loadFragment(fragment);
+        startActivity(new Intent(getApplicationContext(), PerusahaanAddLowonganActivity.class));
     }
 
     public void keChat(View view) {
@@ -62,8 +62,8 @@ public class PerusahaanMenuActivity extends AppCompatActivity {
     public void keProfile(View view) {
         navDefault();
         txtProfile.setVisibility(View.VISIBLE);
-//        Fragment fragment = new PerusahaanProfileFragment();
-//        loadFragment(fragment);
+        Fragment fragment = new PencariKerjaProfileFragment();
+        loadFragment(fragment);
     }
 
     public void navDefault() {

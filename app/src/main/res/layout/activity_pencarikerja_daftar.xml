@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/frame"
     tools:context=".PencariKerjaDaftarActivity">
 
@@ -56,18 +57,29 @@
         android:textColor="@color/black"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/isiNama"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputnama"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nama"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/nama"
+        android:layout_marginHorizontal="20dp"
+        app:endIconMode="clear_text"
+        style="@style/BorderedTextInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiNama"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/isiNama"
+        android:layout_below="@+id/inputnama"
         android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="35dp"
@@ -77,39 +89,32 @@
         android:textColor="@color/black"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/isiEmail"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputemail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/email"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/isiEmail"
-        android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="Username"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:layout_below="@id/email"
+        app:endIconMode="clear_text"
+        android:layout_marginHorizontal="20dp"
+        style="@style/BorderedTextInputLayout"
+        app:errorEnabled="true">
 
-    <EditText
-        android:id="@+id/isiUsername"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/username"
-        android:layout_centerHorizontal="true" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiEmail"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email"
+            android:layout_centerHorizontal="true"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/isiUsername"
+        android:layout_below="@id/inputemail"
         android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="35dp"
@@ -119,18 +124,32 @@
         android:textColor="@color/black"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/isiPassword"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputpassword"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/password"
+        app:passwordToggleEnabled="true"
+        android:layout_marginHorizontal="20dp"
+        style="@style/BorderedTextInputLayout"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiPassword"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/confirmPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/isiPassword"
+        android:layout_below="@+id/inputpassword"
         android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="35dp"
@@ -140,12 +159,25 @@
         android:textColor="@color/black"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/isiConfirmPassword"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputconfirmpassword"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/confirmPassword"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginHorizontal="20dp"
+        app:passwordToggleEnabled="true"
+        style="@style/BorderedTextInputLayout"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/isiConfirmPassword"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/confirmPassword"
+            android:layout_centerHorizontal="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/daftar_pcrkerja"
@@ -158,4 +190,5 @@
         android:text="Daftar"
         android:textAllCaps="false"
         android:theme="@style/btn_black" />
+
 </RelativeLayout>

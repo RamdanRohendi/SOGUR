@@ -5,12 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class PerusahaanAddLowonganActivity extends AppCompatActivity {
+public class PerusahaanDetailDaftarPelamarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perusahaan_add_lowongan);
+        setContentView(R.layout.activity_perusahaan_detail_daftar_pelamar);
     }
 
     public void kembali(View view) {

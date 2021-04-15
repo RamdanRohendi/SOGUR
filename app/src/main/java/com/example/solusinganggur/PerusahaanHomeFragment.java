@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -44,13 +45,21 @@ public class PerusahaanHomeFragment extends Fragment {
 //            }
 //        });
 
-//        ImageView notif = root.findViewById(R.id.ic_notif);
-//        notif.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getActivity(), PerusahaanNotifikasiActivity.class));
-//            }
-//        });
+        ConstraintLayout daftarPelamar = root.findViewById(R.id.pelamar);
+        daftarPelamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), PerusahaanDaftarPelamarActivity.class));
+            }
+        });
+
+        ImageView notif = root.findViewById(R.id.ic_notif);
+        notif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), PencariKerjaNotifikasiActivity.class));
+            }
+        });
 
         return root;
     }
