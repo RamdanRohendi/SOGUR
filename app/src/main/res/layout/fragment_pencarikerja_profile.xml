@@ -46,6 +46,7 @@
             android:text="Ujanghern"
             android:textColor="@color/black"
             android:textSize="10sp"
+            android:visibility="gone"
             app:layout_constraintLeft_toRightOf="@id/foto_profile"
             app:layout_constraintTop_toBottomOf="@id/layout_name" />
 
@@ -59,8 +60,49 @@
             android:text="Ujang Hernandez"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:visibility="gone"
             app:layout_constraintLeft_toRightOf="@id/foto_profile"
             app:layout_constraintTop_toBottomOf="@id/txtuser" />
+
+        <TextView
+            android:id="@+id/txtperusahaannama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/roboto"
+            android:text="PT. Nama Perusahaan"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@id/foto_profile"
+            app:layout_constraintTop_toBottomOf="@id/layout_name" />
+
+        <ImageView
+            android:id="@+id/ic_lokasi"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/ic_baseline_location_on_24"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@id/foto_profile"
+            app:layout_constraintTop_toBottomOf="@id/txtperusahaannama" />
+
+        <TextView
+            android:id="@+id/txtperusahaanlokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/roboto"
+            android:text="Ujang Hernandez"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@id/ic_lokasi"
+            app:layout_constraintTop_toBottomOf="@id/txtperusahaannama" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,12 +8,29 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.solusinganggur.entity.PencariKerja;
+import com.example.solusinganggur.entity.Perusahaan;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class PerusahaanHomeFragment extends Fragment {
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference reference;
+    private String getUserID;
+    private TextView txtUsername;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -21,35 +38,47 @@ public class PerusahaanHomeFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_perusahaan_home, container, false);
 
-//        CardView dashAccept = root.findViewById(R.id.pesan_accept);
-//        dashAccept.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getActivity(), PencariKerjaDetailAcceptedActivity.class));
-//            }
-//        });
-//
-//        CardView dashPending = root.findViewById(R.id.pesan_pending);
-//        dashPending.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getActivity(), PencariKerjaPendingActivity.class));
-//            }
-//        });
-//
-//        CardView dashReject = root.findViewById(R.id.pesan_reject);
-//        dashReject.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getActivity(), PencariKerjaRejectedActivity.class));
-//            }
-//        });
+        mAuth = FirebaseAuth.getInstance();
 
-        ConstraintLayout daftarPelamar = root.findViewById(R.id.pelamar);
+        FirebaseUser user = mAuth.getCurrentUser();
+        getUserID = user.getUid();
+
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference();
+
+        txtUsername = root.findViewById(R.id.txtnama_pengguna);
+
+        reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Perusahaan perusahaan = snapshot.getValue(Perusahaan.class);
+                if (perusahaan != null) {
+                    perusahaan.setKey(snapshot.getKey());
+
+                    txtUsername.setText(perusahaan.getNamaPerusahaan());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(getActivity(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            }
+        });
+
+        CardView daftarPelamar = root.findViewById(R.id.cardpelamar);
         daftarPelamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), PerusahaanDaftarPelamarActivity.class));
+            }
+        });
+
+        CardView statusLowongan = root.findViewById(R.id.cardstatus);
+        statusLowongan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), PerusahaanStatusLowonganActivity.class));
             }
         });
 

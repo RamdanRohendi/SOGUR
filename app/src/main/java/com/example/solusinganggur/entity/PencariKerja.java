@@ -1,94 +1,95 @@
 package com.example.solusinganggur.entity;
 
-public class PencariKerja {
-    private String key;
-    private String role;
-    private String namaLengkap;
-    private String email;
-    private String jenisKelamin;
-    private String ttl;
-    private String alamat;
-    private String agama;
-    private String nomorTelepon;
-
+public class PencariKerja extends User {
     public PencariKerja() {
     }
 
-    public PencariKerja(String role, String namaLengkap, String email) {
-        this.role = role;
-        this.namaLengkap = namaLengkap;
-        this.email = email;
+    public PencariKerja(String namaLengkap, String email) {
+        super.setNamaLengkap(namaLengkap);
+        super.setEmail(email);
     }
 
-    public String getRole() {
-        return role;
+    public PencariKerja(String email, String alamat, String namaLengkap, String jenisKelamin, String ttl, String agama, String nomorTelepon) {
+        super(email, alamat, namaLengkap, jenisKelamin, ttl, agama, nomorTelepon);
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
+    @Override
     public String getKey() {
-        return key;
+        return super.getKey();
     }
 
+    @Override
     public void setKey(String key) {
-        this.key = key;
+        super.setKey(key);
     }
 
-    public String getNamaLengkap() {
-        return namaLengkap;
-    }
-
-    public void setNamaLengkap(String namaLengkap) {
-        this.namaLengkap = namaLengkap;
-    }
-
+    @Override
     public String getEmail() {
-        return email;
+        return super.getEmail();
     }
 
+    @Override
     public void setEmail(String email) {
-        this.email = email;
+        super.setEmail(email);
     }
 
-    public String getJenisKelamin() {
-        return jenisKelamin;
-    }
-
-    public void setJenisKelamin(String jenisKelamin) {
-        this.jenisKelamin = jenisKelamin;
-    }
-
-    public String getTtl() {
-        return ttl;
-    }
-
-    public void setTtl(String ttl) {
-        this.ttl = ttl;
-    }
-
+    @Override
     public String getAlamat() {
-        return alamat;
+        return super.getAlamat();
     }
 
+    @Override
     public void setAlamat(String alamat) {
-        this.alamat = alamat;
+        super.setAlamat(alamat);
     }
 
+    @Override
+    public String getNamaLengkap() {
+        return super.getNamaLengkap();
+    }
+
+    @Override
+    public void setNamaLengkap(String namaLengkap) {
+        super.setNamaLengkap(namaLengkap);
+    }
+
+    @Override
+    public String getJenisKelamin() {
+        return super.getJenisKelamin();
+    }
+
+    @Override
+    public void setJenisKelamin(String jenisKelamin) {
+        super.setJenisKelamin(jenisKelamin);
+    }
+
+    @Override
+    public String getTtl() {
+        return super.getTtl();
+    }
+
+    @Override
+    public void setTtl(String ttl) {
+        super.setTtl(ttl);
+    }
+
+    @Override
     public String getAgama() {
-        return agama;
+        return super.getAgama();
     }
 
+    @Override
     public void setAgama(String agama) {
-        this.agama = agama;
+        super.setAgama(agama);
     }
 
+    @Override
     public String getNomorTelepon() {
-        return nomorTelepon;
+        return super.getNomorTelepon();
     }
 
+    @Override
     public void setNomorTelepon(String nomorTelepon) {
-        this.nomorTelepon = nomorTelepon;
+        super.setNomorTelepon(nomorTelepon);
     }
 }

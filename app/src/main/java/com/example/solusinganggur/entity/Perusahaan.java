@@ -1,69 +1,60 @@
 package com.example.solusinganggur.entity;
 
-public class Perusahaan {
-    private String key;
-    private String role;
-    private String namaPerusahaan;
-    private String email;
-    private String alamat;
-    private String tentangPerusahaan;
-
+public class Perusahaan extends User {
     public Perusahaan() {
     }
 
-    public Perusahaan(String role, String namaPerusahaan, String email, String alamat, String tentangPerusahaan) {
-        this.role = role;
-        this.namaPerusahaan = namaPerusahaan;
-        this.email = email;
-        this.alamat = alamat;
-        this.tentangPerusahaan = tentangPerusahaan;
+    public Perusahaan(String namaPerusahaan, String email, String alamat, String tentangPerusahaan) {
+        super(namaPerusahaan, email, alamat, tentangPerusahaan);
     }
 
+    @Override
     public String getKey() {
-        return key;
+        return super.getKey();
     }
 
+    @Override
     public void setKey(String key) {
-        this.key = key;
+        super.setKey(key);
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
+    @Override
     public String getNamaPerusahaan() {
-        return namaPerusahaan;
+        return super.getNamaPerusahaan();
     }
 
+    @Override
     public void setNamaPerusahaan(String namaPerusahaan) {
-        this.namaPerusahaan = namaPerusahaan;
+        super.setNamaPerusahaan(namaPerusahaan);
     }
 
+    @Override
     public String getEmail() {
-        return email;
+        return super.getEmail();
     }
 
+    @Override
     public void setEmail(String email) {
-        this.email = email;
+        super.setEmail(email);
     }
 
+    @Override
     public String getAlamat() {
-        return alamat;
+        return super.getAlamat();
     }
 
+    @Override
     public void setAlamat(String alamat) {
-        this.alamat = alamat;
+        super.setAlamat(alamat);
     }
 
+    @Override
     public String getTentangPerusahaan() {
-        return tentangPerusahaan;
+        return super.getTentangPerusahaan();
     }
 
+    @Override
     public void setTentangPerusahaan(String tentangPerusahaan) {
-        this.tentangPerusahaan = tentangPerusahaan;
+        super.setTentangPerusahaan(tentangPerusahaan);
     }
 }

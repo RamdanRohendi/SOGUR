@@ -16,6 +16,23 @@ public class User {
     public User() {
     }
 
+    public User(String email, String alamat, String namaLengkap, String jenisKelamin, String ttl, String agama, String nomorTelepon) {
+        this.email = email;
+        this.alamat = alamat;
+        this.namaLengkap = namaLengkap;
+        this.jenisKelamin = jenisKelamin;
+        this.ttl = ttl;
+        this.agama = agama;
+        this.nomorTelepon = nomorTelepon;
+    }
+
+    public User(String namaPerusahaan, String email, String alamat, String tentangPerusahaan) {
+        this.namaPerusahaan = namaPerusahaan;
+        this.email = email;
+        this.alamat = alamat;
+        this.tentangPerusahaan = tentangPerusahaan;
+    }
+
     public User(String role) {
         this.role = role;
     }

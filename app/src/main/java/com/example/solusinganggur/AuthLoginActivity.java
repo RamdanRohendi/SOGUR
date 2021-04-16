@@ -139,6 +139,9 @@ public class AuthLoginActivity extends AppCompatActivity {
 
     private void onAuthSuccess() {
         FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null) {
+            return;
+        }
         getUserID = user.getUid();
 
         reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
@@ -147,13 +150,16 @@ public class AuthLoginActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
                 User pengguna = snapshot.getValue(User.class);
 
-                role = pengguna.getRole();
+                if (pengguna != null) {
+                    role = pengguna.getRole();
 
-                Toast.makeText(getApplicationContext(), "Berhasil Login", Toast.LENGTH_SHORT).show();
-                Intent afterLogin = new Intent(getApplicationContext(), AuthAfterLoginActivity.class);
-                afterLogin.putExtra("role", role);
-                startActivity(afterLogin);
-                finish();
+                    Toast.makeText(getApplicationContext(), "Berhasil Login", Toast.LENGTH_SHORT).show();
+                    Intent afterLogin = new Intent(getApplicationContext(), AuthAfterLoginActivity.class);
+                    afterLogin.putExtra("role", role);
+                    startActivity(afterLogin);
+                    finish();
+                }
+
             }
 
             @Override

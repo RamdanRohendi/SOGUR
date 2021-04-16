@@ -12,12 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.solusinganggur.entity.PencariKerja;
+import com.example.solusinganggur.entity.Perusahaan;
+import com.example.solusinganggur.entity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,8 +37,12 @@ public class PencariKerjaProfileFragment extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference reference;
     private String getUserID;
+    private ImageView icLokasi;
     private TextView txtUsername;
     private TextView txtEmail;
+    private TextView txtPerusahaanNama;
+    private TextView txtPerusahaanLokasi;
+    private String role;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -52,14 +60,26 @@ public class PencariKerjaProfileFragment extends Fragment {
         txtUsername = root.findViewById(R.id.txtusername);
         txtEmail = root.findViewById(R.id.txtuser);
 
-        reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
+        txtPerusahaanNama = root.findViewById(R.id.txtperusahaannama);
+        txtPerusahaanLokasi = root.findViewById(R.id.txtperusahaanlokasi);
+        icLokasi = root.findViewById(R.id.ic_lokasi);
+
+        reference.child("user").child(getUserID).child("role").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                PencariKerja pencariKerja = snapshot.getValue(PencariKerja.class);
-                pencariKerja.setKey(snapshot.getKey());
+                role = String.valueOf(snapshot.getValue());
 
-                txtUsername.setText(pencariKerja.getNamaLengkap());
-                txtEmail.setText(pencariKerja.getEmail());
+                switch (role) {
+                    case "pencarikerja":
+                        PencariKerja pencariKerja = new PencariKerja();
+                        getData(role);
+                        break;
+                    case "perusahaan":
+                        Perusahaan perusahaan = new Perusahaan();
+                        getData(role);
+                        break;
+                }
+
             }
 
             @Override
@@ -73,7 +93,11 @@ public class PencariKerjaProfileFragment extends Fragment {
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PencariKerjaEditProfileActivity.class));
+                if (role.equals("pencarikerja")){
+                    startActivity(new Intent(getActivity(), PencariKerjaEditProfileActivity.class));
+                } else {
+                    startActivity(new Intent(getActivity(), Perusahaan_editprofileActivity.class));
+                }
             }
         });
 
@@ -143,6 +167,8 @@ public class PencariKerjaProfileFragment extends Fragment {
                 builder.setPositiveButton("HAPUS", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        hapusDataAkun();
+
                         FirebaseUser user = auth.getCurrentUser();
                         if (user != null) {
                             user.delete()
@@ -150,7 +176,7 @@ public class PencariKerjaProfileFragment extends Fragment {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(getActivity(), "Akun Berhasil Dihapus", Toast.LENGTH_SHORT).show();
+                                                Log.e("MyData", ": Berhasil Dihapus ^_^");
                                             }
                                         }
                                     });
@@ -171,6 +197,54 @@ public class PencariKerjaProfileFragment extends Fragment {
         });
 
         return root;
+    }
+
+    public void getData(String role) {
+        reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (role.equals("pencarikerja")) {
+                    PencariKerja user = snapshot.getValue(PencariKerja.class);
+
+                    if (user != null) {
+                        user.setKey(snapshot.getKey());
+
+                        txtUsername.setVisibility(View.VISIBLE);
+                        txtEmail.setVisibility(View.VISIBLE);
+                        txtUsername.setText(user.getNamaLengkap());
+                        txtEmail.setText(user.getEmail());
+                    }
+
+                } else if (role.equals("perusahaan")) {
+                    Perusahaan user = snapshot.getValue(Perusahaan.class);
+
+                    if (user != null) {
+                        user.setKey(snapshot.getKey());
+
+                        icLokasi.setVisibility(View.VISIBLE);
+                        txtPerusahaanNama.setVisibility(View.VISIBLE);
+                        txtPerusahaanLokasi.setVisibility(View.VISIBLE);
+                        txtPerusahaanNama.setText(user.getNamaPerusahaan());
+                        txtPerusahaanLokasi.setText(user.getAlamat());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(getActivity(),"Data Gagal Dimuat", Toast.LENGTH_SHORT).show();
+                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            }
+        });
+    }
+
+    public void hapusDataAkun() {
+        reference.child("user").child(getUserID).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.e("MyData", ": Berhasil dihapus ^_^");
+            }
+        });
     }
 
     @Override

@@ -52,36 +52,40 @@ public class AuthAfterLoginActivity extends AppCompatActivity {
         txtWelcome = findViewById(R.id.welcome);
 
         if (role.equals("pencarikerja")) {
-            reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
+            reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     PencariKerja pencariKerja = snapshot.getValue(PencariKerja.class);
-                    pencariKerja.setKey(snapshot.getKey());
+                    if (pencariKerja != null) {
+                        pencariKerja.setKey(snapshot.getKey());
 
-                    txtWelcome.setText("Selamat Datang " + pencariKerja.getNamaLengkap());
+                        txtWelcome.setText("Selamat Datang " + pencariKerja.getNamaLengkap());
+                    }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
                     Log.e("MyData", error.getDetails() + " " + error.getMessage());
                 }
             });
         }
 
         if (role.equals("perusahaan")) {
-            reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
+            reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Perusahaan perusahaan = snapshot.getValue(Perusahaan.class);
-                    perusahaan.setKey(snapshot.getKey());
+                    if (perusahaan != null) {
+                        perusahaan.setKey(snapshot.getKey());
 
-                    txtWelcome.setText("Selamat Datang " + perusahaan.getNamaPerusahaan());
+                        txtWelcome.setText("Selamat Datang " + perusahaan.getNamaPerusahaan());
+                    }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
                     Log.e("MyData", error.getDetails() + " " + error.getMessage());
                 }
             });

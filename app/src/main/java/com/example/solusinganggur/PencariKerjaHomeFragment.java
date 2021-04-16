@@ -46,13 +46,15 @@ public class PencariKerjaHomeFragment extends Fragment {
 
         txtUsername = root.findViewById(R.id.txtnama_pengguna);
 
-        reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
+        reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 PencariKerja pencariKerja = snapshot.getValue(PencariKerja.class);
-                pencariKerja.setKey(snapshot.getKey());
+                if (pencariKerja != null) {
+                    pencariKerja.setKey(snapshot.getKey());
 
-                txtUsername.setText(pencariKerja.getNamaLengkap());
+                    txtUsername.setText(pencariKerja.getNamaLengkap());
+                }
             }
 
             @Override

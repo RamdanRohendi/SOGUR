@@ -50,6 +50,7 @@ public class PerusahaanMenuActivity extends AppCompatActivity {
         navDefault();
         txtAdd.setVisibility(View.VISIBLE);
         startActivity(new Intent(getApplicationContext(), PerusahaanAddLowonganActivity.class));
+        navDefault();
     }
 
     public void keChat(View view) {

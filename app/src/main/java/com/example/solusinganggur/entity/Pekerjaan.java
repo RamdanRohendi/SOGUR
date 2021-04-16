@@ -1,6 +1,7 @@
 package com.example.solusinganggur.entity;
 
 public class Pekerjaan {
+    private String key;
     private String namaPerusahaan;
     private String namaHRD;
     private String alamatPerusahaan;
@@ -19,6 +20,19 @@ public class Pekerjaan {
         this.deskripsiPekerjaan = deskripsiPekerjaan;
         this.koordinatX = koordinatX;
         this.koordinatY = koordinatY;
+    }
+
+    public Pekerjaan(String namaPerusahaan, String deskripsiPekerjaan) {
+        this.namaPerusahaan = namaPerusahaan;
+        this.deskripsiPekerjaan = deskripsiPekerjaan;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
     }
 
     public String getNamaPerusahaan() {

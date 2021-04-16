@@ -54,18 +54,22 @@ public class AuthSplashScreenActivity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                             User pengguna = snapshot.getValue(User.class);
 
-                            if (pengguna.getRole().equals("pencarikerja")) {
-                                startActivity(new Intent(getApplicationContext(), PencariKerjaMenuActivity.class));
-                                finish();
+                            if (pengguna != null) {
+                                if (pengguna.getRole().equals("pencarikerja")) {
+                                    startActivity(new Intent(getApplicationContext(), PencariKerjaMenuActivity.class));
+                                    finish();
+                                } else {
+                                    startActivity(new Intent(getApplicationContext(), PerusahaanMenuActivity.class));
+                                    finish();
+                                }
                             } else {
-                                startActivity(new Intent(getApplicationContext(), PerusahaanMenuActivity.class));
-                                finish();
+                                firebaseAuth.signOut();
                             }
                         }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(getApplicationContext(), "Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "Data Gagal Dimuat", Toast.LENGTH_LONG).show();
                             Log.e("MyData", error.getDetails() + " " + error.getMessage());
                         }
                     });

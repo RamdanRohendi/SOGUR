@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.solusinganggur.entity.Pekerjaan;
 import com.example.solusinganggur.entity.PencariKerja;
 import com.example.solusinganggur.entity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -102,7 +103,6 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         if (!validateForm()) {
             return;
         }
-        String nama = edtNamaLengkap.getText().toString();
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();
 
@@ -174,9 +174,12 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     }
 
     private void writeNewPencariKerja(String perjaId, String role, String nama, String email) {
-        PencariKerja pencariKerja = new PencariKerja(role, nama, email);
+        PencariKerja pencariKerja = new PencariKerja(nama, email);
+        Pekerjaan pekerjaan = new Pekerjaan("none", "none");
 
-        mDatabase.child("user").child(perjaId).setValue(pencariKerja);
+        mDatabase.child("user").child(perjaId).child("role").setValue(role);
+        mDatabase.child("user").child(perjaId).child("data").setValue(pencariKerja);
+        mDatabase.child("user").child(perjaId).child("lowongan_pekerjaan").setValue(pekerjaan);
     }
 
     public void kembali(View view) {

@@ -49,7 +49,7 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
         edtWktPerusahaan = findViewById(R.id.edt_wkt_perusahaan);
         edtDeskPekerjaan= findViewById(R.id.edt_desk_pekerjaan);
 
-        reference.child("user").child(getUserID).addValueEventListener(new ValueEventListener() {
+        reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Perusahaan perusahaan = snapshot.getValue(Perusahaan.class);
@@ -62,7 +62,7 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
                 Log.e("MyData", error.getDetails() + " " + error.getMessage());
             }
         });
@@ -93,7 +93,7 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
 
         Pekerjaan pekerjaan = new Pekerjaan(namaPerusahaan, namaHrd, alamatPerusahaan, emailPerusahaan, waktuPerusahaan, deskPerusahaan, "", "");
 
-        reference.child("pekerjaan").push().child(namaPerusahaan + " - " + namaHrd).setValue(pekerjaan);
+        reference.child("pekerjaan").child("-MYN3H78pslh_Nj28mtO").setValue(pekerjaan);
     }
 
     public Boolean validasiInput() {

@@ -22,6 +22,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:background="@android:color/transparent"
+            android:onClick="kembali"
             android:src="@drawable/ic_arrowleft" />
 
         <TextView
@@ -36,126 +37,134 @@
             android:textSize="20dp" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp">
+        android:layout_below="@id/navbar">
 
-        <ImageView
-            android:id="@+id/gambar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_margin="30dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/ic_default_picture" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/namaperusahaan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/gambar"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="-10dp"
-            android:text="Nama Perusahaan"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
-        <EditText
-            android:id="@+id/edit1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/namaperusahaan"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="-10dp"
-            android:layout_marginRight="20dp" />
+            <ImageView
+                android:id="@+id/gambar"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_default_picture" />
 
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit1"
-            android:layout_margin="20dp"
-            android:text="Nama"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/namaperusahaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gambar"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-10dp"
+                android:text="Nama Perusahaan"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/edit2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/nama"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="-30dp"
-            android:layout_marginRight="20dp" />
+            <EditText
+                android:id="@+id/edit1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namaperusahaan"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginRight="20dp" />
 
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit2"
-            android:layout_margin="20dp"
-            android:text="Email"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit1"
+                android:layout_margin="20dp"
+                android:text="Nama"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/edit3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/email"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="-30dp"
-            android:layout_marginRight="20dp" />
+            <EditText
+                android:id="@+id/edit2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nama"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="20dp" />
 
-        <TextView
-            android:id="@+id/notelp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit3"
-            android:layout_margin="20dp"
-            android:text="No Telp/Fax"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit2"
+                android:layout_margin="20dp"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/edit4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/notelp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="-30dp"
-            android:layout_marginRight="20dp" />
+            <EditText
+                android:id="@+id/edit3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="20dp" />
 
-        <TextView
-            android:id="@+id/alamat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit4"
-            android:layout_margin="20dp"
-            android:text="Alamat"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/notelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit3"
+                android:layout_margin="20dp"
+                android:text="No Telp/Fax"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/edit5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/alamat"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="-30dp"
-            android:layout_marginRight="20dp" />
+            <EditText
+                android:id="@+id/edit4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/notelp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="20dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_below="@+id/edit5"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/roboto"
-            android:text="Simpan"
-            android:textAllCaps="false"
-            android:textSize="17dp"
-            android:theme="@style/btn_black" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/alamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit4"
+                android:layout_margin="20dp"
+                android:text="Alamat"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edit5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alamat"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="20dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@+id/edit5"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/roboto"
+                android:text="Simpan"
+                android:textAllCaps="false"
+                android:textSize="17dp"
+                android:theme="@style/btn_black" />
+        </RelativeLayout>
+
+    </ScrollView>
+
 </RelativeLayout>

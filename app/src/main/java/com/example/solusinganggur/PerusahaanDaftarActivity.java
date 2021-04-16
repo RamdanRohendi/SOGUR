@@ -1,6 +1,5 @@
 package com.example.solusinganggur;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.solusinganggur.entity.Pekerjaan;
 import com.example.solusinganggur.entity.Perusahaan;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,8 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-
 
 public class PerusahaanDaftarActivity extends AppCompatActivity {
     private static final String TAG = "DaftarPeranActivity";
@@ -175,9 +173,12 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
     }
 
     private void writeNewPerusahaan(String perjaId, String role, String nama, String email, String alamat, String tentang) {
-        Perusahaan perusahaan = new Perusahaan(role, nama, email, alamat, tentang);
+        Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang);
+        Pekerjaan pekerjaan = new Pekerjaan("none", "none");
 
-        mDatabase.child("user").child(perjaId).setValue(perusahaan);
+        mDatabase.child("user").child(perjaId).child("role").setValue(role);
+        mDatabase.child("user").child(perjaId).child("data").setValue(perusahaan);
+        mDatabase.child("user").child(perjaId).child("lowongan_pekerjaan").setValue(pekerjaan);
     }
 
     public void kembali(View view) {
