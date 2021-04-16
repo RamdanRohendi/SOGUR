@@ -53,18 +53,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/button_custom"
-        android:theme="@style/btn_rounded_white"
         android:src="@drawable/ic_pencarikerja"
-        />
+        android:theme="@style/btn_rounded_white" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pencari Kerja"
-        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:fontFamily="@font/mulish"
-        android:layout_centerHorizontal="true"
-        />
+        android:text="Pencari Kerja"
+        android:textColor="@color/black" />
 
     <ImageButton
         android:id="@+id/perusahaan"
@@ -75,17 +74,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
         android:background="@drawable/button_custom"
-       android:src="@drawable/ic_perusahaan"
-        android:theme="@style/btn_rounded_white"
-        android:textStyle="normal" />
+        android:src="@drawable/ic_perusahaan"
+        android:textStyle="normal"
+        android:theme="@style/btn_rounded_white" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Perusahaan"
-        android:fontFamily="@font/mulish"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/mulish"
+        android:text="Perusahaan"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

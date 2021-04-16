@@ -70,8 +70,14 @@ public class AuthSplashScreenActivity extends AppCompatActivity {
                         }
                     });
                 } else {
-                    startActivity(new Intent(getApplicationContext(), AuthIntroSatuActivity.class));
-                    finish();
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(getApplicationContext(), AuthIntroSatuActivity.class));
+                            finish();
+                        }
+                    }, 2000L);
                 }
             }
         };

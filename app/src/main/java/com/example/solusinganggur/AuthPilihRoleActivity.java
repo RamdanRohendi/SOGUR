@@ -4,21 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AuthPilihRoleActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button pncrKerja;
-    private Button perusahaan;
+    private ImageButton pncrKerja;
+    private ImageButton perusahaan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth_pilih_role);
 
-        pncrKerja = (Button) findViewById(R.id.pncrKerja);
+        pncrKerja = findViewById(R.id.pncrKerja);
         pncrKerja.setOnClickListener(this);
-        perusahaan = (Button) findViewById(R.id.perusahaan);
+        perusahaan = findViewById(R.id.perusahaan);
         perusahaan.setOnClickListener(this);
     }
 
