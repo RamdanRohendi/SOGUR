@@ -26,7 +26,7 @@
             android:src="@drawable/ic_arrowleft" />
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/editProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/gambar"
+                android:id="@+id/defaultPict"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="30dp"
@@ -59,161 +59,220 @@
                 android:id="@+id/nama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/gambar"
+                android:layout_below="@+id/defaultPict"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="-10dp"
                 android:text="Nama"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/edit1"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputnama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@id/nama"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-10dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginHorizontal="20dp"
+                app:endIconMode="clear_text"
+                style="@style/BorderedTextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editNama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="20dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/jenkel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edit1"
-                android:layout_margin="20dp"
+                android:layout_below="@+id/inputnama"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Jenis Kelamin"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/edit2"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputjenkel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@id/jenkel"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginHorizontal="20dp"
+                app:endIconMode="clear_text"
+                style="@style/BorderedTextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editJenkel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="20dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/ttl"
+                android:id="@+id/temtanlahir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edit2"
-                android:layout_margin="20dp"
+                android:layout_below="@+id/inputjenkel"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Tempat Tanggal Lahir"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/edit3"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputttl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ttl"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="20dp" />
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/temtanlahir"
+                android:layout_marginHorizontal="20dp"
+                app:endIconMode="clear_text"
+                style="@style/BorderedTextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTtl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/alamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edit3"
-                android:layout_margin="20dp"
+                android:layout_below="@+id/inputttl"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Alamat"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/edit4"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputalamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/alamat"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="20dp" />
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/alamat"
+                android:layout_marginHorizontal="20dp"
+                app:endIconMode="clear_text"
+                style="@style/BorderedTextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editAlamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/alamat"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/agama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edit4"
-                android:layout_margin="20dp"
+                android:layout_below="@+id/inputalamat"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Agama"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/edit5"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputagama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@id/agama"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginHorizontal="20dp"
+                app:endIconMode="clear_text"
+                style="@style/BorderedTextInputLayout">
 
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/edit5"
-                android:layout_margin="20dp"
-                android:text="Username"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editAgama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-30dp"
+                    android:layout_marginRight="20dp" />
 
-            <EditText
-                android:id="@+id/edit6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/username"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="20dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edit6"
-                android:layout_margin="20dp"
+                android:layout_below="@+id/inputagama"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Email"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/edit7"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@id/email"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginHorizontal="20dp"
+                app:endIconMode="clear_text"
+                style="@style/BorderedTextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-30dp"
+                    android:layout_marginRight="20dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/notelp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edit7"
-                android:layout_margin="20dp"
+                android:layout_below="@id/inputemail"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Nomor Telepon"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/edit8"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputnotelp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@id/notelp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginHorizontal="20dp"
+                app:endIconMode="clear_text"
+                style="@style/BorderedTextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editNotelp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-30dp"
+                    android:layout_marginRight="20dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/simpaneditprofile"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@+id/edit8"
+                android:layout_below="@+id/inputnotelp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/roboto"

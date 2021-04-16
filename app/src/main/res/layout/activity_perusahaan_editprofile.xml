@@ -40,7 +40,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/navbar">
+        android:layout_below="@+id/navbar"
+        android:layout_marginTop="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -150,12 +151,32 @@
                 android:layout_marginTop="-30dp"
                 android:layout_marginRight="20dp" />
 
+            <TextView
+                android:id="@+id/tentang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit5"
+                android:layout_margin="20dp"
+                android:text="Tentang Perusahaan"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edit6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tentang"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp" />
+
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@+id/edit5"
+                android:layout_below="@+id/edit6"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/roboto"
@@ -163,8 +184,8 @@
                 android:textAllCaps="false"
                 android:textSize="17dp"
                 android:theme="@style/btn_black" />
-        </RelativeLayout>
 
+        </RelativeLayout>
     </ScrollView>
 
 </RelativeLayout>

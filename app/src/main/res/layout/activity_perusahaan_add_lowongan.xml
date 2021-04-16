@@ -167,7 +167,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/desk_pekerjaan"
+                android:id="@+id/desk_perusahaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/edt_wkt_perusahaan"
@@ -182,7 +182,7 @@
                 android:id="@+id/edt_desk_pekerjaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/desk_pekerjaan"
+                android:layout_below="@id/desk_perusahaan"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="1dp"
                 android:gravity="top"
@@ -195,13 +195,24 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/nm_koordinator"
+                android:id="@+id/nm_koordinator1"
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
+                android:layout_height="20dp"
                 android:layout_below="@+id/edt_desk_pekerjaan"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/mulish"
-                android:text="Koordinat letak Perusahaan yang tertera                       pada Google Maps: "
+                android:text="Koordinat letak Perusahaan yang tertera"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nm_koordinator2"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@id/nm_koordinator1"
+                android:fontFamily="@font/mulish"
+                android:text="pada Google Maps: "
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -210,7 +221,7 @@
                 android:id="@+id/koordinatorx"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:layout_below="@+id/nm_koordinator"
+                android:layout_below="@+id/nm_koordinator2"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/mulish"
                 android:text="Koordinat X"
