@@ -79,6 +79,7 @@ public class AuthLoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
                 kosongkanEdt();
+                finish();
             }
         });
 

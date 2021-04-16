@@ -167,22 +167,22 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/desk_perusahaan"
+                android:id="@+id/desk_pekerjaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/edt_wkt_perusahaan"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/mulish"
-                android:text="Deskripsi Perusahaan"
+                android:text="Deskripsi Pekerjaan"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edt_desk_perusahaan"
+                android:id="@+id/edt_desk_pekerjaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/desk_perusahaan"
+                android:layout_below="@id/desk_pekerjaan"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="1dp"
                 android:gravity="top"
@@ -197,8 +197,13 @@
             <TextView
                 android:id="@+id/nm_koordinator1"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="20dp"
                 android:layout_below="@+id/edt_desk_perusahaan"
+=======
+                android:layout_height="43dp"
+                android:layout_below="@+id/edt_desk_pekerjaan"
+>>>>>>> 7cbefc429d3bb28d9b2c318c699437742313d3dd
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/mulish"
                 android:text="Koordinat letak Perusahaan yang tertera"

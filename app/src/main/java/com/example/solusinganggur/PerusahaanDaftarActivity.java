@@ -1,5 +1,6 @@
 package com.example.solusinganggur;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,27 +14,35 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.solusinganggur.entity.PencariKerja;
 import com.example.solusinganggur.entity.Perusahaan;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
+
 public class PerusahaanDaftarActivity extends AppCompatActivity {
     private static final String TAG = "DaftarPeranActivity";
-
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-    private EditText edtNamaPerusahaan;
-    private EditText edtEmail;
-    private EditText edtAlamat;
+
+    private EditText edtNamaPerusahaan;;
+    private TextInputLayout inputLayoutNamaPerusahaan;
+    private EditText edtEmailPerusahaan;
+    private TextInputLayout inputLayoutEmailPerusahaan;
+    private EditText edtAlamatPerusahaan;
+    private TextInputLayout inputLayoutAlamatPerusahaan;
     private EditText edtPassword;
+    private TextInputLayout inputLayoutPassword;
     private EditText edtConfirmPassword;
+    private TextInputLayout inputLayoutConfirmPassword;
     private EditText edtTentangPerusahaan;
+    private TextInputLayout inputTentangPerusahaan;
     private Button btnDaftar;
     private ProgressBar progressBar;
     private String role;
@@ -42,16 +51,21 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perusahaan_daftar);
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        edtNamaPerusahaan = findViewById(R.id.input_nama_perusahaan);
-        edtEmail = findViewById(R.id.input_email_perusahaan);
-        edtAlamat = findViewById(R.id.input_alamat_perusahaan);
-        edtPassword = findViewById(R.id.input_password);
-        edtConfirmPassword = findViewById(R.id.input_confirm_password);
-        edtTentangPerusahaan = findViewById(R.id.input_tentang_perusahaan);
+        edtNamaPerusahaan = findViewById(R.id.isiNamaPerusahaan);
+        inputLayoutNamaPerusahaan = findViewById(R.id.inputnamaperusahaan);
+        edtEmailPerusahaan = findViewById(R.id.isiEmailPerusahaan);
+        inputLayoutEmailPerusahaan = findViewById(R.id.inputemailperusahaan);
+        edtAlamatPerusahaan = findViewById(R.id.isiAlamatPerusahaan);
+        inputLayoutAlamatPerusahaan = findViewById(R.id.inputalamatperusahaan);
+        edtPassword = findViewById(R.id.isiPassword);
+        inputLayoutPassword = findViewById(R.id.inputpassword);
+        edtConfirmPassword = findViewById(R.id.isiConfirmPassword);
+        inputLayoutConfirmPassword = findViewById(R.id.inputconfirmpassword);
+        edtTentangPerusahaan = findViewById(R.id.isiTentangPerusahaan);
+        inputTentangPerusahaan = findViewById(R.id.inputtentangperusahaan);
 
         role = getIntent().getExtras().getString("role");
 
@@ -72,7 +86,7 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
             return;
         }
 
-        String email = edtEmail.getText().toString();
+        String email = edtEmailPerusahaan.getText().toString();
         String password = edtPassword.getText().toString();
 
         progressBar.setVisibility(View.VISIBLE);
@@ -95,7 +109,7 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
 
     private void onAuthSuccess(FirebaseUser user) {
         String username = edtNamaPerusahaan.getText().toString();
-        String alamat = edtAlamat.getText().toString();
+        String alamat = edtAlamatPerusahaan.getText().toString();
         String tentang = edtTentangPerusahaan.getText().toString();
 
         writeNewPerusahaan(user.getUid(), role, username, user.getEmail(), alamat, tentang);
@@ -109,45 +123,52 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
         boolean result = true;
 
         if (TextUtils.isEmpty(edtNamaPerusahaan.getText().toString())) {
-            edtNamaPerusahaan.setError("Mohon Isi Nama Lengkapnya !");
+            inputLayoutNamaPerusahaan.setError("Nama Perusahaan tidak boleh kosong");
             result = false;
         } else {
-            edtNamaPerusahaan.setError(null);
+            inputLayoutNamaPerusahaan.setError(null);
         }
 
-        if (TextUtils.isEmpty(edtAlamat.getText().toString())) {
-            edtAlamat.setError("Mohon Isi Alamat Anda !");
+        if (TextUtils.isEmpty(edtEmailPerusahaan.getText().toString())) {
+            inputLayoutEmailPerusahaan.setError("Email Perusahaan tidak boleh kosong");
             result = false;
         } else {
-            edtAlamat.setError(null);
+            inputLayoutEmailPerusahaan.setError(null);
         }
 
-        if (TextUtils.isEmpty(edtTentangPerusahaan.getText().toString())) {
-            edtTentangPerusahaan.setError("Mohon Jelaskan Tentang Perusahaan Anda !");
+        if (TextUtils.isEmpty(edtAlamatPerusahaan.getText().toString())) {
+            inputLayoutAlamatPerusahaan.setError("Alamat Perusahaan tidak boleh kosong");
             result = false;
         } else {
-            edtTentangPerusahaan.setError(null);
-        }
-
-        if (TextUtils.isEmpty(edtEmail.getText().toString())) {
-            edtEmail.setError("Mohon Masukan Alamat Email Anda !");
-            result = false;
-        } else {
-            edtEmail.setError(null);
+            inputLayoutAlamatPerusahaan.setError(null);
         }
 
         if (TextUtils.isEmpty(edtPassword.getText().toString())) {
-            edtPassword.setError("Mohon Masukan Password Anda !");
+            inputLayoutPassword.setError("Password tidak boleh kosong");
             result = false;
         } else {
-            edtEmail.setError(null);
+            inputLayoutPassword.setError(null);
         }
 
         if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
-            edtConfirmPassword.setError("Mohon Masukan Password Anda !");
+            inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
             result = false;
         } else {
-            edtConfirmPassword.setError(null);
+            inputLayoutConfirmPassword.setError(null);
+        }
+
+        if (!edtConfirmPassword.getText().toString().equals(edtPassword.getText().toString())) {
+            inputLayoutConfirmPassword.setError("Password tidak sama");
+            result = false;
+        } else {
+            inputLayoutConfirmPassword.setError(null);
+        }
+
+        if (TextUtils.isEmpty(edtTentangPerusahaan.getText().toString())) {
+            inputTentangPerusahaan.setError("Tentang Perusahaan tidak boleh kosong");
+            result = false;
+        } else {
+            inputTentangPerusahaan.setError(null);
         }
 
         return result;
@@ -169,4 +190,5 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
         finish();
     }
+
 }
