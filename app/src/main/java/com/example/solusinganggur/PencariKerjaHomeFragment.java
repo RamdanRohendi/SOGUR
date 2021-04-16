@@ -57,7 +57,7 @@ public class PencariKerjaHomeFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getActivity(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
                 Log.e("MyData", error.getDetails() + " " + error.getMessage());
             }
         });
@@ -90,7 +90,7 @@ public class PencariKerjaHomeFragment extends Fragment {
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PencariKerjaNotifikasiActivity.class));
+                startActivity(new Intent(getActivity(), UserNotifikasi5Activity.class));
             }
         });
 

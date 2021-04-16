@@ -20,8 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolusiNganggur">
 
-        <activity android:name=".Perusahaan_editprofileActivity"></activity>
-        <activity android:name=".Notifikasi5Activity" />
+        <activity android:name=".Perusahaan_editprofileActivity" />
+        <activity android:name=".UserNotifikasi5Activity" />
 
         <activity android:name=".PerusahaanDetailDaftarPelamarActivity" />
         <activity
