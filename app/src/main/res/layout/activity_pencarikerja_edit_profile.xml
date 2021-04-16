@@ -26,7 +26,7 @@
             android:src="@drawable/ic_arrowleft" />
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/editProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/gambar"
+                android:id="@+id/defaultPict"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="30dp"
@@ -59,7 +59,7 @@
                 android:id="@+id/nama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/gambar"
+                android:layout_below="@+id/defaultPict"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="-10dp"
                 android:text="Nama"
@@ -85,7 +85,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <TextView
                 android:id="@+id/jenkel"
                 android:layout_width="wrap_content"
@@ -108,7 +107,7 @@
                 style="@style/BorderedTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editjenkel"
+                    android:id="@+id/editJenkel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-10dp"
@@ -259,7 +258,7 @@
                 style="@style/BorderedTextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit8"
+                    android:id="@+id/editNotelp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-30dp"
@@ -268,6 +267,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/simpaneditprofile"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@+id/inputnotelp"
