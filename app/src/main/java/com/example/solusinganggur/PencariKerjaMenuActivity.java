@@ -64,7 +64,7 @@ public class PencariKerjaMenuActivity extends AppCompatActivity {
     public void keProfile(View view) {
         navDefault();
         txtProfile.setVisibility(View.VISIBLE);
-        Fragment fragment = new PencariKerjaProfileFragment();
+        Fragment fragment = new UserProfileFragment();
         loadFragment(fragment);
     }
 
