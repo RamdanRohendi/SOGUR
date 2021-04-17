@@ -39,9 +39,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pesan_text"
-        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="137dp"
+        android:onClick="kembali"
         android:text="Kembali ke Dashboard"
         android:textColor="#FBB500" />
 

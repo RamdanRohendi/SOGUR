@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -15,8 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.solusinganggur.entity.Pekerjaan;
-import com.example.solusinganggur.entity.PencariKerja;
+import com.example.solusinganggur.entity.DetailPekerjaan;
 import com.example.solusinganggur.entity.Perusahaan;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -82,11 +80,11 @@ public class PerusahaanHomeFragment extends Fragment {
                 reference.child("user").child(getUserID).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Pekerjaan pekerjaan = snapshot.getValue(Pekerjaan.class);
+                        DetailPekerjaan detailPekerjaan = snapshot.getValue(DetailPekerjaan.class);
 
-                        if (pekerjaan != null) {
-                            double koorX = Double.parseDouble(pekerjaan.getKoordinatX());
-                            double koorY = Double.parseDouble(pekerjaan.getKoordinatY());
+                        if (detailPekerjaan != null) {
+                            double koorX = Double.parseDouble(detailPekerjaan.getKoordinatX());
+                            double koorY = Double.parseDouble(detailPekerjaan.getKoordinatY());
                             String namaPerusahaan = txtUsername.getText().toString();
 
                             Intent statusLowongan = new Intent(getActivity(), PerusahaanStatusLowonganActivity.class);

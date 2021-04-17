@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,22 +11,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/ic_bgsearch"
-        app:layout_constraintBottom_toTopOf="@id/grid_search"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:queryHint="Search..." />
 
     <GridView
         android:id="@+id/grid_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txt_search"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:numColumns="auto_fit"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_search"
+        android:numColumns="2"
         tools:listitem="@layout/item_list_pencarikerja_search" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

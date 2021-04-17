@@ -68,7 +68,7 @@
             android:layout_below="@+id/info_app"
             android:layout_marginLeft="17dp"
             android:layout_marginTop="20dp"
-            android:text="Aplikasi SOGUR diperuntukan bagi para pencari kerja yang mencari pekerjaan dengan mudah. Bagi perusahaan, aplikasi ini dapat mencari pekerja yang sesuai dengan kualifikasinya."
+            android:text="Aplikasi SOGUR diperuntukan bagi para pencari kerja yang mencari detailPekerjaan dengan mudah. Bagi perusahaan, aplikasi ini dapat mencari pekerja yang sesuai dengan kualifikasinya."
             android:textColor="@color/black"
             android:textSize="20dp" />
     </RelativeLayout>

@@ -3,9 +3,11 @@ package com.example.solusinganggur;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -24,7 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class PerusahaanStatusLowonganActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class PencariKerjaDetailSearchActivity extends AppCompatActivity implements OnMapReadyCallback {
     private TextView txtNamaPerusahaan;
     private TextView txtDetailAlamat;
     private TextView txtTglLowongan;
@@ -32,6 +34,7 @@ public class PerusahaanStatusLowonganActivity extends AppCompatActivity implemen
     private TextView txtDeskJob;
     private double txtKoordinatX;
     private double txtKoordinatY;
+    private Button btnLamar;
 
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
@@ -40,11 +43,15 @@ public class PerusahaanStatusLowonganActivity extends AppCompatActivity implemen
 
     private RelativeLayout mapLokasi;
     private String namaPerusahaan;
+    private String namaHRD;
+    private String detailAlamat;
+    private String tglLowongan;
+    private String deskJob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perusahaan_status_lowongan);
+        setContentView(R.layout.activity_pencari_kerja_detail_search);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAcc);
         mapFragment.getMapAsync(this);
 
@@ -60,36 +67,32 @@ public class PerusahaanStatusLowonganActivity extends AppCompatActivity implemen
         txtKoordinatX = getIntent().getExtras().getDouble("koorX");
         txtKoordinatY = getIntent().getExtras().getDouble("koorY");
         namaPerusahaan = getIntent().getExtras().getString("namaPerusahaan");
+        namaHRD = getIntent().getExtras().getString("namaHRD");
+        detailAlamat = getIntent().getExtras().getString("detailAlamat");
+        tglLowongan = getIntent().getExtras().getString("tglLowongan");
+        deskJob = getIntent().getExtras().getString("deskJob");
 
         txtNamaPerusahaan = findViewById(R.id.txt_nama_perusahaan);
         txtDetailAlamat = findViewById(R.id.txt_detail_alamat);
         txtTglLowongan = findViewById(R.id.txt_tgl_lowongan);
         txtNamaHRD = findViewById(R.id.txt_namaHRD);
         txtDeskJob = findViewById(R.id.txt_desc_job);
+        btnLamar = findViewById(R.id.btn_lamar);
 
-        reference.child("user").child(getUserID).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
+        txtNamaPerusahaan.setText(namaPerusahaan);
+        txtNamaHRD.setText(namaHRD);
+        txtDetailAlamat.setText(detailAlamat);
+        txtTglLowongan.setText(tglLowongan);
+        txtDeskJob.setText(deskJob);
+        if (koordinatKosong()) {
+            mapLokasi.setVisibility(View.GONE);
+        }
+
+        btnLamar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DetailPekerjaan detailPekerjaan = snapshot.getValue(DetailPekerjaan.class);
-
-                if (detailPekerjaan != null) {
-                    detailPekerjaan.setKey(snapshot.getKey());
-
-                    txtNamaPerusahaan.setText(detailPekerjaan.getNamaPerusahaan());
-                    txtNamaHRD.setText(detailPekerjaan.getNamaHRD());
-                    txtDetailAlamat.setText(detailPekerjaan.getAlamatPerusahaan());
-                    txtTglLowongan.setText(detailPekerjaan.getWaktuLowongan());
-                    txtDeskJob.setText(detailPekerjaan.getDeskripsiPekerjaan());
-                    if (koordinatKosong()) {
-                        mapLokasi.setVisibility(View.GONE);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
-                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), PencariKerjaAdditionalDataLamaranActvity.class));
+                finish();
             }
         });
     }
@@ -98,17 +101,18 @@ public class PerusahaanStatusLowonganActivity extends AppCompatActivity implemen
         return txtKoordinatX == 0 && txtKoordinatY == 0;
     }
 
+
+    public void kembali(View view) {
+        finish();
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         LatLng lokasi = new LatLng(txtKoordinatX, txtKoordinatY);
 
         googleMap.addMarker(new MarkerOptions()
-        .position(lokasi)
-        .title(namaPerusahaan));
+                .position(lokasi)
+                .title(namaPerusahaan));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(lokasi));
-    }
-
-    public void kembali(View view) {
-        finish();
     }
 }

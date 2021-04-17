@@ -13,9 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.solusinganggur.entity.Pekerjaan;
+import com.example.solusinganggur.entity.DetailPekerjaan;
 import com.example.solusinganggur.entity.PencariKerja;
-import com.example.solusinganggur.entity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -175,11 +174,11 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
 
     private void writeNewPencariKerja(String perjaId, String role, String nama, String email) {
         PencariKerja pencariKerja = new PencariKerja(nama, email);
-        Pekerjaan pekerjaan = new Pekerjaan("none", "none");
+        DetailPekerjaan detailPekerjaan = new DetailPekerjaan("none", "none");
 
         mDatabase.child("user").child(perjaId).child("role").setValue(role);
         mDatabase.child("user").child(perjaId).child("data").setValue(pencariKerja);
-        mDatabase.child("user").child(perjaId).child("lowongan_pekerjaan").setValue(pekerjaan);
+        mDatabase.child("user").child(perjaId).child("lowongan_pekerjaan").setValue(detailPekerjaan);
     }
 
     public void kembali(View view) {

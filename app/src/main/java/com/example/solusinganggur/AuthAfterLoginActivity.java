@@ -50,8 +50,10 @@ public class AuthAfterLoginActivity extends AppCompatActivity {
         role = getIntent().getExtras().getString("role");
 
         txtWelcome = findViewById(R.id.welcome);
+        mulai = findViewById(R.id.btnstartjob);
 
         if (role.equals("pencarikerja")) {
+            mulai.setText("Mulai Mencari Pekerjaan");
             reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -72,6 +74,7 @@ public class AuthAfterLoginActivity extends AppCompatActivity {
         }
 
         if (role.equals("perusahaan")) {
+            mulai.setText("Mulai Membuka Lowongan Pekerjaan");
             reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -91,7 +94,6 @@ public class AuthAfterLoginActivity extends AppCompatActivity {
             });
         }
 
-        mulai = findViewById(R.id.btnstartjob);
         mulai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

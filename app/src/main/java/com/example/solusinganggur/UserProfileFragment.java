@@ -17,10 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.solusinganggur.entity.Pekerjaan;
+import com.example.solusinganggur.entity.DetailPekerjaan;
 import com.example.solusinganggur.entity.PencariKerja;
 import com.example.solusinganggur.entity.Perusahaan;
-import com.example.solusinganggur.entity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -224,10 +223,10 @@ public class UserProfileFragment extends Fragment {
                         reference.child("user").child(getUserID).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Pekerjaan pekerjaan = snapshot.getValue(Pekerjaan.class);
+                                DetailPekerjaan detailPekerjaan = snapshot.getValue(DetailPekerjaan.class);
 
-                                if (pekerjaan != null) {
-                                    idPekerjaan = pekerjaan.getKey();
+                                if (detailPekerjaan != null) {
+                                    idPekerjaan = detailPekerjaan.getKey();
                                 }
                             }
 

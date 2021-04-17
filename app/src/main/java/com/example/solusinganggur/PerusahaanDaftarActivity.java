@@ -13,7 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.solusinganggur.entity.Pekerjaan;
+import com.example.solusinganggur.entity.DetailPekerjaan;
 import com.example.solusinganggur.entity.Perusahaan;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -179,11 +179,11 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
 
     private void writeNewPerusahaan(String perjaId, String role, String nama, String email, String alamat, String tentang) {
         Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang);
-        Pekerjaan pekerjaan = new Pekerjaan(nama, alamat, email);
+        DetailPekerjaan detailPekerjaan = new DetailPekerjaan(nama, alamat, email);
 
         mDatabase.child("user").child(perjaId).child("role").setValue(role);
         mDatabase.child("user").child(perjaId).child("data").setValue(perusahaan);
-        mDatabase.child("user").child(perjaId).child("lowongan_pekerjaan").setValue(pekerjaan);
+        mDatabase.child("user").child(perjaId).child("lowongan_pekerjaan").setValue(detailPekerjaan);
     }
 
     private void autoLogin() {
@@ -200,28 +200,28 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
     }
 
     private void addTemplatePekerjaan(String getUserID, String nama, String email, String alamat) {
-        Pekerjaan pekerjaan = new Pekerjaan(nama, alamat, email);
-        pekerjaan.setKoordinatX("0");
-        pekerjaan.setKoordinatY("0");
+        DetailPekerjaan detailPekerjaan = new DetailPekerjaan(nama, alamat, email);
+        detailPekerjaan.setKoordinatX("0");
+        detailPekerjaan.setKoordinatY("0");
         mDatabase.child("pekerjaan").push().child("idPerusahaan").setValue(getUserID);
 
         mDatabase.child("pekerjaan").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Pekerjaan dataPekerjaan = dataSnapshot.getValue(Pekerjaan.class);
-                    dataPekerjaan.setKey(dataSnapshot.getKey());
+                    DetailPekerjaan dataDetailPekerjaan = dataSnapshot.getValue(DetailPekerjaan.class);
+                    dataDetailPekerjaan.setKey(dataSnapshot.getKey());
 
-                    if (dataPekerjaan.getIdPerusahaan() == null) {
+                    if (dataDetailPekerjaan.getIdPerusahaan() == null) {
                         Toast.makeText(getApplicationContext(),"Data Kosong", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
-                    if (dataPekerjaan.getIdPerusahaan().equals(getUserID)) {
-                        mDatabase.child("pekerjaan").child(dataPekerjaan.getKey()).child("data").setValue(pekerjaan);
+                    if (dataDetailPekerjaan.getIdPerusahaan().equals(getUserID)) {
+                        mDatabase.child("pekerjaan").child(dataDetailPekerjaan.getKey()).child("data").setValue(detailPekerjaan);
 
-                        pekerjaan.setKey(dataPekerjaan.getKey());
-                        mDatabase.child("user").child(getUserID).child("lowongan_pekerjaan").setValue(pekerjaan);
+                        detailPekerjaan.setKey(dataDetailPekerjaan.getKey());
+                        mDatabase.child("user").child(getUserID).child("lowongan_pekerjaan").setValue(detailPekerjaan);
                         mAuth.signOut();
                     }
                 }
