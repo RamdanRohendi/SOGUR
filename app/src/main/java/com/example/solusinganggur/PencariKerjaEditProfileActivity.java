@@ -11,19 +11,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.solusinganggur.entity.PencariKerja;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class PencariKerjaEditProfileActivity extends AppCompatActivity {
     private static final String TAG = "PerjaEditProfActivity";
 
-    private DatabaseReference mDatabase;
+    private DatabaseReference reference;
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private String getUserID;
 
     private EditText edtNama;
     private TextInputLayout inputLayoutNama;
@@ -46,8 +54,11 @@ public class PencariKerjaEditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pencarikerja_edit_profile);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        reference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+
+        user = mAuth.getCurrentUser();
+        getUserID = user.getUid();
 
         edtNama = findViewById(R.id.editNama);
         edtJenkel = findViewById(R.id.editJenkel);
@@ -65,11 +76,35 @@ public class PencariKerjaEditProfileActivity extends AppCompatActivity {
         inputLayoutEmail = findViewById(R.id.inputemail);
         inputLayoutNotelp = findViewById(R.id.inputnotelp);
 
+        reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                PencariKerja pencariKerja = snapshot.getValue(PencariKerja.class);
+                if (pencariKerja.getAlamat() == null) {
+                    edtNama.setText(pencariKerja.getNamaLengkap());
+                    edtEmail.setText(pencariKerja.getEmail());
+                } else {
+                    edtNama.setText(pencariKerja.getNamaLengkap());
+                    edtEmail.setText(pencariKerja.getEmail());
+                    edtTtl.setText(pencariKerja.getTtl());
+                    edtJenkel.setText(pencariKerja.getJenisKelamin());
+                    edtAlamat.setText(pencariKerja.getAlamat());
+                    edtAgama.setText(pencariKerja.getAgama());
+                    edtNotelp.setText(pencariKerja.getNomorTelepon());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            }
+        });
+
         btnSimpan = findViewById(R.id.simpaneditprofile);
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                daftar();
+                editData();
 
                 if (edtNama.getText().toString().trim().isEmpty()) {
                     inputLayoutNama.setError("Nama tidak boleh kosong");
@@ -110,12 +145,43 @@ public class PencariKerjaEditProfileActivity extends AppCompatActivity {
         });
     }
 
-    private void daftar() {
+    private void editData() {
         Log.d(TAG, "daftar");
         if (!validateForm()) {
             return;
         }
 
+        String nama = edtNama.getText().toString().trim();
+        String jenkel = edtJenkel.getText().toString().trim();
+        String ttl = edtTtl.getText().toString().trim();
+        String alamat = edtAlamat.getText().toString().trim();
+        String agama = edtAgama.getText().toString().trim();
+        String email = edtEmail.getText().toString().trim();
+        String notlp = edtNotelp.getText().toString().trim();
+
+        PencariKerja pencariKerja = new PencariKerja(email, alamat, nama, jenkel, ttl, agama, notlp);
+
+        if (!user.getEmail().equals(email)) {
+            updateEmail(email);
+        }
+        reference.child("user").child(getUserID).child("data").setValue(pencariKerja).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(getApplicationContext(), "Data berhasil diubah", Toast.LENGTH_SHORT).show();
+            }
+        });
+        finish();
+    }
+
+    private void updateEmail(String email) {
+        user.updateEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "Email berhasil diubah", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private boolean validateForm() {
@@ -134,10 +200,7 @@ public class PencariKerjaEditProfileActivity extends AppCompatActivity {
         }
 
         return result;
-
-
     }
-
 
     public void kembali(View view) {
         finish();

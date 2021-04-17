@@ -4,8 +4,8 @@ public class Perusahaan extends User {
     public Perusahaan() {
     }
 
-    public Perusahaan(String namaPerusahaan, String email, String alamat, String tentangPerusahaan) {
-        super(namaPerusahaan, email, alamat, tentangPerusahaan);
+    public Perusahaan(String namaPerusahaan, String email, String alamat, String tentangPerusahaan, String nomorTelepon) {
+        super(namaPerusahaan, email, alamat, tentangPerusahaan, nomorTelepon);
     }
 
     @Override

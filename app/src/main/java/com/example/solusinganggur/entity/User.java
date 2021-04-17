@@ -26,11 +26,12 @@ public class User {
         this.nomorTelepon = nomorTelepon;
     }
 
-    public User(String namaPerusahaan, String email, String alamat, String tentangPerusahaan) {
+    public User(String namaPerusahaan, String email, String alamat, String tentangPerusahaan, String nomorTelepon) {
         this.namaPerusahaan = namaPerusahaan;
         this.email = email;
         this.alamat = alamat;
         this.tentangPerusahaan = tentangPerusahaan;
+        this.nomorTelepon = nomorTelepon;
     }
 
     public User(String role) {

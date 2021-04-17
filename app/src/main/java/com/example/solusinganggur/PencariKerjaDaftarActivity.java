@@ -29,6 +29,7 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+
     private EditText edtNamaLengkap;
     private TextInputLayout inputLayoutNama;
     private EditText edtEmail;
