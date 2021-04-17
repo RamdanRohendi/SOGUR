@@ -2,6 +2,7 @@ package com.example.solusinganggur.entity;
 
 public class Pekerjaan {
     private String key;
+    private String idPerusahaan;
     private String namaPerusahaan;
     private String namaHRD;
     private String alamatPerusahaan;
@@ -10,6 +11,9 @@ public class Pekerjaan {
     private String deskripsiPekerjaan;
     private String koordinatX;
     private String koordinatY;
+
+    public Pekerjaan() {
+    }
 
     public Pekerjaan(String namaPerusahaan, String namaHRD, String alamatPerusahaan, String emailPerusahaan, String waktuLowongan, String deskripsiPekerjaan, String koordinatX, String koordinatY) {
         this.namaPerusahaan = namaPerusahaan;
@@ -27,12 +31,26 @@ public class Pekerjaan {
         this.deskripsiPekerjaan = deskripsiPekerjaan;
     }
 
+    public Pekerjaan(String namaPerusahaan, String alamatPerusahaan, String emailPerusahaan) {
+        this.namaPerusahaan = namaPerusahaan;
+        this.alamatPerusahaan = alamatPerusahaan;
+        this.emailPerusahaan = emailPerusahaan;
+    }
+
     public void setKey(String key) {
         this.key = key;
     }
 
     public String getKey() {
         return key;
+    }
+
+    public String getIdPerusahaan() {
+        return idPerusahaan;
+    }
+
+    public void setIdPerusahaan(String idPerusahaan) {
+        this.idPerusahaan = idPerusahaan;
     }
 
     public String getNamaPerusahaan() {

@@ -3,6 +3,7 @@ package com.example.solusinganggur;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class PerusahaanAddLowonganActivity extends AppCompatActivity {
     private EditText edtNmPerusahaan, edtNmHrd, edtAlmPerusahaan, edtEmlPerusahaan, edtWktPerusahaan, edtDeskPekerjaan;
@@ -49,15 +52,21 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
         edtWktPerusahaan = findViewById(R.id.edt_wkt_perusahaan);
         edtDeskPekerjaan= findViewById(R.id.edt_desk_pekerjaan);
 
-        reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
+        reference.child("user").child(getUserID).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Perusahaan perusahaan = snapshot.getValue(Perusahaan.class);
-                perusahaan.setKey(snapshot.getKey());
+                Pekerjaan pekerjaan = snapshot.getValue(Pekerjaan.class);
 
-                edtNmPerusahaan.setText(perusahaan.getNamaPerusahaan());
-                edtAlmPerusahaan.setText(perusahaan.getAlamat());
-                edtEmlPerusahaan.setText(perusahaan.getEmail());
+                if (pekerjaan != null) {
+                    pekerjaan.setKey(snapshot.getKey());
+
+                    edtNmPerusahaan.setText(pekerjaan.getNamaPerusahaan());
+                    edtNmHrd.setText(pekerjaan.getNamaHRD());
+                    edtAlmPerusahaan.setText(pekerjaan.getAlamatPerusahaan());
+                    edtEmlPerusahaan.setText(pekerjaan.getEmailPerusahaan());
+                    edtWktPerusahaan.setText(pekerjaan.getWaktuLowongan());
+                    edtDeskPekerjaan.setText(pekerjaan.getDeskripsiPekerjaan());
+                }
             }
 
             @Override
@@ -84,6 +93,7 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
     }
 
     public void addPekerjaan() {
+        String idPerusahaan = getUserID;
         String namaPerusahaan = edtNmPerusahaan.getText().toString().trim();
         String namaHrd = edtNmHrd.getText().toString().trim();
         String alamatPerusahaan = edtAlmPerusahaan.getText().toString().trim();
@@ -93,7 +103,67 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
 
         Pekerjaan pekerjaan = new Pekerjaan(namaPerusahaan, namaHrd, alamatPerusahaan, emailPerusahaan, waktuPerusahaan, deskPerusahaan, "", "");
 
-        reference.child("pekerjaan").child("-MYN3H78pslh_Nj28mtO").setValue(pekerjaan);
+        reference.child("user").child(idPerusahaan).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Pekerjaan dataPekerjaan = snapshot.getValue(Pekerjaan.class);
+
+                reference.child("pekerjaan").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Pekerjaan pekerjaan1 = dataSnapshot.getValue(Pekerjaan.class);
+                            if (pekerjaan1.getKey() != null && dataPekerjaan.getKey() != null) {
+                                if (pekerjaan1.getKey().equals(dataPekerjaan.getKey())) {
+                                    reference.child("pekerjaan").child(pekerjaan1.getKey()).child("data").setValue(pekerjaan);
+                                }
+                            } else {
+                                Log.e("MyData", "Data Kosong");
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e("MyData", error.getDetails() + " " + error.getMessage());
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            }
+        });
+
+
+        reference.child("pekerjaan").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Pekerjaan dataPekerjaan = dataSnapshot.getValue(Pekerjaan.class);
+                    dataPekerjaan.setKey(dataSnapshot.getKey());
+
+                    if (dataPekerjaan.getIdPerusahaan() == null) {
+                        Toast.makeText(getApplicationContext(),"Data Kosong", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (dataPekerjaan.getIdPerusahaan().equals(getUserID)) {
+                        reference.child("pekerjaan").child(dataPekerjaan.getKey()).child("data").setValue(pekerjaan);
+
+                        pekerjaan.setKey(dataPekerjaan.getKey());
+                        reference.child("user").child(getUserID).child("lowongan_pekerjaan").setValue(pekerjaan);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            }
+        });
+
     }
 
     public Boolean validasiInput() {

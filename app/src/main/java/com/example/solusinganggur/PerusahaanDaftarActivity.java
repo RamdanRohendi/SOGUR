@@ -21,8 +21,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class PerusahaanDaftarActivity extends AppCompatActivity {
     private static final String TAG = "DaftarPeranActivity";
@@ -111,6 +114,8 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
         String tentang = edtTentangPerusahaan.getText().toString();
 
         writeNewPerusahaan(user.getUid(), role, username, user.getEmail(), alamat, tentang);
+        autoLogin();
+        addTemplatePekerjaan(user.getUid(), username, user.getEmail(), alamat);
 
         Toast.makeText(getApplicationContext(), "Daftar Berhasil !", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
@@ -174,11 +179,57 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
 
     private void writeNewPerusahaan(String perjaId, String role, String nama, String email, String alamat, String tentang) {
         Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang);
-        Pekerjaan pekerjaan = new Pekerjaan("none", "none");
+        Pekerjaan pekerjaan = new Pekerjaan(nama, alamat, email);
 
         mDatabase.child("user").child(perjaId).child("role").setValue(role);
         mDatabase.child("user").child(perjaId).child("data").setValue(perusahaan);
         mDatabase.child("user").child(perjaId).child("lowongan_pekerjaan").setValue(pekerjaan);
+    }
+
+    private void autoLogin() {
+        String email = edtEmailPerusahaan.getText().toString();
+        String password = edtPassword.getText().toString();
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "login:onComplete:" + task.isSuccessful());
+                    }
+                });
+    }
+
+    private void addTemplatePekerjaan(String getUserID, String nama, String email, String alamat) {
+        Pekerjaan pekerjaan = new Pekerjaan(nama, alamat, email);
+        mDatabase.child("pekerjaan").push().child("idPerusahaan").setValue(getUserID);
+
+        mDatabase.child("pekerjaan").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Pekerjaan dataPekerjaan = dataSnapshot.getValue(Pekerjaan.class);
+                    dataPekerjaan.setKey(dataSnapshot.getKey());
+
+                    if (dataPekerjaan.getIdPerusahaan() == null) {
+                        Toast.makeText(getApplicationContext(),"Data Kosong", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (dataPekerjaan.getIdPerusahaan().equals(getUserID)) {
+                        mDatabase.child("pekerjaan").child(dataPekerjaan.getKey()).child("data").setValue(pekerjaan);
+
+                        pekerjaan.setKey(dataPekerjaan.getKey());
+                        mDatabase.child("user").child(getUserID).child("lowongan_pekerjaan").setValue(pekerjaan);
+                        mAuth.signOut();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            }
+        });
     }
 
     public void kembali(View view) {

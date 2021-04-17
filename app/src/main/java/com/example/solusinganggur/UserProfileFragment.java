@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.solusinganggur.entity.Pekerjaan;
 import com.example.solusinganggur.entity.PencariKerja;
 import com.example.solusinganggur.entity.Perusahaan;
 import com.example.solusinganggur.entity.User;
@@ -43,6 +44,7 @@ public class UserProfileFragment extends Fragment {
     private TextView txtPerusahaanNama;
     private TextView txtPerusahaanLokasi;
     private String role;
+    private String idPekerjaan;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -71,11 +73,9 @@ public class UserProfileFragment extends Fragment {
 
                 switch (role) {
                     case "pencarikerja":
-                        PencariKerja pencariKerja = new PencariKerja();
                         getData(role);
                         break;
                     case "perusahaan":
-                        Perusahaan perusahaan = new Perusahaan();
                         getData(role);
                         break;
                 }
@@ -221,6 +221,22 @@ public class UserProfileFragment extends Fragment {
                     if (user != null) {
                         user.setKey(snapshot.getKey());
 
+                        reference.child("user").child(getUserID).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                Pekerjaan pekerjaan = snapshot.getValue(Pekerjaan.class);
+
+                                if (pekerjaan != null) {
+                                    idPekerjaan = pekerjaan.getKey();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Log.e("MyData", error.getDetails() + " " + error.getMessage());
+                            }
+                        });
+
                         icLokasi.setVisibility(View.VISIBLE);
                         txtPerusahaanNama.setVisibility(View.VISIBLE);
                         txtPerusahaanLokasi.setVisibility(View.VISIBLE);
@@ -239,6 +255,13 @@ public class UserProfileFragment extends Fragment {
     }
 
     public void hapusDataAkun() {
+        reference.child("pekerjaan").child(idPekerjaan).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.e("MyData", ": Berhasil dihapus ^_^");
+            }
+        });
+
         reference.child("user").child(getUserID).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
