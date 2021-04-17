@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class PerusahaanAddLowonganActivity extends AppCompatActivity {
-    private EditText edtNmPerusahaan, edtNmHrd, edtAlmPerusahaan, edtEmlPerusahaan, edtWktPerusahaan, edtDeskPekerjaan;
+    private EditText edtNmPerusahaan, edtNmHrd, edtAlmPerusahaan, edtEmlPerusahaan, edtWktPerusahaan, edtDeskPekerjaan, edtKoordinatX, edtKoordinatY;
     private Button btnAdd;
 
     private FirebaseAuth mAuth;
@@ -50,7 +50,9 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
         edtAlmPerusahaan = findViewById(R.id.edt_alm_perusahaan);
         edtEmlPerusahaan = findViewById(R.id.edt_eml_perusahaan);
         edtWktPerusahaan = findViewById(R.id.edt_wkt_perusahaan);
-        edtDeskPekerjaan= findViewById(R.id.edt_desk_pekerjaan);
+        edtDeskPekerjaan = findViewById(R.id.edt_desk_pekerjaan);
+        edtKoordinatX = findViewById(R.id.edt_koordinatx);
+        edtKoordinatY = findViewById(R.id.edt_koordinaty);
 
         reference.child("user").child(getUserID).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,6 +68,10 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
                     edtEmlPerusahaan.setText(pekerjaan.getEmailPerusahaan());
                     edtWktPerusahaan.setText(pekerjaan.getWaktuLowongan());
                     edtDeskPekerjaan.setText(pekerjaan.getDeskripsiPekerjaan());
+                    if (!pekerjaan.getKoordinatX().equals("0") && !pekerjaan.getKoordinatY().equals("0")) {
+                        edtKoordinatX.setText(pekerjaan.getKoordinatX());
+                        edtKoordinatY.setText(pekerjaan.getKoordinatY());
+                    }
                 }
             }
 
@@ -100,8 +106,20 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
         String emailPerusahaan = edtEmlPerusahaan.getText().toString().trim();
         String waktuPerusahaan = edtWktPerusahaan.getText().toString().trim();
         String deskPerusahaan = edtDeskPekerjaan.getText().toString().trim();
+        String koordinatX = edtKoordinatX.getText().toString().trim();
+        String koordinatY = edtKoordinatY.getText().toString().trim();
 
-        Pekerjaan pekerjaan = new Pekerjaan(namaPerusahaan, namaHrd, alamatPerusahaan, emailPerusahaan, waktuPerusahaan, deskPerusahaan, "", "");
+        if (koordinatX.isEmpty() && koordinatY.isEmpty()) {
+            koordinatX = "0";
+            koordinatY = "0";
+        }
+
+        if (koordinatX == null && koordinatY == null) {
+            koordinatX = "0";
+            koordinatY = "0";
+        }
+
+        Pekerjaan pekerjaan = new Pekerjaan(namaPerusahaan, namaHrd, alamatPerusahaan, emailPerusahaan, waktuPerusahaan, deskPerusahaan, koordinatX, koordinatY);
 
         reference.child("user").child(idPerusahaan).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
             @Override
@@ -118,7 +136,7 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
                                     reference.child("pekerjaan").child(pekerjaan1.getKey()).child("data").setValue(pekerjaan);
                                 }
                             } else {
-                                Log.e("MyData", "Data Kosong");
+                                return;
                             }
                         }
                     }

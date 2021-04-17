@@ -201,6 +201,8 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
 
     private void addTemplatePekerjaan(String getUserID, String nama, String email, String alamat) {
         Pekerjaan pekerjaan = new Pekerjaan(nama, alamat, email);
+        pekerjaan.setKoordinatX("0");
+        pekerjaan.setKoordinatY("0");
         mDatabase.child("pekerjaan").push().child("idPerusahaan").setValue(getUserID);
 
         mDatabase.child("pekerjaan").addValueEventListener(new ValueEventListener() {

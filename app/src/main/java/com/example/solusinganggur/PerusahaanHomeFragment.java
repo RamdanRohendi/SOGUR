@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.solusinganggur.entity.Pekerjaan;
 import com.example.solusinganggur.entity.PencariKerja;
 import com.example.solusinganggur.entity.Perusahaan;
 import com.google.firebase.auth.FirebaseAuth;
@@ -78,7 +79,30 @@ public class PerusahaanHomeFragment extends Fragment {
         statusLowongan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PerusahaanStatusLowonganActivity.class));
+                reference.child("user").child(getUserID).child("lowongan_pekerjaan").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Pekerjaan pekerjaan = snapshot.getValue(Pekerjaan.class);
+
+                        if (pekerjaan != null) {
+                            double koorX = Double.parseDouble(pekerjaan.getKoordinatX());
+                            double koorY = Double.parseDouble(pekerjaan.getKoordinatY());
+                            String namaPerusahaan = txtUsername.getText().toString();
+
+                            Intent statusLowongan = new Intent(getActivity(), PerusahaanStatusLowonganActivity.class);
+                            statusLowongan.putExtra("namaPerusahaan", namaPerusahaan);
+                            statusLowongan.putExtra("koorX", koorX);
+                            statusLowongan.putExtra("koorY", koorY);
+                            startActivity(statusLowongan);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
+                        Log.e("MyData", error.getDetails() + " " + error.getMessage());
+                    }
+                });
             }
         });
 
