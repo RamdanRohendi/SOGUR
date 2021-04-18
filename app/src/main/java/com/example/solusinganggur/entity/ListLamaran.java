@@ -4,6 +4,7 @@ public class ListLamaran {
     private String key;
     private String namaPerusahaan;
     private String tglLamar;
+    private String status;
 
     public ListLamaran() {
     }
@@ -35,5 +36,13 @@ public class ListLamaran {
 
     public void setTglLamar(String tglMelamar) {
         this.tglLamar = tglMelamar;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

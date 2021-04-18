@@ -145,9 +145,11 @@ public class PencariKerjaAdditionalDataLamaranActvity extends AppCompatActivity 
 
         reference.child("user").child(getUserID).child("lowongan_pekerjaan").child(keyPekerjaan).child("tglLamar").setValue(tgl);
         reference.child("user").child(getUserID).child("lowongan_pekerjaan").child(keyPekerjaan).child("namaPerusahaan").setValue(detailPekerjaan.getNamaPerusahaan());
+        reference.child("user").child(getUserID).child("lowongan_pekerjaan").child(keyPekerjaan).child("status").setValue("pending");
         reference.child("pekerjaan").child(keyPekerjaan).child("pelamar").child(getUserID).setValue(pencariKerja).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
+                reference.child("pekerjaan").child(keyPekerjaan).child("pelamar").child(getUserID).child("status").setValue("pending");
                 startActivity(new Intent(getApplicationContext(), PencariKerjaKonfirmasiAdditionalDataLamaran.class));
                 finish();
             }
