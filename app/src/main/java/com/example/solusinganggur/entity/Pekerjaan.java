@@ -4,6 +4,7 @@ public class Pekerjaan {
     private String key;
     private String idPerusahaan;
     private DetailPekerjaan data;
+    private boolean publish;
 
     public Pekerjaan() {
     }
@@ -30,5 +31,13 @@ public class Pekerjaan {
 
     public void setData(DetailPekerjaan data) {
         this.data = data;
+    }
+
+    public boolean isPublish() {
+        return publish;
+    }
+
+    public void setPublish(boolean publish) {
+        this.publish = publish;
     }
 }

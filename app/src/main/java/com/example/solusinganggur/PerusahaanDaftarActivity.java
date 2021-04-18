@@ -219,6 +219,7 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
 
                     if (dataDetailPekerjaan.getIdPerusahaan().equals(getUserID)) {
                         mDatabase.child("pekerjaan").child(dataDetailPekerjaan.getKey()).child("data").setValue(detailPekerjaan);
+                        mDatabase.child("pekerjaan").child(dataDetailPekerjaan.getKey()).child("publish").setValue(false);
 
                         detailPekerjaan.setKey(dataDetailPekerjaan.getKey());
                         mDatabase.child("user").child(getUserID).child("lowongan_pekerjaan").setValue(detailPekerjaan);

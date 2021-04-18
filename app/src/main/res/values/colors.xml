@@ -22,7 +22,8 @@
         <item name="colorSecondary">@color/yellow_lighter</item>
     </style>
     <style name="btn_grey">
-        <item name="colorPrimaryDark">@color/grey</item>
+        <item name="colorPrimary">@color/grey</item>
+        <item name="android:textColor">@color/white</item>
     </style>
     <style name="btn_rounded_white">
         <item name="android:background">@drawable/btn_rounded</item>
