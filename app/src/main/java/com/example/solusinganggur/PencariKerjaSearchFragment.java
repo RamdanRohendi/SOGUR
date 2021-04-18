@@ -48,14 +48,18 @@ public class PencariKerjaSearchFragment extends Fragment {
                 Toast.makeText(getActivity(), listDetailPekerjaan.get(i).getNamaPerusahaan(), Toast.LENGTH_SHORT).show();
                 double koorX = Double.parseDouble(listDetailPekerjaan.get(i).getKoordinatX());
                 double koorY = Double.parseDouble(listDetailPekerjaan.get(i).getKoordinatY());
+                String keyPekerjaan = listDetailPekerjaan.get(i).getKey();
                 String namaPerusahaan = listDetailPekerjaan.get(i).getNamaPerusahaan();
+                String emailPerusahaan = listDetailPekerjaan.get(i).getEmailPerusahaan();
                 String namaHRD = listDetailPekerjaan.get(i).getNamaHRD();
                 String detailAlamat = listDetailPekerjaan.get(i).getAlamatPerusahaan();
                 String tglLowongan = listDetailPekerjaan.get(i).getWaktuLowongan();
                 String deskJob = listDetailPekerjaan.get(i).getDeskripsiPekerjaan();
 
                 Intent statusLowongan = new Intent(getActivity(), PencariKerjaDetailSearchActivity.class);
+                statusLowongan.putExtra("keyPekerjaan", keyPekerjaan);
                 statusLowongan.putExtra("namaPerusahaan", namaPerusahaan);
+                statusLowongan.putExtra("emailPerusahaan", emailPerusahaan);
                 statusLowongan.putExtra("namaHRD", namaHRD);
                 statusLowongan.putExtra("detailAlamat", detailAlamat);
                 statusLowongan.putExtra("tglLowongan", tglLowongan);
@@ -79,7 +83,7 @@ public class PencariKerjaSearchFragment extends Fragment {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Pekerjaan pekerjaan = dataSnapshot.getValue(Pekerjaan.class);
 
-                    pekerjaan.setKey(dataSnapshot.getKey());
+                    pekerjaan.getData().setKey(dataSnapshot.getKey());
                     listDetailPekerjaan.add(pekerjaan.getData());
                 }
 

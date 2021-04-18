@@ -36,17 +36,16 @@ public class PencariKerjaDetailSearchActivity extends AppCompatActivity implemen
     private double txtKoordinatY;
     private Button btnLamar;
 
-    private FirebaseAuth mAuth;
-    private FirebaseDatabase database;
-    private DatabaseReference reference;
-    private String getUserID;
-
     private RelativeLayout mapLokasi;
+    private String keyPekerjaan;
     private String namaPerusahaan;
+    private String emailPerusahaan;
     private String namaHRD;
     private String detailAlamat;
     private String tglLowongan;
     private String deskJob;
+    private String koorX;
+    private String koorY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,22 +54,18 @@ public class PencariKerjaDetailSearchActivity extends AppCompatActivity implemen
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAcc);
         mapFragment.getMapAsync(this);
 
-        mAuth = FirebaseAuth.getInstance();
-
-        FirebaseUser user = mAuth.getCurrentUser();
-        getUserID = user.getUid();
-
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference();
-
         mapLokasi = findViewById(R.id.map_lokasi);
         txtKoordinatX = getIntent().getExtras().getDouble("koorX");
         txtKoordinatY = getIntent().getExtras().getDouble("koorY");
+        keyPekerjaan = getIntent().getExtras().getString("keyPekerjaan");
         namaPerusahaan = getIntent().getExtras().getString("namaPerusahaan");
+        emailPerusahaan = getIntent().getExtras().getString("emailPerusahaan");
         namaHRD = getIntent().getExtras().getString("namaHRD");
         detailAlamat = getIntent().getExtras().getString("detailAlamat");
         tglLowongan = getIntent().getExtras().getString("tglLowongan");
         deskJob = getIntent().getExtras().getString("deskJob");
+        koorX = getIntent().getExtras().getString("koorX");
+        koorY = getIntent().getExtras().getString("koorY");
 
         txtNamaPerusahaan = findViewById(R.id.txt_nama_perusahaan);
         txtDetailAlamat = findViewById(R.id.txt_detail_alamat);
@@ -91,7 +86,17 @@ public class PencariKerjaDetailSearchActivity extends AppCompatActivity implemen
         btnLamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PencariKerjaAdditionalDataLamaranActvity.class));
+                Intent lamarPekerjaan = new Intent(getApplicationContext(), PencariKerjaAdditionalDataLamaranActvity.class);
+                lamarPekerjaan.putExtra("keyPekerjaan", keyPekerjaan);
+                lamarPekerjaan.putExtra("namaPerusahaan", namaPerusahaan);
+                lamarPekerjaan.putExtra("emailPerusahaan", emailPerusahaan);
+                lamarPekerjaan.putExtra("namaHRD", namaHRD);
+                lamarPekerjaan.putExtra("detailAlamat", detailAlamat);
+                lamarPekerjaan.putExtra("tglLowongan", tglLowongan);
+                lamarPekerjaan.putExtra("deskJob", deskJob);
+                lamarPekerjaan.putExtra("koorX", koorX);
+                lamarPekerjaan.putExtra("koorY", koorY);
+                startActivity(lamarPekerjaan);
                 finish();
             }
         });

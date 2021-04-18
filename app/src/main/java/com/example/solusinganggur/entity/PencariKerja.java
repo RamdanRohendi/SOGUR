@@ -4,9 +4,8 @@ public class PencariKerja extends User {
     public PencariKerja() {
     }
 
-    public PencariKerja(String namaLengkap, String email) {
-        super.setNamaLengkap(namaLengkap);
-        super.setEmail(email);
+    public PencariKerja(String email, String alamat, String namaLengkap, String nomorTelepon) {
+        super(email, alamat, namaLengkap, nomorTelepon);
     }
 
     public PencariKerja(String email, String alamat, String namaLengkap, String jenisKelamin, String ttl, String agama, String nomorTelepon) {

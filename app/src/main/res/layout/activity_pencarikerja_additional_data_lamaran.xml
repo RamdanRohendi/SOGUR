@@ -56,13 +56,13 @@
         android:background="@drawable/edit_custom3"
         android:hint="Nama"
         android:paddingHorizontal="15dp"
-        android:textColor="#B5B5B5"
         android:textSize="15dp" />
 
     <EditText
         android:id="@+id/input_alamat"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:layout_below="@id/input_nama"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="35dp"
@@ -70,7 +70,6 @@
         android:background="@drawable/edit_custom3"
         android:hint="Alamat"
         android:paddingHorizontal="15dp"
-        android:textColor="#B5B5B5"
         android:textSize="15dp" />
 
     <EditText
@@ -84,7 +83,6 @@
         android:background="@drawable/edit_custom3"
         android:hint="Nomor Telepon"
         android:paddingHorizontal="15dp"
-        android:textColor="#B5B5B5"
         android:textSize="15dp" />
 
     <EditText
@@ -98,7 +96,6 @@
         android:background="@drawable/edit_custom3"
         android:hint="Email"
         android:paddingHorizontal="15dp"
-        android:textColor="#B5B5B5"
         android:textSize="15dp" />
 
     <Button

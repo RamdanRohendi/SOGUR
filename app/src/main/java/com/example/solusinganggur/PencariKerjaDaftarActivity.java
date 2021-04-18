@@ -174,7 +174,7 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
     }
 
     private void writeNewPencariKerja(String perjaId, String role, String nama, String email) {
-        PencariKerja pencariKerja = new PencariKerja(nama, email);
+        PencariKerja pencariKerja = new PencariKerja(email, "", nama, "");
         DetailPekerjaan detailPekerjaan = new DetailPekerjaan("none", "none");
 
         mDatabase.child("user").child(perjaId).child("role").setValue(role);

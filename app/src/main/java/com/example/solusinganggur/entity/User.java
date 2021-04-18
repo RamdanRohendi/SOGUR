@@ -34,6 +34,13 @@ public class User {
         this.nomorTelepon = nomorTelepon;
     }
 
+    public User(String email, String alamat, String namaLengkap, String nomorTelepon) {
+        this.email = email;
+        this.alamat = alamat;
+        this.namaLengkap = namaLengkap;
+        this.nomorTelepon = nomorTelepon;
+    }
+
     public User(String role) {
         this.role = role;
     }
