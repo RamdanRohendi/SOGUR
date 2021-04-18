@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/checkmark"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/checkmark" />
+
+    <TextView
+        android:id="@+id/text_data_terkirim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkmark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="Data Lamaran Terkirim"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_pesan"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_data_terkirim"
+        android:layout_centerHorizontal="true"
+        android:text="Untuk memulai kembali Aplikasi SOGUR           silahkan klik link di bawah ini"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp" />
+
+
+    <TextView
+        android:id="@+id/kembali_ke_dashboard"
+        android:layout_below="@+id/text_pesan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Kembali ke Dashboard"
+        android:layout_marginTop="50dp"
+        android:textColor="#F8CF05" />
+
+</RelativeLayout>
