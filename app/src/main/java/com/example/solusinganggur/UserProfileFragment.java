@@ -104,7 +104,7 @@ public class UserProfileFragment extends Fragment {
         btnNotifikasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PencariKerjaNotifikasiActivity.class));
+                startActivity(new Intent(getActivity(), UserNotifikasi5Activity.class));
             }
         });
 

@@ -3,10 +3,16 @@ package com.example.solusinganggur;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class AuthAfterLoginActivity extends AppCompatActivity {
+    public static final int notifikasi = 1;
     private Button mulai;
     private TextView txtWelcome;
     private FirebaseAuth mAuth;
@@ -51,6 +58,9 @@ public class AuthAfterLoginActivity extends AppCompatActivity {
 
         txtWelcome = findViewById(R.id.welcome);
         mulai = findViewById(R.id.btnstartjob);
+
+        Intent splash = new Intent(getApplicationContext(), AuthSplashScreenActivity.class);
+        tampilNotif("Selamat Datang di Sogur", "Mulailah Mencari Pekerjaan atau Membuka Lowongan", splash);
 
         if (role.equals("pencarikerja")) {
             mulai.setText("Mulai Mencari Pekerjaan");
@@ -107,6 +117,27 @@ public class AuthAfterLoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void tampilNotif(String s, String s1, Intent intent) {
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), notifikasi, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
+        Notification notification;
+        notification = builder.setSmallIcon(R.drawable.bell_notifyellow)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
+                .setContentTitle(s)
+                .setSmallIcon(R.drawable.bell_notifyellow)
+                .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.mipmap.ic_launcher))
+                .setContentText(s1)
+                .build();
+
+        notification.flags |= Notification.FLAG_AUTO_CANCEL;
+
+        NotificationManager notificationManager = (NotificationManager) getApplicationContext()
+                .getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(notifikasi, notification);
     }
 
     @Override
