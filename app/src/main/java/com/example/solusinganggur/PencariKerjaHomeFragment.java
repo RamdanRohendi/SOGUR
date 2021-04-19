@@ -122,7 +122,7 @@ public class PencariKerjaHomeFragment extends Fragment {
         dashAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PencariKerjaDetailAcceptedActivity.class));
+                startActivity(new Intent(getActivity(), PencariKerjaAcceptedActivity.class));
             }
         });
 

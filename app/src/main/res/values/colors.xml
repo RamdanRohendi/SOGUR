@@ -12,6 +12,7 @@
     <color name="white_grey">#F6F6F6</color>
     <color name="yellow_darker">#99761F</color>
     <color name="grey">#C4C4C4</color>
+    <color name="darkgrey">#3C3C3C</color>
     <style name="btn_black">
         <item name="colorPrimary">@color/black</item>
     </style>
@@ -23,6 +24,10 @@
     </style>
     <style name="btn_grey">
         <item name="colorPrimary">@color/grey</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="btn_darkgrey">
+        <item name="colorPrimary">@color/darkgrey</item>
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="btn_rounded_white">
