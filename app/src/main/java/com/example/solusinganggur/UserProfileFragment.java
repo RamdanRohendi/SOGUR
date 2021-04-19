@@ -254,12 +254,14 @@ public class UserProfileFragment extends Fragment {
     }
 
     public void hapusDataAkun() {
-        reference.child("pekerjaan").child(idPekerjaan).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.e("MyData", ": Berhasil dihapus ^_^");
-            }
-        });
+        if (idPekerjaan != null) {
+            reference.child("pekerjaan").child(idPekerjaan).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Log.e("MyData", ": Berhasil dihapus ^_^");
+                }
+            });
+        }
 
         reference.child("user").child(getUserID).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

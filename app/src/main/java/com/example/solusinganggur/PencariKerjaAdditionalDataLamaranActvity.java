@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.solusinganggur.entity.DetailPekerjaan;
+import com.example.solusinganggur.entity.ListLamaran;
 import com.example.solusinganggur.entity.PencariKerja;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,8 +43,8 @@ public class PencariKerjaAdditionalDataLamaranActvity extends AppCompatActivity 
     private String detailAlamat;
     private String tglLowongan;
     private String deskJob;
-    private String koorX;
-    private String koorY;
+    private double koorX;
+    private double koorY;
 
     private EditText edtNama;
     private EditText edtAlamat;
@@ -76,10 +77,12 @@ public class PencariKerjaAdditionalDataLamaranActvity extends AppCompatActivity 
         detailAlamat = getIntent().getExtras().getString("detailAlamat");
         tglLowongan = getIntent().getExtras().getString("tglLowongan");
         deskJob = getIntent().getExtras().getString("deskJob");
-        koorX = getIntent().getExtras().getString("koorX");
-        koorY = getIntent().getExtras().getString("koorY");
+        koorX = getIntent().getExtras().getDouble("koorX");
+        koorY = getIntent().getExtras().getDouble("koorY");
+        String SkoorX = String.valueOf(koorX);
+        String SkoorY = String.valueOf(koorY);
 
-        detailPekerjaan = new DetailPekerjaan(namaPerusahaan, namaHRD, detailAlamat, emailPerusahaan, tglLowongan, deskJob, koorX, koorY);
+        detailPekerjaan = new DetailPekerjaan(namaPerusahaan, namaHRD, detailAlamat, emailPerusahaan, tglLowongan, deskJob, SkoorX, SkoorY);
         detailPekerjaan.setKey(keyPekerjaan);
 
         reference.child("user").child(getUserID).child("data").addValueEventListener(new ValueEventListener() {
@@ -142,10 +145,9 @@ public class PencariKerjaAdditionalDataLamaranActvity extends AppCompatActivity 
         String tgl = new SimpleDateFormat("EEEE, d MMMM yyyy").format(Calendar.getInstance().getTime());
 
         PencariKerja pencariKerja = new PencariKerja(email, alamat, nama, notlp);
+        ListLamaran lamaran = new ListLamaran(detailPekerjaan.getNamaPerusahaan(), detailPekerjaan.getAlamatPerusahaan(), detailPekerjaan.getNamaHRD(), tgl, "pending", detailPekerjaan.getKoordinatX(), detailPekerjaan.getKoordinatY());
 
-        reference.child("user").child(getUserID).child("lowongan_pekerjaan").child(keyPekerjaan).child("tglLamar").setValue(tgl);
-        reference.child("user").child(getUserID).child("lowongan_pekerjaan").child(keyPekerjaan).child("namaPerusahaan").setValue(detailPekerjaan.getNamaPerusahaan());
-        reference.child("user").child(getUserID).child("lowongan_pekerjaan").child(keyPekerjaan).child("status").setValue("pending");
+        reference.child("user").child(getUserID).child("lowongan_pekerjaan").child(keyPekerjaan).setValue(lamaran);
         reference.child("pekerjaan").child(keyPekerjaan).child("pelamar").child(getUserID).setValue(pencariKerja).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

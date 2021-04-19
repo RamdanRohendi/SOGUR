@@ -11,13 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.solusinganggur.AuthLupaPasswordActivity;
 import com.example.solusinganggur.PencariKerjaDetailPendingActivity;
-import com.example.solusinganggur.PencariKerjaPendingActivity;
 import com.example.solusinganggur.R;
-import com.example.solusinganggur.entity.DetailPekerjaan;
 import com.example.solusinganggur.entity.ListLamaran;
-import com.example.solusinganggur.entity.Pekerjaan;
 
 import java.util.ArrayList;
 
@@ -41,13 +37,26 @@ public class ItemListPendingAdapter extends RecyclerView.Adapter<ItemListPending
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final String namaPerusahaan = lamarans.get(position).getNamaPerusahaan();
         final String tglMelamar = lamarans.get(position).getTglLamar();
+        final String koorX = lamarans.get(position).getKoorX();
+        final String koorY = lamarans.get(position).getKoorY();
 
         holder.namaPerusahaan.setText(namaPerusahaan);
         holder.tglLamar.setText(tglMelamar);
         holder.itemPending.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                context.startActivity(new Intent(context, PencariKerjaDetailPendingActivity.class));
+                double DkoorX = Double.parseDouble(koorX);
+                double DkoorY = Double.parseDouble(koorY);
+
+                Intent detailLowongan = new Intent(context, PencariKerjaDetailPendingActivity.class);
+                detailLowongan.putExtra("keyLowongan", lamarans.get(position).getKey());
+                detailLowongan.putExtra("namaPerusahaan", lamarans.get(position).getNamaPerusahaan());
+                detailLowongan.putExtra("lokasiPerusahaan", lamarans.get(position).getAlamatPerusahaan());
+                detailLowongan.putExtra("namaHRD", lamarans.get(position).getNamaHRD());
+                detailLowongan.putExtra("tglLowongan", lamarans.get(position).getTglLamar());
+                detailLowongan.putExtra("koorX", DkoorX);
+                detailLowongan.putExtra("koorY", DkoorY);
+                context.startActivity(detailLowongan);
                 return true;
             }
         });

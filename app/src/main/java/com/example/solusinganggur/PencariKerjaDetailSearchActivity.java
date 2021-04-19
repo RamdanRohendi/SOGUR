@@ -94,8 +94,8 @@ public class PencariKerjaDetailSearchActivity extends AppCompatActivity implemen
                 lamarPekerjaan.putExtra("detailAlamat", detailAlamat);
                 lamarPekerjaan.putExtra("tglLowongan", tglLowongan);
                 lamarPekerjaan.putExtra("deskJob", deskJob);
-                lamarPekerjaan.putExtra("koorX", koorX);
-                lamarPekerjaan.putExtra("koorY", koorY);
+                lamarPekerjaan.putExtra("koorX", txtKoordinatX);
+                lamarPekerjaan.putExtra("koorY", txtKoordinatY);
                 startActivity(lamarPekerjaan);
                 finish();
             }
@@ -105,7 +105,6 @@ public class PencariKerjaDetailSearchActivity extends AppCompatActivity implemen
     private boolean koordinatKosong() {
         return txtKoordinatX == 0 && txtKoordinatY == 0;
     }
-
 
     public void kembali(View view) {
         finish();
