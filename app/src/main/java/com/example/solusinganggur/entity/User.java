@@ -4,6 +4,7 @@ public class User {
     private String role;
     private String key;
     private String namaPerusahaan;
+    private String namaHRD;
     private String email;
     private String alamat;
     private String tentangPerusahaan;
@@ -26,8 +27,9 @@ public class User {
         this.nomorTelepon = nomorTelepon;
     }
 
-    public User(String namaPerusahaan, String email, String alamat, String tentangPerusahaan, String nomorTelepon) {
+    public User(String namaPerusahaan, String email, String alamat, String tentangPerusahaan, String nomorTelepon, String namaHRD) {
         this.namaPerusahaan = namaPerusahaan;
+        this.namaHRD = namaHRD;
         this.email = email;
         this.alamat = alamat;
         this.tentangPerusahaan = tentangPerusahaan;
@@ -67,6 +69,14 @@ public class User {
 
     public void setNamaPerusahaan(String namaPerusahaan) {
         this.namaPerusahaan = namaPerusahaan;
+    }
+
+    public String getNamaHRD() {
+        return namaHRD;
+    }
+
+    public void setNamaHRD(String namaHRD) {
+        this.namaHRD = namaHRD;
     }
 
     public String getEmail() {

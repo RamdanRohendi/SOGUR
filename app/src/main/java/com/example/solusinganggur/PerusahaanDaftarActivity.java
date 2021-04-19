@@ -178,7 +178,7 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
     }
 
     private void writeNewPerusahaan(String perjaId, String role, String nama, String email, String alamat, String tentang) {
-        Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang, "");
+        Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang, "", "");
         DetailPekerjaan detailPekerjaan = new DetailPekerjaan(nama, alamat, email);
 
         mDatabase.child("user").child(perjaId).child("role").setValue(role);

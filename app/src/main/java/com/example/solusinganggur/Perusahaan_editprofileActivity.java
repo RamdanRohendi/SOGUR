@@ -37,6 +37,7 @@ public class Perusahaan_editprofileActivity extends AppCompatActivity {
     private DetailPekerjaan detailPekerjaan;
 
     private EditText edtNamaPerusahaan;
+    private EditText edtNamaHRD;
     private EditText edtEmailPerusahaan;
     private EditText edtNoTelpPerusahaan;
     private EditText edtAlamatPerusahaan;
@@ -55,6 +56,7 @@ public class Perusahaan_editprofileActivity extends AppCompatActivity {
         getUserID = user.getUid();
 
         edtNamaPerusahaan = findViewById(R.id.edit_namaperusahaan);
+        edtNamaHRD = findViewById(R.id.edit_namahrd);
         edtEmailPerusahaan = findViewById(R.id.edit_emailperusahaan);
         edtNoTelpPerusahaan = findViewById(R.id.edit_notelp);
         edtAlamatPerusahaan = findViewById(R.id.edit_alamatperusahaan);
@@ -67,6 +69,9 @@ public class Perusahaan_editprofileActivity extends AppCompatActivity {
                 Perusahaan perusahaan = snapshot.getValue(Perusahaan.class);
                 if (perusahaan.getNomorTelepon() != null) {
                     edtNoTelpPerusahaan.setText(perusahaan.getNomorTelepon());
+                }
+                if (perusahaan.getNamaHRD() != null) {
+                    edtNamaHRD.setText(perusahaan.getNamaHRD());
                 }
                 edtNamaPerusahaan.setText(perusahaan.getNamaPerusahaan());
                 edtEmailPerusahaan.setText(perusahaan.getEmail());
@@ -87,6 +92,11 @@ public class Perusahaan_editprofileActivity extends AppCompatActivity {
 
                 if (edtNamaPerusahaan.getText().toString().trim().isEmpty()) {
                     edtNamaPerusahaan.setError("Nama tidak boleh kosong");
+                    return;
+                }
+
+                if (edtNamaHRD.getText().toString().trim().isEmpty()) {
+                    edtNamaHRD.setError("Nama tidak boleh kosong");
                     return;
                 }
 
@@ -124,8 +134,9 @@ public class Perusahaan_editprofileActivity extends AppCompatActivity {
         String notlp = edtNoTelpPerusahaan.getText().toString().trim();
         String alamat = edtAlamatPerusahaan.getText().toString().trim();
         String tentang = edtTentangPerusahaan.getText().toString().trim();
-;
-        Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang, notlp);
+        String hrd = edtNamaHRD.getText().toString().trim();
+
+        Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang, notlp, hrd);
 
         if (!user.getEmail().equals(email)) {
             updateEmail(email);
@@ -146,6 +157,7 @@ public class Perusahaan_editprofileActivity extends AppCompatActivity {
                         if (pekerjaan.getIdPerusahaan().equals(getUserID)) {
                             detailPekerjaan = pekerjaan.getData();
                             detailPekerjaan.setNamaPerusahaan(nama);
+                            detailPekerjaan.setNamaHRD(hrd);
                             detailPekerjaan.setEmailPerusahaan(email);
                             detailPekerjaan.setAlamatPerusahaan(alamat);
                             reference.child("pekerjaan").child(dataSnapshot.getKey()).child("data").setValue(detailPekerjaan);
