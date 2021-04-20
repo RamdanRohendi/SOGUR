@@ -9,6 +9,8 @@ public class ListLamaran {
     private String status;
     private String koorX;
     private String koorY;
+    private FileDataLamaran cv;
+    private FileDataLamaran suratLamaran;
 
     public ListLamaran() {
     }
@@ -85,5 +87,21 @@ public class ListLamaran {
 
     public void setKoorY(String koorY) {
         this.koorY = koorY;
+    }
+
+    public FileDataLamaran getCv() {
+        return cv;
+    }
+
+    public void setCv(FileDataLamaran cv) {
+        this.cv = cv;
+    }
+
+    public FileDataLamaran getSuratLamaran() {
+        return suratLamaran;
+    }
+
+    public void setSuratLamaran(FileDataLamaran suratLamaran) {
+        this.suratLamaran = suratLamaran;
     }
 }

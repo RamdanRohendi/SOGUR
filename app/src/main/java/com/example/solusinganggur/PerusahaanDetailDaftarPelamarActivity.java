@@ -3,6 +3,8 @@ package com.example.solusinganggur;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.solusinganggur.entity.DetailPekerjaan;
+import com.example.solusinganggur.entity.FileDataLamaran;
 import com.example.solusinganggur.entity.PencariKerja;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,8 +34,12 @@ public class PerusahaanDetailDaftarPelamarActivity extends AppCompatActivity {
     private TextView txtalamatPelamar;
     private TextView txtnoTlpPelamar;
     private TextView txtemailPelamar;
+    private TextView txtCV;
+    private TextView txtSurat;
     private String keyPelamar;
     private String keyLowongan;
+    private String linkCV;
+    private String linkSurat;
     private Button btnTerima;
     private Button btnTolak;
 
@@ -52,6 +59,8 @@ public class PerusahaanDetailDaftarPelamarActivity extends AppCompatActivity {
         txtalamatPelamar = findViewById(R.id.alamat);
         txtnoTlpPelamar = findViewById(R.id.nohp);
         txtemailPelamar = findViewById(R.id.email);
+        txtCV = findViewById(R.id.cv);
+        txtSurat = findViewById(R.id.lamaran);
         btnTerima = findViewById(R.id.btn_terima);
         btnTolak = findViewById(R.id.btn_tolak);
 
@@ -84,6 +93,7 @@ public class PerusahaanDetailDaftarPelamarActivity extends AppCompatActivity {
                 DetailPekerjaan pekerjaan = snapshot.getValue(DetailPekerjaan.class);
                 if (pekerjaan != null) {
                     keyLowongan = pekerjaan.getKey();
+                    getDataFile();
                 }
             }
 
@@ -91,6 +101,24 @@ public class PerusahaanDetailDaftarPelamarActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 //                    Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
                 Log.e("MyData", error.getDetails() + " " + error.getMessage());
+            }
+        });
+
+        txtCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(linkCV));
+                startActivity(intent);
+            }
+        });
+
+        txtSurat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(linkSurat));
+                startActivity(intent);
             }
         });
 
@@ -119,6 +147,38 @@ public class PerusahaanDetailDaftarPelamarActivity extends AppCompatActivity {
                         finish();
                     }
                 });
+            }
+        });
+    }
+
+    private void getDataFile() {
+        reference.child("pekerjaan").child(keyLowongan).child("pelamar").child(keyPelamar).child("cv").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                FileDataLamaran dataLamaran = snapshot.getValue(FileDataLamaran.class);
+                if (dataLamaran != null) {
+                    linkCV = dataLamaran.getUrl();
+                    txtCV.setText(dataLamaran.getNama());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+        reference.child("pekerjaan").child(keyLowongan).child("pelamar").child(keyPelamar).child("surat").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                FileDataLamaran dataLamaran = snapshot.getValue(FileDataLamaran.class);
+                if (dataLamaran != null) {
+                    linkSurat = dataLamaran.getUrl();
+                    txtSurat.setText(dataLamaran.getNama());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
             }
         });
     }

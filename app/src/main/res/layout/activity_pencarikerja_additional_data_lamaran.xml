@@ -45,128 +45,145 @@
             android:textSize="15dp" />
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/input_nama"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_below="@id/perintah"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edit_custom3"
-        android:hint="Nama"
-        android:paddingHorizontal="15dp"
-        android:textSize="15dp" />
-
-    <EditText
-        android:id="@+id/input_alamat"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="45dp"
-        android:layout_below="@id/input_nama"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_custom3"
-        android:hint="Alamat"
-        android:paddingHorizontal="15dp"
-        android:textSize="15dp" />
+        android:layout_below="@id/perintah">
 
-    <EditText
-        android:id="@+id/input_nomor_telepon"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_below="@id/input_alamat"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_custom3"
-        android:hint="Nomor Telepon"
-        android:paddingHorizontal="15dp"
-        android:textSize="15dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/input_email"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_below="@id/input_nomor_telepon"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_custom3"
-        android:hint="Email"
-        android:paddingHorizontal="15dp"
-        android:textSize="15dp" />
+            <EditText
+                android:id="@+id/input_nama"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edit_custom3"
+                android:hint="Nama"
+                android:paddingHorizontal="15dp"
+                android:textSize="15dp" />
 
-    <TextView
-        android:id="@+id/upload_cv_text"
-        android:layout_below="@id/input_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload CV"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"/>
-    <Button
-        android:id="@+id/attach_file_cv"
-        android:layout_below="@id/upload_cv_text"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text="Pilih File"
-        android:textColor="@color/black"
-        android:textSize="12dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="20dp"
-        android:theme="@style/btn_rounded_white"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=".pdf"
-        android:layout_below="@id/upload_cv_text"
-        android:layout_toRightOf="@id/attach_file_cv"
-        android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/input_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/input_nama"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_custom3"
+                android:hint="Alamat"
+                android:minHeight="45dp"
+                android:paddingHorizontal="15dp"
+                android:textSize="15dp" />
 
-    <TextView
-        android:id="@+id/upload_lamaran_text"
-        android:layout_below="@id/attach_file_cv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Surat Lamaran"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"/>
-    <Button
-        android:id="@+id/attach_file_lamaran"
-        android:layout_below="@id/upload_lamaran_text"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text="Pilih File"
-        android:textColor="@color/black"
-        android:textSize="12dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="20dp"
-        android:theme="@style/btn_rounded_white"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=".pdf"
-        android:layout_below="@id/upload_lamaran_text"
-        android:layout_toRightOf="@id/attach_file_lamaran"
-        android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/input_nomor_telepon"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/input_alamat"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_custom3"
+                android:hint="Nomor Telepon"
+                android:paddingHorizontal="15dp"
+                android:textSize="15dp" />
 
-    <Button
-        android:id="@+id/btn_serahkan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="10dp"
-        android:fontFamily="@font/roboto"
-        android:text="Serahkan"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:theme="@style/btn_black" />
+            <EditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/input_nomor_telepon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_custom3"
+                android:hint="Email"
+                android:paddingHorizontal="15dp"
+                android:textSize="15dp" />
 
+            <TextView
+                android:id="@+id/upload_cv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/input_email"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Upload CV"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/attach_file_cv"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@id/upload_cv_text"
+                android:layout_marginLeft="20dp"
+                android:text="Pilih File"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:theme="@style/btn_rounded_white" />
+
+            <TextView
+                android:id="@+id/data_cv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upload_cv_text"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/attach_file_cv"
+                android:text=".pdf" />
+
+            <TextView
+                android:id="@+id/upload_lamaran_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/attach_file_cv"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Surat Lamaran"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/attach_file_lamaran"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@id/upload_lamaran_text"
+                android:layout_marginLeft="20dp"
+                android:text="Pilih File"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:theme="@style/btn_rounded_white" />
+
+            <TextView
+                android:id="@+id/data_lamaran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upload_lamaran_text"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/attach_file_lamaran"
+                android:text=".pdf" />
+
+            <Button
+                android:id="@+id/btn_serahkan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/attach_file_lamaran"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/roboto"
+                android:text="Serahkan"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:theme="@style/btn_black" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
