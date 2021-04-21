@@ -83,12 +83,18 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
                 if (edtPassword.getText().toString().trim().isEmpty()) {
                     inputLayoutPassword.setError("Password tidak boleh kosong");
                     return;
+                } String pass = edtPassword.getText().toString();
+                if(TextUtils.isEmpty(pass) || pass.length() < 6)
+                {
+                    inputLayoutPassword.setError("Minimal membutuhkan 6 karakter");
+                    return;
                 }
 
                 if (edtConfirmPassword.getText().toString().trim().isEmpty()) {
                     inputLayoutConfirmPassword.setError("Masukkan Confirm Password");
                     return;
                 }
+
             }
         });
     }
@@ -147,7 +153,7 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(edtPassword.getText().toString())) {
             result = false;
         } else {
-            edtPassword.setError(null);
+            inputLayoutPassword.setError(null);
         }
 
         if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
@@ -186,4 +192,5 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
         finish();
     }
+
 }

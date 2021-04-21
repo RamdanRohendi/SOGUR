@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/frame">
 
     <RelativeLayout
@@ -78,7 +79,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/edit_custom"
-                    android:textColor="#B5B5B5"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +113,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/edit_custom"
-                    android:textColor="#B5B5B5"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
 
 
@@ -147,7 +148,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/edit_custom"
-                    android:textColor="#B5B5B5"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -170,6 +171,7 @@
                 style="@style/BorderedTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
                 android:layout_below="@id/text_password"
                 android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="20dp">
@@ -182,7 +184,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/edit_custom"
-                    android:textColor="#B5B5B5"
+                    android:textColor="@color/black"
+                    android:inputType="textPassword"
                     android:textSize="15dp" />
 
 
@@ -205,6 +208,7 @@
                 style="@style/BorderedTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
                 android:layout_below="@id/text_confirm_password"
                 android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="20dp">
@@ -216,8 +220,9 @@
                     android:layout_below="@id/text_confirm_password"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
+                    android:inputType="textPassword"
                     android:background="@drawable/edit_custom"
-                    android:textColor="#B5B5B5"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -250,7 +255,7 @@
                     android:layout_below="@id/text_tentang_perusahaan"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:textColor="#B5B5B5"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
