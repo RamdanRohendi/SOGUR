@@ -85,14 +85,9 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(TextUtils.isEmpty(edtConfirmPassword.getText().toString()))
-                {
-                    inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
-
-                    if (!edtConfirmPassword.equals(edtPassword))
-                    {
-                        Toast.makeText(PencariKerjaDaftarActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
-                    }
+                if (edtPassword.getText().toString().trim().isEmpty()) {
+                    inputLayoutPassword.setError("Masukkan Confirm Password");
+                    return;
                 }
             }
         });
@@ -162,7 +157,6 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
-            edtConfirmPassword.setError("Mohon Masukan Password Anda !");
             result = false;
         } else {
             edtConfirmPassword.setError(null);
