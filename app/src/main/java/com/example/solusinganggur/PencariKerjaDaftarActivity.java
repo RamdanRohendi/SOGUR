@@ -85,8 +85,8 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (edtPassword.getText().toString().trim().isEmpty()) {
-                    inputLayoutPassword.setError("Masukkan Confirm Password");
+                if (edtConfirmPassword.getText().toString().trim().isEmpty()) {
+                    inputLayoutConfirmPassword.setError("Masukkan Confirm Password");
                     return;
                 }
             }
@@ -151,15 +151,17 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
+            inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
             result = false;
         } else {
-            edtConfirmPassword.setError(null);
+            inputLayoutConfirmPassword.setError(null);
         }
 
-        if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
+        if (!edtConfirmPassword.getText().toString().equals(edtPassword.getText().toString())) {
+            inputLayoutConfirmPassword.setError("Password tidak sama");
             result = false;
         } else {
-            edtConfirmPassword.setError(null);
+            inputLayoutConfirmPassword.setError(null);
         }
 
         return result;
