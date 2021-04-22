@@ -81,7 +81,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:background="@drawable/edit_costum2"
-            android:hint="  Ajukan pertanyaan mengenai SOGUR"
+            android:hint="Ajukan pertanyaan mengenai SOGUR"
+            android:paddingTop="5dp"
+            android:paddingHorizontal="7dp"
             android:gravity="top"
             android:textSize="15dp" />
 
