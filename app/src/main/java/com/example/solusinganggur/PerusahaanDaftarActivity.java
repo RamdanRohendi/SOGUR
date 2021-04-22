@@ -149,9 +149,18 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(edtPassword.getText().toString())) {
             inputLayoutPassword.setError("Password tidak boleh kosong");
             result = false;
+        }
+        String pass = edtPassword.getText().toString();
+        if(TextUtils.isEmpty(pass) || pass.length() < 6)
+        {
+            inputLayoutPassword.setError("Minimal membutuhkan 6 karakter");
+            result = false;
         } else {
             inputLayoutPassword.setError(null);
         }
+
+
+
 
         if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
             inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
