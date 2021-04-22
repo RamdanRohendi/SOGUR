@@ -4,8 +4,8 @@ public class Perusahaan extends User {
     public Perusahaan() {
     }
 
-    public Perusahaan(String namaPerusahaan, String email, String alamat, String tentangPerusahaan, String nomorTelepon) {
-        super(namaPerusahaan, email, alamat, tentangPerusahaan, nomorTelepon);
+    public Perusahaan(String namaPerusahaan, String email, String alamat, String tentangPerusahaan, String nomorTelepon, String namaHRD) {
+        super(namaPerusahaan, email, alamat, tentangPerusahaan, nomorTelepon, namaHRD);
     }
 
     @Override
@@ -26,6 +26,26 @@ public class Perusahaan extends User {
     @Override
     public void setNamaPerusahaan(String namaPerusahaan) {
         super.setNamaPerusahaan(namaPerusahaan);
+    }
+
+    @Override
+    public String getNamaHRD() {
+        return super.getNamaHRD();
+    }
+
+    @Override
+    public void setNamaHRD(String namaHRD) {
+        super.setNamaHRD(namaHRD);
+    }
+
+    @Override
+    public String getNomorTelepon() {
+        return super.getNomorTelepon();
+    }
+
+    @Override
+    public void setNomorTelepon(String nomorTelepon) {
+        super.setNomorTelepon(nomorTelepon);
     }
 
     @Override

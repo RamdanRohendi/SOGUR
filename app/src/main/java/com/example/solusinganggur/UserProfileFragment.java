@@ -104,7 +104,7 @@ public class UserProfileFragment extends Fragment {
         btnNotifikasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PencariKerjaNotifikasiActivity.class));
+                startActivity(new Intent(getActivity(), UserNotifikasi5Activity.class));
             }
         });
 
@@ -254,12 +254,14 @@ public class UserProfileFragment extends Fragment {
     }
 
     public void hapusDataAkun() {
-        reference.child("pekerjaan").child(idPekerjaan).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.e("MyData", ": Berhasil dihapus ^_^");
-            }
-        });
+        if (idPekerjaan != null) {
+            reference.child("pekerjaan").child(idPekerjaan).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Log.e("MyData", ": Berhasil dihapus ^_^");
+                }
+            });
+        }
 
         reference.child("user").child(getUserID).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

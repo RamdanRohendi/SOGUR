@@ -149,9 +149,18 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(edtPassword.getText().toString())) {
             inputLayoutPassword.setError("Password tidak boleh kosong");
             result = false;
+        }
+        String pass = edtPassword.getText().toString();
+        if(TextUtils.isEmpty(pass) || pass.length() < 6)
+        {
+            inputLayoutPassword.setError("Minimal membutuhkan 6 karakter");
+            result = false;
         } else {
             inputLayoutPassword.setError(null);
         }
+
+
+
 
         if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
             inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
@@ -178,7 +187,7 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
     }
 
     private void writeNewPerusahaan(String perjaId, String role, String nama, String email, String alamat, String tentang) {
-        Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang, "");
+        Perusahaan perusahaan = new Perusahaan(nama, email, alamat, tentang, "", "");
         DetailPekerjaan detailPekerjaan = new DetailPekerjaan(nama, alamat, email);
 
         mDatabase.child("user").child(perjaId).child("role").setValue(role);
@@ -219,6 +228,7 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
 
                     if (dataDetailPekerjaan.getIdPerusahaan().equals(getUserID)) {
                         mDatabase.child("pekerjaan").child(dataDetailPekerjaan.getKey()).child("data").setValue(detailPekerjaan);
+                        mDatabase.child("pekerjaan").child(dataDetailPekerjaan.getKey()).child("publish").setValue(false);
 
                         detailPekerjaan.setKey(dataDetailPekerjaan.getKey());
                         mDatabase.child("user").child(getUserID).child("lowongan_pekerjaan").setValue(detailPekerjaan);

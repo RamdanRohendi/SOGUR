@@ -1,6 +1,7 @@
 package com.example.solusinganggur;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -27,6 +28,11 @@ import android.widget.Toast;
 
 import com.example.solusinganggur.entity.PencariKerja;
 import com.example.solusinganggur.entity.User;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -38,8 +44,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
-public class AuthLoginActivity extends AppCompatActivity {
+public class AuthLoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "LoginActivity";
 
     private FirebaseAuth mAuth;
@@ -55,6 +62,10 @@ public class AuthLoginActivity extends AppCompatActivity {
     private TextInputLayout inputLayoutPassword;
     private ProgressBar progressBar;
     private String role;
+
+    GoogleSignInButton signInButton;
+    private GoogleApiClient googleApiClient;
+    private static final int SIGN_IN = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +120,36 @@ public class AuthLoginActivity extends AppCompatActivity {
                 kosongkanEdt();
             }
         });
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+
+        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
+
+        signInButton = findViewById(R.id.signingoogle);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+                startActivityForResult(intent, SIGN_IN);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == SIGN_IN){
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+
+            if(result.isSuccess()){
+                startActivity(new Intent(AuthLoginActivity.this, AuthAfterLoginActivity.class));
+                finish();
+            } else {
+                Toast.makeText(this, "Login gagal!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void login() {
@@ -216,6 +257,11 @@ public class AuthLoginActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 
     private class ValidasiTextWatcher implements TextWatcher {

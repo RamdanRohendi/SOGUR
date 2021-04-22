@@ -165,6 +165,8 @@ public class PerusahaanAddLowonganActivity extends AppCompatActivity {
 
                     if (dataDetailPekerjaan.getIdPerusahaan().equals(getUserID)) {
                         reference.child("pekerjaan").child(dataDetailPekerjaan.getKey()).child("data").setValue(detailPekerjaan);
+                        reference.child("pekerjaan").child(dataDetailPekerjaan.getKey()).child("publish").setValue(false);
+
 
                         detailPekerjaan.setKey(dataDetailPekerjaan.getKey());
                         reference.child("user").child(getUserID).child("lowongan_pekerjaan").setValue(detailPekerjaan);

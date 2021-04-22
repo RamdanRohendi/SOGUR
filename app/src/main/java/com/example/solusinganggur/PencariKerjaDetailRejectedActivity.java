@@ -1,14 +1,33 @@
 package com.example.solusinganggur;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class PencariKerjaDetailRejectedActivity extends FragmentActivity implements OnMapReadyCallback {
+    private TextView txtNamaPerusahaan;
+    private TextView txtLokasiPerusahaan;
+    private TextView txtNamaHRD;
+    private TextView txtTglLowongan;
+
+    private String keyLowongan;
+    private String namaPerusahaan;
+    private String lokasiPerusahaan;
+    private String namaHRD;
+    private String tglLowongan;
+    private double koorX;
+    private double koorY;
 
     private GoogleMap mMap;
 
@@ -18,10 +37,46 @@ public class PencariKerjaDetailRejectedActivity extends FragmentActivity impleme
         setContentView(R.layout.activity_pencarikerja_detail_rejected);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapRejected);
         mapFragment.getMapAsync(this);
+
+        txtNamaPerusahaan = findViewById(R.id.nama_perusahaan);
+        txtLokasiPerusahaan = findViewById(R.id.loc);
+        txtNamaHRD = findViewById(R.id.nama_hrd);
+        txtTglLowongan = findViewById(R.id.tgl_lowongan);
+
+        keyLowongan = getIntent().getExtras().getString("keyLowongan");
+        namaPerusahaan = getIntent().getExtras().getString("namaPerusahaan");
+        lokasiPerusahaan = getIntent().getExtras().getString("lokasiPerusahaan");
+        namaHRD = getIntent().getExtras().getString("namaHRD");
+        tglLowongan = getIntent().getExtras().getString("tglLowongan");
+        koorX = getIntent().getExtras().getDouble("koorX");
+        koorY = getIntent().getExtras().getDouble("koorY");
+
+        View fragment = findViewById(R.id.mapAcc);
+        if (koordinatKosong()) {
+            fragment.setVisibility(View.INVISIBLE);
+        }
+
+        txtNamaPerusahaan.setText(namaPerusahaan);
+        txtLokasiPerusahaan.setText(lokasiPerusahaan);
+        txtNamaHRD.setText(namaHRD);
+        txtTglLowongan.setText(tglLowongan);
+    }
+
+    private boolean koordinatKosong() {
+        return koorX == 0 && koorY == 0;
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        LatLng lokasi = new LatLng(koorX, koorY);
 
+        googleMap.addMarker(new MarkerOptions()
+                .position(lokasi)
+                .title(namaPerusahaan));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(lokasi));
+    }
+
+    public void kembali(View view) {
+        finish();
     }
 }

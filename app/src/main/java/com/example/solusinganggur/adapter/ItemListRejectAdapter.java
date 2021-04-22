@@ -11,17 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.solusinganggur.PencariKerjaDetailPendingActivity;
+import com.example.solusinganggur.PencariKerjaDetailRejectedActivity;
 import com.example.solusinganggur.R;
 import com.example.solusinganggur.entity.ListLamaran;
 
 import java.util.ArrayList;
 
-public class ItemListPendingAdapter extends RecyclerView.Adapter<ItemListPendingAdapter.ViewHolder> {
+public class ItemListRejectAdapter extends RecyclerView.Adapter<ItemListRejectAdapter.ViewHolder> {
     private ArrayList<ListLamaran> lamarans;
     private Context context;
 
-    public ItemListPendingAdapter(ArrayList<ListLamaran> lamarans, Context context) {
+    public ItemListRejectAdapter(ArrayList<ListLamaran> lamarans, Context context) {
         this.lamarans = lamarans;
         this.context = context;
     }
@@ -29,7 +29,7 @@ public class ItemListPendingAdapter extends RecyclerView.Adapter<ItemListPending
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_pencarikerja_pending, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_pencarikerja_rejected, parent, false);
         return new ViewHolder(view);
     }
 
@@ -42,13 +42,13 @@ public class ItemListPendingAdapter extends RecyclerView.Adapter<ItemListPending
 
         holder.namaPerusahaan.setText(namaPerusahaan);
         holder.tglLamar.setText(tglMelamar);
-        holder.itemPending.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.itemReject.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 double DkoorX = Double.parseDouble(koorX);
                 double DkoorY = Double.parseDouble(koorY);
 
-                Intent detailLowongan = new Intent(context, PencariKerjaDetailPendingActivity.class);
+                Intent detailLowongan = new Intent(context, PencariKerjaDetailRejectedActivity.class);
                 detailLowongan.putExtra("keyLowongan", lamarans.get(position).getKey());
                 detailLowongan.putExtra("namaPerusahaan", lamarans.get(position).getNamaPerusahaan());
                 detailLowongan.putExtra("lokasiPerusahaan", lamarans.get(position).getAlamatPerusahaan());
@@ -67,16 +67,17 @@ public class ItemListPendingAdapter extends RecyclerView.Adapter<ItemListPending
         return lamarans.size();
     }
 
+
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView namaPerusahaan;
         private TextView tglLamar;
-        private CardView itemPending;
+        private CardView itemReject;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             namaPerusahaan = itemView.findViewById(R.id.company);
             tglLamar = itemView.findViewById(R.id.tgl_lamar);
-            itemPending = itemView.findViewById(R.id.list_pending);
+            itemReject = itemView.findViewById(R.id.list_reject);
         }
     }
 }

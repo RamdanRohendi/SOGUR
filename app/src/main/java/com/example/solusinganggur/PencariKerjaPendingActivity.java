@@ -59,7 +59,9 @@ public class PencariKerjaPendingActivity extends AppCompatActivity {
                     ListLamaran lamaran = dataSnapshot.getValue(ListLamaran.class);
 
                     lamaran.setKey(dataSnapshot.getKey());
-                    dataLamaran.add(lamaran);
+                    if (lamaran.getStatus().equals("pending")) {
+                        dataLamaran.add(lamaran);
+                    }
                 }
 
                 adapter = new ItemListPendingAdapter(dataLamaran, getApplicationContext());

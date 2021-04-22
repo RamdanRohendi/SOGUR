@@ -76,10 +76,29 @@
                 android:layout_marginRight="20dp" />
 
             <TextView
-                android:id="@+id/email"
+                android:id="@+id/namahrd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/edit_namaperusahaan"
+                android:layout_margin="20dp"
+                android:text="Nama HRD"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edit_namahrd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namahrd"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/emailperusahaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_namahrd"
                 android:layout_margin="20dp"
                 android:text="Email"
                 android:textColor="@color/black"
@@ -89,7 +108,7 @@
                 android:id="@+id/edit_emailperusahaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/email"
+                android:layout_below="@id/emailperusahaan"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="-30dp"
                 android:layout_marginRight="20dp" />

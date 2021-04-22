@@ -84,7 +84,9 @@ public class PencariKerjaSearchFragment extends Fragment {
                     Pekerjaan pekerjaan = dataSnapshot.getValue(Pekerjaan.class);
 
                     pekerjaan.getData().setKey(dataSnapshot.getKey());
-                    listDetailPekerjaan.add(pekerjaan.getData());
+                    if (pekerjaan.isPublish()) {
+                        listDetailPekerjaan.add(pekerjaan.getData());
+                    }
                 }
 
                 ItemListSearchAdapter searchAdapter = new ItemListSearchAdapter(getActivity(), listDetailPekerjaan);

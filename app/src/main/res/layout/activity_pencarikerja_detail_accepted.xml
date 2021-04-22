@@ -1,124 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_grey"
     tools:context=".PencariKerjaDetailAcceptedActivity">
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/PtInfo"
-        android:layout_width="385dp"
+        android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_custom">
+        app:cardElevation="2dp">
 
         <TextView
+            android:id="@+id/nama_perusahaan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/mulish"
             android:text="PT. Indofood"
+            android:textColor="@color/black"
             android:textSize="16dp"
             android:textStyle="bold" />
-    </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <fragment
         android:id="@+id/mapAcc"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="380dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
         android:layout_below="@+id/PtInfo"
         android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp" />
 
-    <FrameLayout
-        android:id="@+id/frameContent"
-        android:layout_width="385dp"
-        android:layout_height="130dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/deskripsi_job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/mapAcc"
         android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/bg_custom">
+        android:background="@drawable/bg_custom"
+        app:cardElevation="2dp">
 
-        <ImageView
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/location" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/loc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="70dp"
-            android:fontFamily="@font/mulish"
-            android:text="Jl. Android No. 123"
-            android:textSize="13dp"
-            android:textStyle="bold" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="40dp"
-            android:src="@drawable/uservector" />
+                <ImageView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/location" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="42dp"
-            android:layout_marginRight="77dp"
-            android:fontFamily="@font/mulish"
-            android:text="Edmund Maxwell"
-            android:textSize="13dp"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/loc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/location"
+                    android:fontFamily="@font/mulish"
+                    android:text="Jl. Android No. 123"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="14dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/datevector" />
+                <ImageView
+                    android:id="@+id/ico_hrd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/location"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/uservector" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="72dp"
-            android:layout_marginRight="38dp"
-            android:fontFamily="@font/mulish"
-            android:text="Wednesday, 31 January 2021"
-            android:textSize="13dp"
-            android:textStyle="bold" />
-    </FrameLayout>
+                <TextView
+                    android:id="@+id/nama_hrd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_toRightOf="@id/ico_hrd"
+                    android:fontFamily="@font/mulish"
+                    android:text="Edmund Maxwell"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
 
-    <FrameLayout
+                <ImageView
+                    android:id="@+id/ico_tgl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ico_hrd"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/datevector" />
+
+                <TextView
+                    android:id="@+id/tgl_lowongan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nama_hrd"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/ico_tgl"
+                    android:fontFamily="@font/mulish"
+                    android:text="Wednesday, 31 January 2021"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/frameContent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="5dp"
-        android:background="@drawable/bg_custom2">
+        android:background="@color/white">
 
         <Button
             android:id="@+id/btn_chat"
-            android:layout_width="350dp"
+            style="@style/btn_yellow"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/btn_rounded"
+            android:layout_margin="20dp"
+            android:background="@color/yellow_lighter"
             android:fontFamily="sans-serif"
             android:text="Chat"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:theme="@style/btn_yellow" />
-    </FrameLayout>
+
+    </RelativeLayout>
+
 </RelativeLayout>

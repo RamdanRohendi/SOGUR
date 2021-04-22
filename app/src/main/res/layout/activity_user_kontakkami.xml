@@ -94,7 +94,18 @@
             android:orientation="horizontal">
 
             <Button
+<<<<<<< HEAD
                 android:layout_width="200dp"
+=======
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonround"
+                android:text="Batal" />
+
+            <Button
+                android:id="@+id/btn_kirim"
+                android:layout_width="wrap_content"
+>>>>>>> 011f5623e697a7ca82530d942b881eade7804ed4
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:background="@drawable/buttonround"

@@ -83,17 +83,18 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
                 if (edtPassword.getText().toString().trim().isEmpty()) {
                     inputLayoutPassword.setError("Password tidak boleh kosong");
                     return;
-                }
-
-                if(TextUtils.isEmpty(edtConfirmPassword.getText().toString()))
+                } String pass = edtPassword.getText().toString();
+                if(TextUtils.isEmpty(pass) || pass.length() < 6)
                 {
-                    inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
-
-                    if (!edtConfirmPassword.equals(edtPassword))
-                    {
-                        Toast.makeText(PencariKerjaDaftarActivity.this, "Password tidak sama", Toast.LENGTH_SHORT).show();
-                    }
+                    inputLayoutPassword.setError("Minimal membutuhkan 6 karakter");
+                    return;
                 }
+
+                if (edtConfirmPassword.getText().toString().trim().isEmpty()) {
+                    inputLayoutConfirmPassword.setError("Masukkan Confirm Password");
+                    return;
+                }
+
             }
         });
     }
@@ -152,20 +153,21 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(edtPassword.getText().toString())) {
             result = false;
         } else {
-            edtPassword.setError(null);
+            inputLayoutPassword.setError(null);
         }
 
         if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
+            inputLayoutConfirmPassword.setError("Masukkan Password Konfirmasi");
             result = false;
         } else {
-            edtConfirmPassword.setError(null);
+            inputLayoutConfirmPassword.setError(null);
         }
 
-        if (TextUtils.isEmpty(edtConfirmPassword.getText().toString())) {
-            edtConfirmPassword.setError("Mohon Masukan Password Anda !");
+        if (!edtConfirmPassword.getText().toString().equals(edtPassword.getText().toString())) {
+            inputLayoutConfirmPassword.setError("Password tidak sama");
             result = false;
         } else {
-            edtConfirmPassword.setError(null);
+            inputLayoutConfirmPassword.setError(null);
         }
 
         return result;
@@ -175,11 +177,9 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
 
     private void writeNewPencariKerja(String perjaId, String role, String nama, String email) {
         PencariKerja pencariKerja = new PencariKerja(email, "", nama, "");
-        DetailPekerjaan detailPekerjaan = new DetailPekerjaan("none", "none");
 
         mDatabase.child("user").child(perjaId).child("role").setValue(role);
         mDatabase.child("user").child(perjaId).child("data").setValue(pencariKerja);
-        mDatabase.child("user").child(perjaId).child("lowongan_pekerjaan").setValue(detailPekerjaan);
     }
 
     public void kembali(View view) {
@@ -192,4 +192,5 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
         finish();
     }
+
 }
