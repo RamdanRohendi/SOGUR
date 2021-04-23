@@ -81,8 +81,10 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:background="@drawable/edit_costum2"
-            android:text="Ajukan pertanyaan mengenai SOGUR"
-            android:textAlignment="center"
+            android:hint="Ajukan pertanyaan mengenai SOGUR"
+            android:paddingTop="5dp"
+            android:paddingHorizontal="7dp"
+            android:gravity="top"
             android:textSize="15dp" />
 
         <LinearLayout
@@ -92,13 +94,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:orientation="horizontal">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/buttonround"
-                android:text="Batal" />
-
             <Button
                 android:id="@+id/btn_kirim"
                 android:layout_width="wrap_content"
