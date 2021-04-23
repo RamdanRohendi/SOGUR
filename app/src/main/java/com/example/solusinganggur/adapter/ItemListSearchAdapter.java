@@ -57,5 +57,12 @@ public class ItemListSearchAdapter extends BaseAdapter {
         return gridViewSearch;
     }
 
+    public void setFilter(ArrayList<DetailPekerjaan> filter) {
+        listDetailPekerjaan = new ArrayList<>();
+        listDetailPekerjaan.addAll(filter);
+        notifyDataSetChanged();
+    }
+
+
 
 }

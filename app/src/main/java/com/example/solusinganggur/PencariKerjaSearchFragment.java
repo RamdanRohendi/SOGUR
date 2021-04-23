@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import com.example.solusinganggur.adapter.ItemListSearchAdapter;
@@ -28,8 +29,10 @@ import java.util.ArrayList;
 public class PencariKerjaSearchFragment extends Fragment {
     private GridView gridView;
     private ArrayList<DetailPekerjaan> listDetailPekerjaan;
+    private ItemListSearchAdapter searchAdapter;
     private DatabaseReference reference;
     private FirebaseAuth mAuth;
+    private SearchView searchView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -42,6 +45,30 @@ public class PencariKerjaSearchFragment extends Fragment {
         gridView = root.findViewById(R.id.grid_search);
 
         getData();
+        searchView = (SearchView) root.findViewById(R.id.txt_search);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                s = s.toLowerCase();
+
+                ArrayList<DetailPekerjaan> pekerjaans = new ArrayList<>();
+                for (DetailPekerjaan data : listDetailPekerjaan){
+                    String namaPerusahaan = data.getNamaPerusahaan().toLowerCase();
+                    if (namaPerusahaan.contains(s)) {
+                        pekerjaans.add(data);
+                    }
+                }
+                searchAdapter.setFilter(pekerjaans);
+
+                return true;
+            }
+        });
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -89,7 +116,7 @@ public class PencariKerjaSearchFragment extends Fragment {
                     }
                 }
 
-                ItemListSearchAdapter searchAdapter = new ItemListSearchAdapter(getActivity(), listDetailPekerjaan);
+                searchAdapter = new ItemListSearchAdapter(getActivity(), listDetailPekerjaan);
                 gridView.setAdapter(searchAdapter);
             }
 
