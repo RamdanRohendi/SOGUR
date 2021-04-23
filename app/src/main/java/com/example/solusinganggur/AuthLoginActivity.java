@@ -144,7 +144,7 @@ public class AuthLoginActivity extends AppCompatActivity implements GoogleApiCli
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 
             if(result.isSuccess()){
-                startActivity(new Intent(AuthLoginActivity.this, AuthAfterLoginActivity.class));
+                startActivity(new Intent(AuthLoginActivity.this, PencariKerjaMenuActivity.class));
                 finish();
             } else {
                 Toast.makeText(this, "Login gagal!", Toast.LENGTH_SHORT).show();
@@ -193,9 +193,14 @@ public class AuthLoginActivity extends AppCompatActivity implements GoogleApiCli
 
                 if (pengguna != null) {
                     role = pengguna.getRole();
+                    Intent afterLogin = null;
 
                     Toast.makeText(getApplicationContext(), "Berhasil Login", Toast.LENGTH_SHORT).show();
-                    Intent afterLogin = new Intent(getApplicationContext(), AuthAfterLoginActivity.class);
+                    if (role.equals("pencarikerja")) {
+                        afterLogin = new Intent(getApplicationContext(), PencariKerjaMenuActivity.class);
+                    } else if (role.equals("perusahaan")) {
+                        afterLogin = new Intent(getApplicationContext(), PerusahaanMenuActivity.class);
+                    }
                     afterLogin.putExtra("role", role);
                     startActivity(afterLogin);
                     finish();
