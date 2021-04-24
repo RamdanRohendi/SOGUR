@@ -41,13 +41,13 @@ public class ItemListPelamarAdapter extends RecyclerView.Adapter<ItemListPelamar
         final String keyPelamar = listPencariKerja.get(position).getKey();
 
         holder.namaPelamar.setText(namaPelamar);
-        holder.itemPelamar.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.itemPelamar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View view) {
+            public void onClick(View view) {
                 Intent detailPelamar = new Intent(context, PerusahaanDetailDaftarPelamarActivity.class);
                 detailPelamar.putExtra("keyPelamar", keyPelamar);
                 context.startActivity(detailPelamar);
-                return true;
+
             }
         });
     }

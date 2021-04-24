@@ -24,43 +24,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AuthIntroSatuActivity extends AppCompatActivity {
+public class AuthIntroSatuActivity extends AppCompatActivity{
     private TextView skip;
     private ImageView gbr;
-    private ViewPager pager;
-    private PagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth_intro1);
 
-        List<Fragment> list = new ArrayList<>();
-        list.add(new IntroSatuFragment());
-        list.add(new IntroDuaFragment());
-
-        pager = findViewById(R.id.pager);
-        pagerAdapter = new IntroSlidePageAdapter(getSupportFragmentManager(), list);
-
-        pager.setAdapter(pagerAdapter);
-
-        skip = findViewById(R.id.skip);
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuthIntroDuaActivity.class));
-                finish();
-            }
-        });
-
-        gbr = findViewById(R.id.gbr);
-        gbr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuthIntroDuaActivity.class));
-                finish();
-            }
-        });
     }
 
     @Override

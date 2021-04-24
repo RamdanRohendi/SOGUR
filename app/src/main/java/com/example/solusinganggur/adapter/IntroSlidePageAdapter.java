@@ -19,11 +19,13 @@ public class IntroSlidePageAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return fragmentList.get(position);
+
+       return fragmentList.get(position);
     }
 
     @Override
     public int getCount() {
-        return fragmentList.size();
+
+       return fragmentList.size();
     }
 }

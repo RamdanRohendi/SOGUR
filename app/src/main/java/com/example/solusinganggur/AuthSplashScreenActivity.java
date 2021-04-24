@@ -78,7 +78,7 @@ public class AuthSplashScreenActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(getApplicationContext(), AuthIntroSatuActivity.class));
+                            startActivity(new Intent(getApplicationContext(), SlideIntroActivity.class));
                             finish();
                         }
                     }, 2000L);
