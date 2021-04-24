@@ -51,6 +51,7 @@
         <activity android:name=".AuthUbahPasswordActivity" />
         <activity android:name=".AuthNotifPasswordDiubahActivity" />
         <activity android:name=".AuthAfterLoginActivity" />
+        <activity android:name=".SlideIntroActivity"/>
 
         <!-- Layout Role Pelamar -->
         <activity android:name=".PencariKerjaMenuActivity" />
