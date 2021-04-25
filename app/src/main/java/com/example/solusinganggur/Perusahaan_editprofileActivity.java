@@ -67,16 +67,18 @@ public class Perusahaan_editprofileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Perusahaan perusahaan = snapshot.getValue(Perusahaan.class);
-                if (perusahaan.getNomorTelepon() != null) {
-                    edtNoTelpPerusahaan.setText(perusahaan.getNomorTelepon());
+                if (perusahaan != null) {
+                    if (perusahaan.getNomorTelepon() != null) {
+                        edtNoTelpPerusahaan.setText(perusahaan.getNomorTelepon());
+                    }
+                    if (perusahaan.getNamaHRD() != null) {
+                        edtNamaHRD.setText(perusahaan.getNamaHRD());
+                    }
+                    edtNamaPerusahaan.setText(perusahaan.getNamaPerusahaan());
+                    edtEmailPerusahaan.setText(perusahaan.getEmail());
+                    edtAlamatPerusahaan.setText(perusahaan.getAlamat());
+                    edtTentangPerusahaan.setText(perusahaan.getTentangPerusahaan());
                 }
-                if (perusahaan.getNamaHRD() != null) {
-                    edtNamaHRD.setText(perusahaan.getNamaHRD());
-                }
-                edtNamaPerusahaan.setText(perusahaan.getNamaPerusahaan());
-                edtEmailPerusahaan.setText(perusahaan.getEmail());
-                edtAlamatPerusahaan.setText(perusahaan.getAlamat());
-                edtTentangPerusahaan.setText(perusahaan.getTentangPerusahaan());
             }
 
             @Override

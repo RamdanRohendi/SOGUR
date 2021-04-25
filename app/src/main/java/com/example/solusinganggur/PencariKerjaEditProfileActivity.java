@@ -80,17 +80,19 @@ public class PencariKerjaEditProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 PencariKerja pencariKerja = snapshot.getValue(PencariKerja.class);
-                if (pencariKerja.getAlamat() == null) {
-                    edtNama.setText(pencariKerja.getNamaLengkap());
-                    edtEmail.setText(pencariKerja.getEmail());
-                } else {
-                    edtNama.setText(pencariKerja.getNamaLengkap());
-                    edtEmail.setText(pencariKerja.getEmail());
-                    edtTtl.setText(pencariKerja.getTtl());
-                    edtJenkel.setText(pencariKerja.getJenisKelamin());
-                    edtAlamat.setText(pencariKerja.getAlamat());
-                    edtAgama.setText(pencariKerja.getAgama());
-                    edtNotelp.setText(pencariKerja.getNomorTelepon());
+                if (pencariKerja != null) {
+                    if (pencariKerja.getAlamat() == null) {
+                        edtNama.setText(pencariKerja.getNamaLengkap());
+                        edtEmail.setText(pencariKerja.getEmail());
+                    } else {
+                        edtNama.setText(pencariKerja.getNamaLengkap());
+                        edtEmail.setText(pencariKerja.getEmail());
+                        edtTtl.setText(pencariKerja.getTtl());
+                        edtJenkel.setText(pencariKerja.getJenisKelamin());
+                        edtAlamat.setText(pencariKerja.getAlamat());
+                        edtAgama.setText(pencariKerja.getAgama());
+                        edtNotelp.setText(pencariKerja.getNomorTelepon());
+                    }
                 }
             }
 

@@ -1,5 +1,7 @@
 package com.example.solusinganggur;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,6 +78,10 @@ public class PencariKerjaHomeFragment extends Fragment {
                     pencariKerja.setKey(snapshot.getKey());
 
                     txtUsername.setText(pencariKerja.getNamaLengkap());
+
+                    if (pencariKerja.getAlamat() == null || pencariKerja.getAlamat().isEmpty()) {
+                        showAlert();
+                    }
                 }
             }
 
@@ -151,5 +157,20 @@ public class PencariKerjaHomeFragment extends Fragment {
         });
 
         return root;
+    }
+
+    private void showAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Mohon untuk melengkapi data diri anda terlebih dahulu !");
+
+        builder.setPositiveButton("Lengkapi Data Diri", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                startActivity(new Intent(getActivity(), PencariKerjaEditProfileActivity.class));
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

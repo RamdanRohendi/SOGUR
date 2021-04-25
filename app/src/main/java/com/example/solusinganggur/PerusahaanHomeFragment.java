@@ -1,5 +1,7 @@
 package com.example.solusinganggur;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -55,6 +57,10 @@ public class PerusahaanHomeFragment extends Fragment {
                     perusahaan.setKey(snapshot.getKey());
 
                     txtUsername.setText(perusahaan.getNamaPerusahaan());
+
+                    if (perusahaan.getNamaHRD() == null || perusahaan.getNamaHRD().isEmpty()) {
+                        showAlert();
+                    }
                 }
             }
 
@@ -113,5 +119,20 @@ public class PerusahaanHomeFragment extends Fragment {
         });
 
         return root;
+    }
+
+    private void showAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Mohon untuk melengkapi data perusahaan terlebih dahulu !");
+
+        builder.setPositiveButton("Lengkapi Data Perusahaan", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                startActivity(new Intent(getActivity(), Perusahaan_editprofileActivity.class));
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
