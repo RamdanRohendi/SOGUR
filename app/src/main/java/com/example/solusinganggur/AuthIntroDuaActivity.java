@@ -38,23 +38,7 @@ public class AuthIntroDuaActivity extends AppCompatActivity {
 //            }
 //        });
 
-        signIn = findViewById(R.id.signIn);
-        signIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuthLoginActivity.class));
-                finish();
-            }
-        });
 
-        signUp = findViewById(R.id.signUp);
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuthPilihRoleActivity.class));
-                finish();
-            }
-        });
     }
 
     @Override

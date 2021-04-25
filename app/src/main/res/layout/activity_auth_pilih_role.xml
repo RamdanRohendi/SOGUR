@@ -62,6 +62,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:fontFamily="@font/mulish"
+        android:layout_marginTop="-40dp"
+        android:layout_below="@+id/pncrKerja"
         android:text="Pencari Kerja"
         android:textColor="@color/black" />
 
@@ -83,7 +85,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
+        android:layout_below="@+id/perusahaan"
+        android:layout_marginTop="-40dp"
         android:fontFamily="@font/mulish"
         android:text="Perusahaan"
         android:textColor="@color/black" />
