@@ -199,6 +199,36 @@ public class PencariKerjaEditProfileActivity extends AppCompatActivity {
             edtEmail.setError(null);
         }
 
+        if (TextUtils.isEmpty(edtJenkel.getText().toString())) {
+            result = false;
+        } else {
+            edtJenkel.setError(null);
+        }
+
+        if (TextUtils.isEmpty(edtTtl.getText().toString())) {
+            result = false;
+        } else {
+            edtTtl.setError(null);
+        }
+
+        if (TextUtils.isEmpty(edtAlamat.getText().toString())) {
+            result = false;
+        } else {
+            edtAlamat.setError(null);
+        }
+
+        if (TextUtils.isEmpty(edtAgama.getText().toString())) {
+            result = false;
+        } else {
+            edtAgama.setError(null);
+        }
+
+        if (TextUtils.isEmpty(edtNotelp.getText().toString())) {
+            result = false;
+        } else {
+            edtNotelp.setError(null);
+        }
+
         return result;
     }
 
