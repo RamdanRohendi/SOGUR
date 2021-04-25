@@ -7,14 +7,13 @@
     android:orientation="vertical"
     tools:context=".AuthIntroSatuActivity">
 
-
-
     <TextView
         android:id="@+id/skip"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="330dp"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
         android:text="Skip"
         android:textSize="15dp" />
 
@@ -23,7 +22,6 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="69dp"
         android:layout_marginTop="80dp"
         android:src="@drawable/speak" />
 
@@ -32,9 +30,9 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gbr"
-        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:src="@drawable/garis1"/>
+        android:src="@drawable/garis1" />
 
     <TextView
         android:id="@+id/penj_fitur"
@@ -51,7 +49,7 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/penj_fitur"
-        android:layout_marginLeft="183dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:src="@drawable/bulet1" />
 
@@ -59,9 +57,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/dots"
-        android:layout_marginLeft="50dp"
+        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:text="Mempermudah komunikasi antara pencari kerja dan perusahaan dengan fitur live chat"
         android:textAlignment="center"
         android:textSize="15dp" />
+
 </RelativeLayout>

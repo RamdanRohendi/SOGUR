@@ -11,8 +11,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="69dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/plane" />
 
     <ImageView
@@ -21,8 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/gbr"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/garis2" />
 
     <TextView
@@ -42,7 +40,6 @@
         android:layout_below="@id/penj_fitur"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
-        android:layout_marginLeft="185dp"
         android:src="@drawable/bulet2" />
 
     <TextView
@@ -50,8 +47,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/dots"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="60dp"
+        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:text="Mempermudah pengiriman CV Pencari Kerja secara online"
         android:textAlignment="center"
@@ -61,10 +57,10 @@
         android:id="@+id/signIn"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/penj_fitur2"
         android:layout_alignParentLeft="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/masuk"
         android:text="Sign In"
         android:textColor="#000"
@@ -74,10 +70,10 @@
         android:id="@+id/signUp"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/penj_fitur2"
         android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/daftar"
         android:text="Sign Up"
         android:textColor="#FDFDFD"

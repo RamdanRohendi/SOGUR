@@ -2,15 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_kontak"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-    <com.subinkrishna.widget.CircularImageView
+    <ImageView
         android:id="@+id/gbr_profile_message"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/semenbaturaja"
+        android:src="@drawable/ic_default_picture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,10 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="29dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/roboto"
-        android:text="PT. Semen Baturaja (Persero) Tbk."
+        android:text="Nama User"
         android:textColor="@color/black"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@id/gbr_profile_message"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,10 +37,9 @@
         android:layout_marginLeft="29dp"
         android:layout_marginTop="11dp"
         android:fontFamily="@font/roboto"
-        android:text="Unread message"
+        android:text="Klik untuk melihat pesan......."
         android:textColor="@color/black"
         android:textSize="10sp"
-        android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@id/gbr_profile_message"
         app:layout_constraintTop_toBottomOf="@id/txt_namaprofile_message" />
 
@@ -51,6 +52,7 @@
         android:textColor="@color/black"
         android:textSize="10sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,6 +69,7 @@
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_date_message" />
 
