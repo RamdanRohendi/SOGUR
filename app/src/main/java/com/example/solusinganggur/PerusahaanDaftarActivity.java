@@ -15,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.solusinganggur.entity.DetailPekerjaan;
 import com.example.solusinganggur.entity.Perusahaan;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -31,6 +34,7 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
     private static final String TAG = "DaftarPeranActivity";
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+    private GoogleSignInClient googleSignInClient;
 
     private EditText edtNamaPerusahaan;;
     private TextInputLayout inputLayoutNamaPerusahaan;
@@ -79,6 +83,15 @@ public class PerusahaanDaftarActivity extends AppCompatActivity {
                 daftar();
             }
         });
+
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+
+        if(firebaseUser != null){
+            edtEmailPerusahaan.setText(firebaseUser.getEmail());
+            edtNamaPerusahaan.setText(firebaseUser.getDisplayName());
+        }else{
+            daftar();
+        }
     }
 
     private void daftar() {

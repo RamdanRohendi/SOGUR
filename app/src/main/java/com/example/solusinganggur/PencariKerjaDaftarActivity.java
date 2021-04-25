@@ -97,6 +97,15 @@ public class PencariKerjaDaftarActivity extends AppCompatActivity {
 
             }
         });
+
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+
+        if(firebaseUser != null){
+            edtEmail.setText(firebaseUser.getEmail());
+            edtNamaLengkap.setText(firebaseUser.getDisplayName());
+        }else{
+            daftar();
+        }
     }
 
     private void daftar() {
