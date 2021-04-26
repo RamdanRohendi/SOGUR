@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:fontFamily="@font/mulish"
-            android:text="Messages (3)"
+            android:text="Messages (0)"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -47,10 +47,53 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/layout_empty_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upbarMessage">
+
+        <ImageView
+            android:id="@+id/gbrmessage"
+            android:layout_width="132dp"
+            android:layout_height="132dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/chatbox" />
+
+        <TextView
+            android:id="@+id/txt_nomessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gbrmessage"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/mulish"
+            android:text="Tidak Ada Pesan"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_nomessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/mulish"
+            android:text="Tidak terdapat pesan yang tersedia."
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/upbarMessage"

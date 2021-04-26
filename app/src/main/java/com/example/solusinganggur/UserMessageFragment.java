@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import com.example.solusinganggur.adapter.ItemListChatAdapter;
 import com.example.solusinganggur.entity.ChatRoom;
 import com.example.solusinganggur.entity.DetailPekerjaan;
 import com.example.solusinganggur.entity.ListLamaran;
+import com.example.solusinganggur.entity.User;
 import com.example.solusinganggur.entity.detailPesan;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,7 +34,9 @@ public class UserMessageFragment extends Fragment {
     private DatabaseReference reference;
     private String getUserID;
     private int jmlChat;
+    private String role;
     private TextView txtMessageToolbar;
+    private RelativeLayout layEmptyMessage;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -55,12 +59,17 @@ public class UserMessageFragment extends Fragment {
         reference = database.getReference();
 
         txtMessageToolbar = root.findViewById(R.id.txt_message_toolbar);
+        layEmptyMessage = root.findViewById(R.id.layout_empty_message);
 
         listDetailPesan = new ArrayList<>();
         recyclerView = root.findViewById(R.id.list_message);
 
+        jmlChat = 0;
+
+        getRole();
         setRecyclerView();
-        getLowonganPekerjaan();
+
+        txtMessageToolbar.setText("Messages (" + jmlChat + ")");
 
         return root;
     }
@@ -72,17 +81,45 @@ public class UserMessageFragment extends Fragment {
                 pekerjaans = new ArrayList<>();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     ListLamaran lamaran = dataSnapshot.getValue(ListLamaran.class);
-                    detailPesan pesan = new detailPesan();
-                    if (lamaran.getStatus().equals("accept")) {
-                        pekerjaans.add(lamaran);
-                        pesan.setPengirim(lamaran.getNamaPerusahaan());
-                        listDetailPesan.add(pesan);
-                        jmlChat++;
+
+                    if (lamaran != null) {
+                        detailPesan pesan = new detailPesan();
+                        if (lamaran.getStatus().equals("accept")) {
+                            pekerjaans.add(lamaran);
+                            pesan.setPengirim(lamaran.getNamaPerusahaan());
+                            listDetailPesan.add(pesan);
+                            jmlChat++;
+                        }
                     }
                 }
 
+                if (jmlChat == 0) {
+                    layEmptyMessage.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
+                } else {
+                    layEmptyMessage.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.VISIBLE);
+                }
                 txtMessageToolbar.setText("Messages (" + jmlChat + ")");
                 getData();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void getRole() {
+        reference.child("user").child(getUserID).child("role").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                role = snapshot.getValue(String.class);
+
+                if (role.equals("pencarikerja")) {
+                    getLowonganPekerjaan();
+                }
             }
 
             @Override
